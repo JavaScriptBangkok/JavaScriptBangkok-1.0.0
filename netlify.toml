@@ -1,0 +1,3 @@
+[build]
+  publish = "dist"
+  command = "mkdir -p dist && rsync -avz website/ dist/ && rsync -avz eventpop dist/"
