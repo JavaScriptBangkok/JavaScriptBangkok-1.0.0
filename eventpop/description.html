@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript Bangkok 1.0.0</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="stylesheet"
+      href="https://p-a.popcdn.net/assets/application-a74f8605e9e46bea47f09e697e864f9beb3f80fc32f41542d373790bd7027a17.css"
+    />
+    <link
+      class="custom-css"
+      href="https://fonts.googleapis.com/css?family=K2D&display=swap"
+      rel="stylesheet"
+    />
+    <style class="custom-css">
+      .custom-description-container {
+        font-family: K2D, sans-serif;
+        text-align: center;
+        font-size: 32px;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body class="iframe-event-main-content">
+    <div id="custom-eventpop-description" class="custom-description-container">
+      <p>
+        JavaScript Bangkok 1.0.0 is coming soon
+      </p>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script>
+      App = {}
+      App.instance = new Vue({
+        el: '#custom-eventpop-description',
+        data: {},
+      })
+      getEventpopDescription = () => {
+        return [
+          ...document.querySelectorAll('.custom-css'),
+          document.querySelector('#custom-eventpop-description'),
+        ]
+          .map(x => x.outerHTML)
+          .join('')
+      }
+    </script>
+  </body>
+</html>
