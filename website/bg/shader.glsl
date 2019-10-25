@@ -1,5 +1,5 @@
 #ifdef GL_ES
-precision mediump float;
+precision highp float;
 #endif
 
 #define M_PI 3.1415926
@@ -119,7 +119,7 @@ void main(void) {
   resultColor = mixColor(resultColor, getColor(baseCoord + screenOffset * 16.0, 0.04, pickedStyle));
   resultColor = mixColor(resultColor, getColor(baseCoord + screenOffset * 8.0 + vec2(555.44, 333.22), 0.1, pickedStyle));
   resultColor = mixColor(resultColor, getColor(baseCoord + screenOffset * 5.0 + vec2(123.45, 67.89), 0.12, pickedStyle));
-  resultColor = mixColor(resultColor, getColor(baseCoord + screenOffset * 3.0 + vec2(-2345.6, - 7890.1), 0.15, pickedStyle));
+  resultColor = mixColor(resultColor, getColor(baseCoord + screenOffset * 3.0 + vec2(-234.5, - 678.9), 0.15, pickedStyle));
   
   resultColor = mixColor(resultColor, getWave(screenCoord, 0.89, 0.2, 10.0, 27.3, 0.3, 0.007, 12.0, 422.0, 0.5, 0.01));
   resultColor = mixColor(resultColor, getWave(screenCoord, 0.91, 0.3, - 13.0, - 12.3, 0.42, 0.01, - 19.0, - 34.5, 0.77, 0.01));
