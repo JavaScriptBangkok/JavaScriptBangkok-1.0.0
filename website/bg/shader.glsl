@@ -46,7 +46,7 @@ highp float random(vec2 co) {
 vec4 lotus(vec2 grid, vec4 outside, vec4 inside, vec4 border) {
   grid = min(grid, 1.0 - grid) * 2.0;
   if (grid.x < grid.y)grid.xy = grid.yx;
-  float threshold = 0.04;
+  float threshold = 0.0;
   float margin = 0.25;
   float borderWidth = 0.04;
   float diagonalDistance = dot(grid - vec2(1.0 - threshold, threshold), normalize(vec2(-1.0, 1.0)));
