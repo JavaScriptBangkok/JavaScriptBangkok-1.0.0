@@ -19,28 +19,106 @@
         text-align: center;
         font-size: 32px;
         background: rgb(241, 237, 226);
-        padding: 16px;
+        padding: 16px 32px;
       }
       .custom-description-container > h2 {
         font-size: 32px;
       }
+      .content-container {
+        padding-bottom: 16px;
+      }
       .content {
         font-size: 18px;
         text-align: left;
+      }
+      .custom-description-container .venue-title {
+        font-size: 20px;
+        font-weight: 400;
+      }
+      .media-link {
+        cursor: pointer;
+      }
+      .media-link:first-child {
+        margin-right: 8px;
+      }
+      .media-link:last-child {
+        margin-left: 8px;
+      }
+      .media-icon {
+        width: 40px;
       }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
   <body class="iframe-event-main-content">
     <div id="custom-eventpop-description" class="custom-description-container">
-      <h2>What is JavaScript Bangkok 1.0.0?</h2>
-      <p class="content">
-        <b>JavaScript Bangkok 1.0.0</b> is an independently organized, single-day, single-track conference about everything JavaScript where both local and international JavaScript communities unite and learn from each other. We’re looking for first-time and seasoned speakers to share your experience with us!
-      </p>
-      <h2>Language</h2>
-      <p class="content">
-        This event will be run in a mixture of English and Thai. <b>We will provide live translation at the event.</b>
-      </p>
+      <div class="content-container">
+        <h2>What is JavaScript Bangkok 1.0.0?</h2>
+        <p class="content">
+          <b>JavaScript Bangkok 1.0.0</b> is an independently organized, single-day, single-track conference about everything JavaScript where both local and international JavaScript communities unite and learn from each other.
+        </p>
+        <p class="content">
+          The event will take place on <b>Saturday February 2nd, 2020</b> at <b>KBank Siam Pic-Ganesha Theater</b>, located at Siam Square One, situated right at the heart of Bangkok, connected to the Siam BTS central station.
+        </p>
+      </div>
+      <div class="content-container">
+        <h2>Venue</h2>
+        <iframe style="max-width: 100%;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.56246770351!2d100.53148531527867!3d13.744919001154994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29ed213151ae9%3A0xfb75b4e46ea2473b!2sKBank%20Siam%20Pic-Ganesha%20Theatre!5e0!3m2!1sen!2sth!4v1572676216386!5m2!1sen!2sth" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+        <h3 class="venue-title">KBank Siam Pic-Ganesha Theatre</h3>
+      </div>
+      <div class="content-container">
+        <h2>CfP</h2>
+        <p class="content">We’re looking for both experienced speakers and freshies to share your experience with us! Majority of our talks will be selected through CFP, while we have sessions reserved for the keynote speakers.</p>
+        <p class="content">If you're interested. <a>Click here</a> to submit your CfP</p>
+      </div>
+      <div class="content-container">
+        <h2>Stay Tuned!</h2>
+        <div>
+          <a class="media-link" href="https://twitter.com/jsbangkok" target="_blank" rel="noopener noreferrer">
+            <svg class="media-icon" viewBox="328 355 335 276" xmlns="http://www.w3.org/2000/svg">
+              <path d="
+                M 630, 425
+                A 195, 195 0 0 1 331, 600
+                A 142, 142 0 0 0 428, 570
+                A  70,  70 0 0 1 370, 523
+                A  70,  70 0 0 0 401, 521
+                A  70,  70 0 0 1 344, 455
+                A  70,  70 0 0 0 372, 460
+                A  70,  70 0 0 1 354, 370
+                A 195, 195 0 0 0 495, 442
+                A  67,  67 0 0 1 611, 380
+                A 117, 117 0 0 0 654, 363
+                A  65,  65 0 0 1 623, 401
+                A 117, 117 0 0 0 662, 390
+                A  65,  65 0 0 1 630, 425
+                Z"
+                style="fill:#3BA9EE;"/>
+            </svg>
+          </a>
+          <a class="media-link" href="https://javascriptbangkok.netlify.com/"  target="_blank" rel="noopener noreferrer">
+            <svg class="media-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            viewBox="0 0 209.281 209.281" style="enable-background:new 0 0 209.281 209.281;" xml:space="preserve">
+              <path d="M203.456,139.065c3.768-10.786,5.824-22.369,5.824-34.425s-2.056-23.639-5.824-34.425c-0.092-0.324-0.201-0.64-0.333-0.944
+                C188.589,28.926,149.932,0,104.641,0S20.692,28.926,6.159,69.271c-0.132,0.305-0.242,0.62-0.333,0.944
+                c-3.768,10.786-5.824,22.369-5.824,34.425s2.056,23.639,5.824,34.425c0.092,0.324,0.201,0.64,0.333,0.944
+                c14.534,40.346,53.191,69.271,98.482,69.271s83.948-28.926,98.482-69.271C203.255,139.705,203.364,139.39,203.456,139.065z
+                  M104.641,194.281c-3.985,0-10.41-7.212-15.78-23.324c-2.592-7.775-4.667-16.713-6.179-26.436H126.6
+                c-1.512,9.723-3.587,18.66-6.178,26.436C115.051,187.069,108.626,194.281,104.641,194.281z M80.862,129.521
+                c-0.721-7.998-1.102-16.342-1.102-24.881s0.381-16.883,1.102-24.881h47.557c0.721,7.998,1.102,16.342,1.102,24.881
+                s-0.381,16.883-1.102,24.881H80.862z M15.001,104.641c0-8.63,1.229-16.978,3.516-24.881h47.3
+                c-0.701,8.163-1.057,16.529-1.057,24.881s0.355,16.718,1.057,24.881h-47.3C16.23,121.618,15.001,113.271,15.001,104.641z
+                  M104.641,15c3.985,0,10.411,7.212,15.781,23.324c2.591,7.775,4.667,16.713,6.178,26.435H82.681
+                c1.512-9.723,3.587-18.66,6.179-26.435C94.231,22.212,100.656,15,104.641,15z M143.464,79.76h47.3
+                c2.287,7.903,3.516,16.251,3.516,24.881s-1.229,16.978-3.516,24.881h-47.3c0.701-8.163,1.057-16.529,1.057-24.881
+                S144.165,87.923,143.464,79.76z M184.903,64.76h-43.16c-2.668-18.397-7.245-34.902-13.666-46.644
+                C152.972,24.865,173.597,42.096,184.903,64.76z M81.204,18.115C74.783,29.857,70.206,46.362,67.538,64.76h-43.16
+                C35.685,42.096,56.309,24.865,81.204,18.115z M24.378,144.521h43.16c2.668,18.397,7.245,34.902,13.666,46.645
+                C56.309,184.416,35.685,167.186,24.378,144.521z M128.077,191.166c6.421-11.742,10.998-28.247,13.666-46.645h43.16
+                C173.597,167.186,152.972,184.416,128.077,191.166z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
     <script>
       getEventpopDescription = () => {
