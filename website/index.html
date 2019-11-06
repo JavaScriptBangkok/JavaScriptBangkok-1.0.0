@@ -1,78 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>JavaScript Bangkok 1.0.0</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link
-      class="custom-css"
-      href="https://fonts.googleapis.com/css?family=K2D&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        font-family: K2D, sans-serif;
-        background: rgb(241, 237, 226);
-        color: #333;
-      }
-      .bg {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-      }
-      .bg iframe {
-        width: 100%;
-        height: 100%;
-        display: block;
-        border: 0;
-      }
-      .main {
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        box-sizing: border-box;
-        padding: 12px 12px 64px;
-      }
-      .coming-soon {
-        margin: auto;
-        padding: 24px;
-        background: #fff;
-        border-radius: 4px;
-        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
-        text-align: left;
-        font-size: 18px;
-      }
-      .coming-soon h1 {
-        font-size: 24px;
-        margin: 0;
-      }
-      .coming-soon p {
-        opacity: 0.64;
-        margin: 0;
-      }
-      a {
-        color: rgb(12, 77, 162);
-        text-decoration: none;
-      }
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <div class="bg">
-      <iframe allowtransparency="true" frameborder="0" src="bg/"></iframe>
+
+<head>
+  <title>JavaScript Bangkok 1.0.0</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link class="custom-css" href="https://fonts.googleapis.com/css?family=K2D&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: K2D, sans-serif;
+      background: rgb(241, 237, 226);
+      color: #333;
+    }
+
+    .bg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .bg iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+    }
+
+    .main {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      box-sizing: border-box;
+      padding: 12px 12px 64px;
+    }
+
+    .coming-soon {
+      margin: auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      font-size: 18px;
+    }
+
+    .coming-soon h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+
+    .coming-soon p {
+      opacity: 0.64;
+      margin: 0;
+    }
+
+    .coming-soon .blurry-text {
+      color: transparent;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      user-select: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    a {
+      color: rgb(12, 77, 162);
+      text-decoration: none;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <div class="bg">
+    <iframe allowtransparency="true" frameborder="0" src="bg/"></iframe>
+  </div>
+  <div class="main">
+    <div class="coming-soon">
+      <h1>JavaScript Bangkok 1.0.0</h1>
+      <!--
+Achievement unlocked:
+────────────────────────────────
+───────────────██████████───────
+──────────────████████████──────
+──────────────██────────██──────
+──────────────██▄▄▄▄▄▄▄▄▄█──────
+──────────────██▀███─███▀█────── 
+█─────────────▀█────────█▀──────
+██──────────────────█───────────
+─█──────────────██──────────────
+█▄────────────████─██──████
+─▄███████████████──██──██████ ──
+────█████████████──██──█████████
+─────────────████──██─█████──███
+──────────────███──██─█████──███
+──────────────███─────█████████
+──────────────██─────████████▀
+────────────────██████████
+────────────────██████████
+─────────────────████████
+──────────────────██████████▄▄
+────────────────────█████████▀
+─────────────────────████──███
+────────────────────▄████▄──██
+────────────────────██████───▀
+────────────────────▀▄▄▄▄▀
+                                __       _                _                       
+                               / _|     | |              | |                      
+   ___ _   _  ___  ___    ___ | |_    __| | _____   _____| | ___  _ __   ___ _ __ 
+  / _ \ | | |/ _ \/ __|  / _ \|  _|  / _` |/ _ \ \ / / _ \ |/ _ \| '_ \ / _ \ '__|
+ |  __/ |_| |  __/\__ \ | (_) | |   | (_| |  __/\ V /  __/ | (_) | |_) |  __/ |   
+  \___|\__, |\___||___/  \___/|_|    \__,_|\___| \_/ \___|_|\___/| .__/ \___|_|   
+        __/ |                                                    | |              
+       |___/                                                     |_|              
+
+Finally, you found it
+      -->
+      <p class="blurry-text">February 8th, 2020</p>
+      <p class="blurry-text">KBank Siam Pic-Ganesha Theatre</p>
+      <p>
+        Follow us to stay updated:
+        <a href="https://twitter.com/jsbangkok">@jsbangkok</a>
+      </p>
     </div>
-    <div class="main">
-      <div class="coming-soon">
-        <h1>JavaScript Bangkok 1.0.0</h1>
-        <p>February 1st, 2020</p>
-        <p>KBank Siam Pic-Ganesha Theatre</p>
-        <p>
-          Follow us to stay updated:
-          <a href="https://twitter.com/jsbangkok">@jsbangkok</a>
-        </p>
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
