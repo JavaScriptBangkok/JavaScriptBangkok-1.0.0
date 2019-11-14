@@ -5,5 +5,6 @@ jobs:
       - image: circleci/node:12-browsers
     steps:
       - checkout
+      - run: sudo apt-get update && sudo apt-get install -y rsync
       - run: ./mkdist
       - run: npx --package=@percy/agent percy snapshot dist/ --ignore-files '**/bg/**/*'
