@@ -7,4 +7,4 @@ jobs:
       - checkout
       - run: sudo apt-get update && sudo apt-get install -y rsync
       - run: ./mkdist
-      - run: npx --package=@percy/agent percy snapshot dist/ --ignore-files 'dist/bg/**/*,dist/eventpop/description.html'
+      - run: npx --package=@percy/agent percy snapshot dist/ --ignore-files '**/bg/**/*,**/eventpop/description.html'
