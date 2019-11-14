@@ -5,5 +5,5 @@ jobs:
       - image: circleci/node:12-browsers
     steps:
       - checkout
-      - run: mkdist
+      - run: ./mkdist
       - run: npx --package=@percy/agent percy snapshot dist/ --ignore-files '**/bg/**/*'
