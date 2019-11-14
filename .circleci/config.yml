@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12-browsers
+    steps:
+      - run:
+          command: npx --package=@percy/agent percy snapshot website/ --ignore-files '**/bg/**/*'
