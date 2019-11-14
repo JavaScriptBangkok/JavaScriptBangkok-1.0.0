@@ -93,6 +93,28 @@
       .fa-twitter-square {
         color: #38a1f3 !important;
       }
+
+      p.buttons {
+        margin-top: 1em;
+      }
+      .button {
+        margin-top: 0.5em;
+        display: block;
+        text-align: center;
+        border: 1px solid #777;
+        color: #777;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgb(241, 237, 226);
+        padding: 4px;
+        padding-top: 3px;
+      }
+      .button.is-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .button:hover {
+        background: rgb(241, 237, 226);
+      }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -146,14 +168,31 @@ Finally, you found it
         <p class="blurry-text">KBank Siam Pic-Ganesha Theatre</p>
         <p>Follow us to stay updated:</p>
         <p>
-          <a href="https://twitter.com/jsbangkok"
-            ><i class="fab fa-twitter-square"></i>@jsbangkok</a
-          >
+          <a href="https://twitter.com/jsbangkok">
+            <i class="fab fa-twitter-square"></i>@jsbangkok
+          </a>
         </p>
         <p>
-          <a href="https://fb.com/javascriptbangkok"
-            ><i class="fab fa-facebook-square"></i>fb.me/javascriptbangkok</a
+          <a href="https://fb.com/javascriptbangkok">
+            <i class="fab fa-facebook-square"></i>fb.me/javascriptbangkok
+          </a>
+        </p>
+
+        <p class="buttons">
+          <a
+            href="https://www.eventpop.me/e/7210-javascript-bangkok-1-0-0"
+            target="_blank"
+            class="button is-disabled"
           >
+            Tickets Available Soon!
+          </a>
+          <a
+            href="https://www.papercall.io/javascript-bangkok-2020"
+            target="_blank"
+            class="button"
+          >
+            Call for Proposals
+          </a>
         </p>
       </div>
     </div>
