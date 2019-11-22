@@ -3,18 +3,34 @@
   <head>
     <title>JavaScript Bangkok 1.0.0</title>
     <meta charset="utf-8" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99360357-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-99360357-4');
+    </script>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link
       class="custom-css"
       href="https://fonts.googleapis.com/css?family=K2D&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/cc354dc872.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       body {
         font-family: K2D, sans-serif;
         background: rgb(241, 237, 226);
         color: #333;
       }
+
       .bg {
         position: fixed;
         top: 0;
@@ -22,12 +38,14 @@
         bottom: 0;
         left: 0;
       }
+
       .bg iframe {
         width: 100%;
         height: 100%;
         display: block;
         border: 0;
       }
+
       .main {
         position: relative;
         min-height: 100vh;
@@ -35,6 +53,7 @@
         box-sizing: border-box;
         padding: 12px 12px 64px;
       }
+
       .coming-soon {
         margin: auto;
         padding: 24px;
@@ -44,21 +63,73 @@
         text-align: left;
         font-size: 18px;
       }
+
       .coming-soon h1 {
         font-size: 24px;
         margin: 0;
       }
+
       .coming-soon p {
         opacity: 0.64;
         margin: 0;
       }
+
+      .coming-soon .blurry-text {
+        color: transparent;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        user-select: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+
       a {
         color: rgb(12, 77, 162);
         text-decoration: none;
       }
+
+      .fab {
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+
+      .fa-facebook-square {
+        color: #4267b2 !important;
+      }
+
+      .fa-twitter-square {
+        color: #38a1f3 !important;
+      }
+
+      p.buttons {
+        margin-top: 1em;
+      }
+      .button {
+        margin-top: 0.5em;
+        display: block;
+        text-align: center;
+        border: 1px solid #777;
+        color: #777;
+        border-radius: 4px;
+        box-shadow: 0 1px 4px rgb(241, 237, 226);
+        padding: 4px;
+        padding-top: 3px;
+      }
+      .button.is-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .button:hover {
+        background: rgb(241, 237, 226);
+      }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
+
   <body>
     <div class="bg">
       <iframe allowtransparency="true" frameborder="0" src="bg/"></iframe>
@@ -66,11 +137,73 @@
     <div class="main">
       <div class="coming-soon">
         <h1>JavaScript Bangkok 1.0.0</h1>
-        <p>February 1st, 2020</p>
-        <p>KBank Siam Pic-Ganesha Theatre</p>
+        <!--
+Achievement unlocked:
+────────────────────────────────
+───────────────██████████───────
+──────────────████████████──────
+──────────────██────────██──────
+──────────────██▄▄▄▄▄▄▄▄▄█──────
+──────────────██▀███─███▀█────── 
+█─────────────▀█────────█▀──────
+██──────────────────█───────────
+─█──────────────██──────────────
+█▄────────────████─██──████
+─▄███████████████──██──██████ ──
+────█████████████──██──█████████
+─────────────████──██─█████──███
+──────────────███──██─█████──███
+──────────────███─────█████████
+──────────────██─────████████▀
+────────────────██████████
+────────────────██████████
+─────────────────████████
+──────────────────██████████▄▄
+────────────────────█████████▀
+─────────────────────████──███
+────────────────────▄████▄──██
+────────────────────██████───▀
+────────────────────▀▄▄▄▄▀
+                                __       _                _                       
+                               / _|     | |              | |                      
+   ___ _   _  ___  ___    ___ | |_    __| | _____   _____| | ___  _ __   ___ _ __ 
+  / _ \ | | |/ _ \/ __|  / _ \|  _|  / _` |/ _ \ \ / / _ \ |/ _ \| '_ \ / _ \ '__|
+ |  __/ |_| |  __/\__ \ | (_) | |   | (_| |  __/\ V /  __/ | (_) | |_) |  __/ |   
+  \___|\__, |\___||___/  \___/|_|    \__,_|\___| \_/ \___|_|\___/| .__/ \___|_|   
+        __/ |                                                    | |              
+       |___/                                                     |_|              
+
+Finally, you found it
+      -->
+        <p class="blurry-text">February 8th, 2020</p>
+        <p class="blurry-text">KBank Siam Pic-Ganesha Theatre</p>
+        <p>Follow us to stay updated:</p>
         <p>
-          Follow us to stay updated:
-          <a href="https://twitter.com/jsbangkok">@jsbangkok</a>
+          <a href="https://twitter.com/jsbangkok">
+            <i class="fab fa-twitter-square"></i>@jsbangkok
+          </a>
+        </p>
+        <p>
+          <a href="https://fb.com/javascriptbangkok">
+            <i class="fab fa-facebook-square"></i>fb.me/javascriptbangkok
+          </a>
+        </p>
+
+        <p class="buttons">
+          <a
+            href="/tickets"
+            target="_blank"
+            class="button"
+          >
+            Tickets Available Soon!
+          </a>
+          <a
+            href="/cfp"
+            target="_blank"
+            class="button"
+          >
+            Call for Proposals
+          </a>
         </p>
       </div>
     </div>
