@@ -4,6 +4,6 @@ exports.handler = function(event, context, callback) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: Date.now()
+    body: `${Date.now()}`
   })
 }
