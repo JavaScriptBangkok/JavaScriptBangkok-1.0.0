@@ -1,0 +1,19 @@
+{
+  "name": "javascriptbangkok",
+  "version": "0.0.1",
+  "description": "A simple Node app built on Express, instantly up and running.",
+  "scripts": {
+    "start": "vuepress dev --port=3000"
+  },
+  "dependencies": {
+    "vuepress": "^1.1.2"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": []
+}
