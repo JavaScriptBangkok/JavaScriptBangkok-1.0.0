@@ -3,13 +3,13 @@
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
   "scripts": {
-    "start": "vuepress dev --port=3000"
+    "start": "vuepress dev"
   },
   "dependencies": {
     "vuepress": "^1.1.2"
   },
   "engines": {
-    "node": "12.x"
+    "node": "10.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
