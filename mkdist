@@ -1,2 +1,4 @@
-#!/bin/bash -
-mkdir -p dist && rsync -avz website/ dist/ && rsync -avz eventpop dist/
+#!/bin/bash -e
+mkdir -p dist
+rsync -avz website/ dist/
+rsync -avz eventpop dist/
