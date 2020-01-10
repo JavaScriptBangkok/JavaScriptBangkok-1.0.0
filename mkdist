@@ -1,5 +1,7 @@
 #!/bin/bash -e
 mkdir -p dist
+echo "BRANCH = $BRANCH"
+echo "HEAD = $HEAD"
 if [ "$BRANCH" = "website2" ] || [ "$CIRCLE_BRANCH" = "website2" ]
 then
   (cd website2 && yarn && yarn build)
