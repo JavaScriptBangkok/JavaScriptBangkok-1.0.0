@@ -1,6 +1,6 @@
 #!/bin/bash -e
 mkdir -p dist
-if [ "$BRANCH" = "website2" ]
+if [ "$BRANCH" = "website2" ] || [ "$CIRCLE_BRANCH" = "website2" ]
 then
   (cd website2 && yarn build)
   rsync -avz website2/.vuepress/dist/ dist/
