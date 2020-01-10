@@ -1,4 +1,10 @@
 #!/bin/bash -e
 mkdir -p dist
-rsync -avz website/ dist/
+if [ "$BRANCH" = "website2" ]
+then
+  (cd website2 && yarn build)
+  rsync -avz website2/.vuepress/dist/ dist/
+else
+  rsync -avz website/ dist/
+fi
 rsync -avz eventpop dist/
