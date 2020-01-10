@@ -1,2 +1,10 @@
-#!/bin/bash -
-mkdir -p dist && rsync -avz website/ dist/ && rsync -avz eventpop dist/
+#!/bin/bash -e
+mkdir -p dist
+if [ "$HEAD" = "website2" ] || [ "$CIRCLE_BRANCH" = "website2" ]
+then
+  (cd website2 && yarn && yarn build)
+  rsync -avz website2/.vuepress/dist/ dist/
+else
+  rsync -avz website/ dist/
+fi
+rsync -avz eventpop dist/
