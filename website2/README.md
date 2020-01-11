@@ -13,7 +13,7 @@ speakers:
     name: Yonatan Kra
     description: |
       Gamers expect a flawless real-like experience. So do your applications users. Utilizing techniques that are heavily used in games, can help you boost your app’s performance and also save you money in cloud expanses. We’ll see how you can save on CPU, memory and bandwidth with these techniques.
-  - title: "Just go for it: The story of dance-mat.js"
+  - title: 'Just go for it: The story of dance-mat.js'
     name: Ramón Huidobro
     description: |
       Side projects can be daunting. It takes discipline to get started, and even more so to finish.
@@ -32,7 +32,7 @@ speakers:
       The SOLID principle is well-known in our industry. However, most of the articles, books, and examples are based on traditional Object-oriented language constructs.
 
       This talk will show how can we apply these principles in Javascript where classes are not necessary nor encouraged.
-  - title: "Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe"
+  - title: 'Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe'
     name: Tino Thamjarat
     description: |
       The year is 2019 and every engineer must have been asked once to build a “scalable” system. I will be telling the story of our team journey in building a financial system that serves 20X traffic in less than a year. Engineering practices, wrong (and right!) decisions, process improvement and more!
@@ -107,11 +107,11 @@ KBank Siam Pic-Ganesha Theatre
 
 - TBD
 
-- [Code of Conduct](./code-of-conduct)
+- [Code of Conduct](./code-of-conduct/README.md)
 
 <script>
-import SpeakerList from './components/SpeakerList.vue'
-import SponsorList from './components/SponsorList.vue'
+import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
+import SponsorList from './.vuepress/local-components/SponsorList.vue'
 
 export default {
   components: { SpeakerList, SponsorList }
