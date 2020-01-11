@@ -64,6 +64,8 @@ speakers:
 
 # JavaScript Bangkok 1.0.0
 
+<div style="background:white">
+
 ## Intro
 
 February 8th, 2020
@@ -77,6 +79,8 @@ Notes:
 - This is full-width...
 - Date and place
 - Ticket link (sticky)
+
+</div>
 
 ## Speakers
 
