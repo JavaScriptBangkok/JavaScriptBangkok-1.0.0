@@ -46,8 +46,15 @@ export default {
 }
 
 .sponsors-group > img {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (min-width: 640px) {
+  .sponsors-group > img {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 }
 
 .pt-15 {
