@@ -13,7 +13,7 @@ speakers:
     name: Yonatan Kra
     description: |
       Gamers expect a flawless real-like experience. So do your applications users. Utilizing techniques that are heavily used in games, can help you boost your app’s performance and also save you money in cloud expanses. We’ll see how you can save on CPU, memory and bandwidth with these techniques.
-  - title: 'Just go for it: The story of dance-mat.js'
+  - title: "Just go for it: The story of dance-mat.js"
     name: Ramón Huidobro
     description: |
       Side projects can be daunting. It takes discipline to get started, and even more so to finish.
@@ -32,7 +32,7 @@ speakers:
       The SOLID principle is well-known in our industry. However, most of the articles, books, and examples are based on traditional Object-oriented language constructs.
 
       This talk will show how can we apply these principles in Javascript where classes are not necessary nor encouraged.
-  - title: 'Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe'
+  - title: "Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe"
     name: Tino Thamjarat
     description: |
       The year is 2019 and every engineer must have been asked once to build a “scalable” system. I will be telling the story of our team journey in building a financial system that serves 20X traffic in less than a year. Engineering practices, wrong (and right!) decisions, process improvement and more!
@@ -64,15 +64,17 @@ speakers:
 
 # JavaScript Bangkok 1.0.0
 
+## Intro
+
 February 8th, 2020
 
 KBank Siam Pic-Ganesha Theatre
 
 - [Get tickets](https://javascriptbangkok.com/tickets)
 
-## Intro
+Notes:
 
-- This is full-width
+- This is full-width...
 - Date and place
 - Ticket link (sticky)
 
