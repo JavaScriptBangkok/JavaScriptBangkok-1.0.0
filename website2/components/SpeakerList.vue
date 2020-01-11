@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul>
-      <li v-for="(speaker, index) of speakers" :key="index">
+      <li
+        v-for="(speaker, index) of speakers"
+        :key="index">
         <div class="image-wrapper">
           <img src="https://picsum.photos/120/120">
         </div>
@@ -9,6 +11,10 @@
           <h3>{{ speaker.name }}</h3>
           <p>{{ speaker.title }}</p>
         </div>
+        <img
+          src="./subtract-frame.svg"
+          alt="Subtract Frame"
+          class="subtract-frame">
         <!--p>
           {{ speaker.description }}
         </p-->
@@ -36,7 +42,14 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 30px;
+    position: relative;
+  }
+  .subtract-frame {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .talk-info {
     text-align: right;
