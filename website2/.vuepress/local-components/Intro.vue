@@ -3,7 +3,7 @@
     <div class="logo">
       <div class="logo-part">
         <svg
-          class="floating-diamonds"
+          class="floating-diamonds animated pulse"
           width="181"
           height="181"
           viewBox="0 0 181 181"
@@ -58,10 +58,11 @@
       <a href="/tickets" target="_blank" class="button">
         <strong>Get Tickets</strong>
       </a>
+      <router-link to="/code-of-conduct/" class="button secondary">Code of Conduct</router-link>
     </p>
 
     <p class="date">February 8th, 2020</p>
-    <p class="venue">KBank Siam Pic-Ganesha Theatre</p>
+    <p class="venue">At KBank Siam Pic-Ganesha Theatre</p>
   </header>
 </template>
 
@@ -76,9 +77,43 @@ header {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  padding: 80px 0;
+  box-sizing: border-box;
 }
 header > * {
   flex: none;
+}
+.animated {
+  animation-duration: 1.8s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+.date {
+  font-size: 24px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+.venue {
+  font-size: 18px;
 }
 .logo {
   margin-top: 32px;
@@ -109,6 +144,28 @@ p {
   margin: 0;
 }
 .button {
-  background: white;
+  background-color: white;
+  border: 2px solid white;
+  display: inline-block;
+  margin: 16px 8px;
+  text-align: center;
+
+  color: #164194;
+
+  text-decoration: unset;
+  border-radius: 15px;
+  padding: 6px 36px;
+  font-size: 22px;
+  line-height: 29px;
+  transition: background-color ease-out 0.3s;
+}
+.button.secondary {
+  background: transparent;
+  color: #fff;
+}
+.button:hover,
+.button:focus {
+  background-color: #CE716F;
+  color: white;
 }
 </style>
