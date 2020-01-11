@@ -1,5 +1,4 @@
 ---
-title: JavaScript Bangkok 1.0.0
 homepage: true
 speakers:
   - title: A love story written in JavaScript
@@ -63,91 +62,21 @@ speakers:
       Before the words “DevOps” and “Serverless” even become well-known, I, as a hobbyist Game Modder, was trying to achieve these 2 things using JavaScript and a lot of free services for my mod distribution patcher app. In this talk, I’ll walk you through how I did it and what’s my thinking behind.
 ---
 
-<Intro />
-
-# JavaScript Bangkok 1.0.0
-
-## Intro
-
-February 8th, 2020
-
-KBank Siam Pic-Ganesha Theatre
-
-- [Get tickets](https://javascriptbangkok.com/tickets)
-
-Notes:
-
-- This is full-width...
-- Date and place
-- Ticket link (sticky)
-
-## Speakers
-
-<SpeakerList
-  :speakers="$page.frontmatter.speakers"
-  @clickSpeaker="openSpeakerModal"></SpeakerList>
-<SpeakerModal
-  v-if="isSpeakerModalActive"
-  v-bind="speakerModalData"
-  @closeModal="setIsSpeakerModalActive(false)">
-</SpeakerModal>
-
-## Sponsors
-
-<SponsorList></SponsorList>
-
-- ### Platinum sponsor
-
-- KBTG
-
-- ### Gold sponsor
-
-- Oozou
-- ExxonMobil
-- ODDS
-
-- ### Silver sponsor
-
-- Nexmo
-- Event Pop
-- NEXTHOP CO., LTD.
-- HotNow
-- AppMan
-- Nextzy
-
-## Timeline
-
-- TBD
-
-- [Code of Conduct](./code-of-conduct/README.md)
+<SpeakerGroup :groupName="'Test'">
+  <SpeakerList
+    slot="content"
+    :speakers="$page.frontmatter.speakers"
+  ></SpeakerList>
+</SpeakerGroup>
 
 <script>
-import Intro from './.vuepress/local-components/Intro.vue'
+import SpeakerGroup from './.vuepress/local-components/SpeakerGroup.vue'
 import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
-import SpeakerModal from './.vuepress/local-components/SpeakerModal.vue'
-import SponsorList from './.vuepress/local-components/SponsorList.vue'
 
 export default {
-  components: { Intro, SpeakerList, SpeakerModal, SponsorList },
-  data () {
-    return {
-      isSpeakerModalActive: false,
-      speakerModalData: {
-        name: '',
-        title: '',
-        image: '',
-        description: ''
-      }
-    }
-  },
-  methods: {
-    setIsSpeakerModalActive (value) {
-      this.isSpeakerModalActive = value
-    },
-    openSpeakerModal (speaker) {
-      this.speakerModalData = speaker
-      this.setIsSpeakerModalActive(true)
-    }
+  components: {
+    SpeakerGroup,
+    SpeakerList
   }
 }
 </script>

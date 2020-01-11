@@ -9,9 +9,11 @@
       <div class="image-wrapper">
         <img :src="image" alt="Speaker Image" />
       </div>
-      <h3>{{ name }}</h3>
-      <p>{{ title }}</p>
-      <p>{{ description }}</p>
+      <div class="talk-info">
+        <h3>{{ name }}</h3>
+        <p>{{ title }}</p>
+        <p>{{ description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -55,25 +57,47 @@ export default {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
+
+  background: linear-gradient(90.38deg, #fae9ad 0.14%, #ffffff 50.01%);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+}
+
+.image-wrapper > img {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+}
+
+h3 {
+  color: #eaba06;
+}
+p {
+  color: #767676;
 }
 
 /* The Close Button */
 .close {
   color: #aaa;
-  float: right;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .close:hover,

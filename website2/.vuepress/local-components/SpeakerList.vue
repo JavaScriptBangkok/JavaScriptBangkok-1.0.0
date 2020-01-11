@@ -1,29 +1,26 @@
 <template>
-  <div>
-    <!-- <button @click="$emit('testModal')">test modal</button> -->
-    <ul>
-      <li
-        v-for="(speaker, index) of speakers"
-        :key="index"
-        @click="$emit('clickSpeaker', speaker)">
-        <div class="image-wrapper">
-          <img :src="speaker.image || 'https://picsum.photos/120/120'" />
-        </div>
-        <div class="talk-info">
-          <h3>{{ speaker.name }}</h3>
-          <p>{{ speaker.title }}</p>
-        </div>
-        <img
-          src="./subtract-frame.svg"
-          alt="Subtract Frame"
-          class="subtract-frame"
-        />
-        <!--<p>
-          {{ speaker.description }}
-        </p-->
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li
+      v-for="(speaker, index) of speakers"
+      :key="index"
+      @click="$emit('clickSpeaker', speaker)">
+      <div class="image-wrapper">
+        <img :src="speaker.image || 'https://picsum.photos/120/120'" />
+      </div>
+      <div class="talk-info">
+        <h3>{{ speaker.name }}</h3>
+        <p>{{ speaker.title }}</p>
+      </div>
+      <img
+        src="./subtract-frame.svg"
+        alt="Subtract Frame"
+        class="subtract-frame"
+      />
+      <!--<p>
+        {{ speaker.description }}
+      </p-->
+    </li>
+  </ul>
 </template>
 
 <style scoped>
