@@ -110,8 +110,8 @@ KBank Siam Pic-Ganesha Theatre
 - [Code of Conduct](./code-of-conduct/README.md)
 
 <script>
-import SpeakerList from './components/SpeakerList.vue'
-import SponsorList from './components/SponsorList.vue'
+import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
+import SponsorList from './.vuepress/local-components/SponsorList.vue'
 
 export default {
   components: { SpeakerList, SponsorList }
