@@ -83,37 +83,29 @@ Notes:
 
 ## Speakers
 
-<SpeakerList
+<SpeakerGroup :groupName="'#TeamEngineering'">
+</SpeakerGroup>
+
+<SpeakerGroup :groupName="'#TeamExperience'">
+</SpeakerGroup>
+
+<SpeakerGroup :groupName="'#TeamKnowhow'">
+</SpeakerGroup>
+
+<div>
+  <SpeakerList
   :speakers="$page.frontmatter.speakers"
   @clickSpeaker="openSpeakerModal"></SpeakerList>
-<SpeakerModal
+  <SpeakerModal
   v-if="isSpeakerModalActive"
   v-bind="speakerModalData"
   @closeModal="setIsSpeakerModalActive(false)">
-</SpeakerModal>
+  </SpeakerModal>
+</div>
 
 ## Sponsors
 
 <SponsorList></SponsorList>
-
-- ### Platinum sponsor
-
-- KBTG
-
-- ### Gold sponsor
-
-- Oozou
-- ExxonMobil
-- ODDS
-
-- ### Silver sponsor
-
-- Nexmo
-- Event Pop
-- NEXTHOP CO., LTD.
-- HotNow
-- AppMan
-- Nextzy
 
 ## Timeline
 
@@ -126,9 +118,16 @@ import Intro from './.vuepress/local-components/Intro.vue'
 import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
 import SpeakerModal from './.vuepress/local-components/SpeakerModal.vue'
 import SponsorList from './.vuepress/local-components/SponsorList.vue'
+import SpeakerGroup from './.vuepress/local-components/SpeakerGroup.vue'
 
 export default {
-  components: { Intro, SpeakerList, SpeakerModal, SponsorList },
+  components: { 
+    Intro,
+    SpeakerList,
+    SpeakerModal,
+    SponsorList,
+    SpeakerGroup
+  },
   data () {
     return {
       isSpeakerModalActive: false,

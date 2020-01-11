@@ -14,6 +14,11 @@
   </div>
 </template>
 
+<script>
+import "normalize.css";
+export default {};
+</script>
+
 <style>
 body {
   font-family: K2D, sans-serif;

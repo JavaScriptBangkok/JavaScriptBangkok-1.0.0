@@ -63,10 +63,7 @@ speakers:
 ---
 
 <SpeakerGroup :groupName="'Test'">
-  <SpeakerList
-    slot="content"
-    :speakers="$page.frontmatter.speakers"
-  ></SpeakerList>
+  <SpeakerList slot="content"></SpeakerList>
 </SpeakerGroup>
 
 <script>

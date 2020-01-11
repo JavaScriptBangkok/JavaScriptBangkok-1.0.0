@@ -49,10 +49,16 @@
       </div>
     </div>
 
-    <h1>JavaScript
-      <br>
+    <h1>
+      JavaScript
       <small>Bangkok 1.0.0</small>
     </h1>
+
+    <p class="cta">
+      <a href="/tickets" target="_blank" class="button">
+        <strong>Get Tickets</strong>
+      </a>
+    </p>
 
     <p class="date">February 8th, 2020</p>
     <p class="venue">KBank Siam Pic-Ganesha Theatre</p>
@@ -94,12 +100,15 @@ header > * {
 h1 {
   margin: 0 0 32px;
   font-size: 60px;
-  line-height: 1;
 }
 h1 > small {
   font-size: 35px;
+  display: block;
 }
 p {
   margin: 0;
+}
+.button {
+  background: white;
 }
 </style>
