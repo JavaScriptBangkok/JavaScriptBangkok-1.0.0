@@ -3,7 +3,8 @@
     class="speaker-modal"
     @click.self="onCloseModal">
     <div class="modal-content">
-      <button class="close" @click="onCloseModal">&times;</button>
+      <div class="modal-gradient"></div>
+      <span class="close" @click="onCloseModal">&times;</span>
       <div class="image-wrapper">
         <img :src="image" alt="Speaker Image">
       </div>
@@ -92,11 +93,23 @@ export default {
   padding: 24px 24px;
   position: relative;
   box-sizing: border-box;
+  z-index: -2;
 }
 @media (min-width: 720px) {
   .modal-content {
     padding: 60px 100px;
   }
+}
+
+.modal-gradient {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(179.94deg, #FAE9AD 0.06%, #FFFFFF 100%);
+  z-index: -1
 }
 
 .image-wrapper {
@@ -147,6 +160,7 @@ p {
   position: absolute;
   top: 30px;
   right: 30px;
+  transition: color ease-out 0.3s;
 }
 
 .close:hover,
