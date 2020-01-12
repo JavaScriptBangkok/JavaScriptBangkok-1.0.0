@@ -85,7 +85,6 @@ export default {
 }
 @media (min-width: 720px) {
   .modal-content {
-    margin: 15% auto;
     padding: 60px 100px;
   }
 }
