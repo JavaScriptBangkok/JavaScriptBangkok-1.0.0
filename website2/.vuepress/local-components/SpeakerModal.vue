@@ -1,15 +1,27 @@
 <template>
-  <div class="speaker-modal">
+  <div
+    class="speaker-modal"
+    @click.self="onCloseModal">
     <div class="modal-content">
-      <button class="close" @click="onCloseModal">&times;</button>
+      <div class="modal-gradient"></div>
+      <span class="close" @click="onCloseModal">&times;</span>
       <div class="image-wrapper">
         <img :src="image" alt="Speaker Image">
       </div>
       <div class="talk-info">
-        <h3>{{ name }}</h3>
-        <h4>{{ position }}</h4>
-        <p>{{ title }}</p>
-        <p>{{ description }}</p>
+        <div class="speaker-name text-center fs-24 fw-800">{{ name }}</div>
+        <div class="speaker-position text-center fs-24 fw-800">{{ position }}</div>
+        <div class="speaker-title text-center fs-36 fw-800">{{ title }}</div>
+        <template v-if="about">
+          <div class="speaker-paragraph-title fs-36 fw-800">
+            About The Speaker
+          </div>
+          <div class="speaker-paragraph-content">{{ about }}</div>
+        </template>
+        <div class="speaker-paragraph-title fs-36 fw-800">
+          Talk Abstract
+        </div>
+        <div class="speaker-paragraph-content">{{ description }}</div>
       </div>
     </div>
   </div>
@@ -34,6 +46,10 @@ export default {
     image: {
       type: String,
       default: ""
+    },
+    about: {
+      type: String,
+      default: "",
     },
     description: {
       type: String,
@@ -77,12 +93,23 @@ export default {
   padding: 24px 24px;
   position: relative;
   box-sizing: border-box;
+  z-index: -2;
 }
 @media (min-width: 720px) {
   .modal-content {
-    margin: 15% auto;
     padding: 60px 100px;
   }
+}
+
+.modal-gradient {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  background: linear-gradient(179.94deg, #FAE9AD 0.06%, #FFFFFF 100%);
+  z-index: -1
 }
 
 .image-wrapper {
@@ -95,9 +122,27 @@ export default {
   width: 120px;
 }
 
-.speaker-title {
+.speaker-name {
   padding-top: 30px;
   color: #eaba06;
+}
+
+.speaker-position {
+  padding-top: 10px;
+  color: #164194;
+}
+
+.speaker-title {
+  padding-top: 60px;
+}
+
+.speaker-paragraph-title {
+  padding-top: 40px;
+  color: #CE716F;
+}
+
+.speaker-paragraph-content {
+  padding-top: 20px;
 }
 
 h4 {
@@ -115,6 +160,7 @@ p {
   position: absolute;
   top: 30px;
   right: 30px;
+  transition: color ease-out 0.3s;
 }
 
 .close:hover,
@@ -122,5 +168,21 @@ p {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-36 {
+  font-size: 36px;
+}
+
+.fw-800 {
+  font-weight: 800;
+}
+
+.text-center {
+  text-align: center;
 }
 </style>
