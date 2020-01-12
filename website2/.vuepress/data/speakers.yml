@@ -1,0 +1,162 @@
+- title: The Art of Crafting Codemods
+  name: Rajasegar Chandran
+  image: /speaker-images/04.jpg
+  about: |
+    Rajasegar works with Freshworks as a front-end developer. He is passionate about open-source software and currently writes codemods for the Ember community.
+  group: Engineering
+  description: |
+    Codemod is a mechanism to make sweeping changes across your code with ease and effectiveness, assisting in large-scale migrations of the code-base. This can be performed through automated tools such as jscodeshift.
+
+- title: A journey of building large-scale reusable web components
+  name: Varayut Lerdkanlayanawat
+  image: /speaker-images/05.jpg
+  about: |
+    I’m Varayut Lerdkanlayanawat.
+    I’m currently working as a Software Development Engineer at Amazon based in Berlin, Germany.
+    I've officially been in the web development industry for around 9 years.
+    I love to share what I know by giving private training sessions to companies,
+    working on open-source projects on <a target="_blank" href="https://github.com/lvarayut">GitHub</a>,
+    making programming videos on <a target="_blank" href="https://www.youtube.com/c/PasaComputer">YouTube</a>,
+    answering <a target="_blank" href="https://stackoverflow.com/users/1998136/lvarayut">StackOverflow</a> questions,
+    and writing tutorials on <a target="_blank" href="https://medium.com/@lvarayut">Medium</a>.
+  group: Engineering
+  description: |
+    Have you ever wondered what the process of building reusable web components that are used by 200+ developer teams looks like? In this talk, you will be walked through all aspects that need to be considered while designing and implementing reusable web components along with fun real-world examples.
+
+- title: Applying SOLID principle in JavaScript without Class and Object
+  name: Chakrit Likitkhajorn
+  image: /speaker-images/06.png
+  about: |
+    Once VP engineering at Taskworld, now consulting with multiples companies. I am a developer passionate about how to build software as a team and modeling problem inside code.
+  group: Engineering
+  description: |
+    The SOLID principle is well-known in our industry. However, most of the articles, books, and examples are based on traditional Object-oriented language constructs.
+
+    This talk will show how can we apply these principles in Javascript where classes are not necessary nor encouraged.
+
+- title: 'Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe'
+  name: Tino Thamjarat
+  image: /speaker-images/07.jpg
+  about: |
+    Tino is a product engineer at Gojek and currently works in the GoFinance team.
+    He loves building products that solve people's problems from random Starbucks in Bangkok,
+    coaching and telling sort of useful stories at conferences.
+    He also loves playing music!
+    He will be super happy to chat about all sort of software engineering topics especially clean code and DevOps.
+    Tino loves efficiency on every level.
+  group: Engineering
+  description: |
+    The year is 2019 and every engineer must have been asked once to build a “scalable” system. I will be telling the story of our team journey in building a financial system that serves 20X traffic in less than a year. Engineering practices, wrong (and right!) decisions, process improvement and more!
+
+- title: End-to-end Type-Safe GraphQL Apps
+  name: Carlos Rufo
+  image: /speaker-images/10.jpg
+  about: |
+    Carlos is a passionate developer and speaker aficionado.
+    While he codes with different B/FE techs, his go-to for every project is his crush: GraphQL.
+    He is very active in the GraphQL ecosystem where he has collaborated with across numerous internal & external projects,
+    such as SpaceX GraphQL API and recently, co-organizing GraphQL Hong Kong & GraphQL Shenzhen.
+    In his free time he loves stargazing & rocket science, but mostly, help to build a community where everyone could learn about everything!
+  group: Engineering
+  description: |
+    Discover all the benefits of using GraphQL adding End-to-end Type-Safety to your app with this live-coding talk. At the end of such, you’ll want to refactor your codebase in order to take all the advantages of TypeScript, GraphQL & React working together on a SpaceX demo 🚀
+
+- title: What happens when you cancel an HTTP request?
+  name: Younes Jaaidi
+  image: /speaker-images/08.jpg
+  about: |
+    Younes is a Google Developer Expert for Angular & Web Technologies.
+    He is a trainer, consultant & eXtreme Programming coach who loves the challenge of boosting teams efficiency and helping everyone enjoy every part of their job.
+    His experience convinced him that the key to making quality products is collective ownership, kindness and knowledge sharing.
+    On his spare time, you will find him contributing to open-source software, writing articles or speaking at meetups or conferences… and sometimes sailing.
+    His favorite trick? Adding features by removing code.
+  group: Knowledge
+  description: |
+    Reactive libraries like RxJS allow us to easily cancel HTTP requests but is that really efficient? What really happens on the back-end? Is it possible to propagate the cancelation from the front-end through our microservices and cancel the database query?
+
+- title: Adventures with the Event Loop
+  name: Erin Zimmer
+  image: /speaker-images/09.jpg
+  about: |
+    Erin is a software developer with over ten years experience in a variety of languages,
+    from JavaScript to Model204 (don’t worry, nobody else has heard of it either).
+    She is currently a senior web developer at Shine Solutions.
+    She is an active member of the Melbourne JavaScript and Angular communities,
+    and has spoken at conferences around the world.
+    If you see her at a conference, she’ll probably have knitting needles in hand.
+  group: Knowledge
+  description: |
+    The event loop completely underpins everything that happens in the browser. Yet many developers know very little about it. This talk will help them better understand the nitty-gritty of what’s really going on when you create a Promise, add an event listener, or request an animation frame.
+
+- title: Building your first malicious chrome extension 😈
+  name: Alon Kiriati
+  image: /speaker-images/11.jpg
+  about: |
+    A tech lead and a full stack developer at Dropbox.
+    During the last 15 years I’ve been working with companies from any size and shapes - 3 people start ups, 50 medium companies, and 1,000+ corporates, and learned precious lessons from each position I had.
+    I’ve been using with a vast variety of languages and frameworks from the very low level of RT/Embedded and all the way "up" to react.js.
+    I’m enthusiastic about culture, tech, product and ping pong.
+    I believe everything in the world can be expressed with emojis, and one day they will replace all languages 👻
+  group: Knowledge
+  description: |
+    In this talk I will explain the basics of building your first chrome extension, in just a couple of minutes! It takes few more lines to turn it into a malicious one. The main purpose here is not to turn you into a hacker, but to increase awareness to these “small” and “harmless” plugins.
+
+- title: DevTools, the CSS advocate in your browser
+  name: Chen Hui Jing
+  image: /speaker-images/12.jpg
+  about: |
+    Chen Hui Jing is a self-taught designer and developer living in Singapore, with an inordinate love for CSS, as evidenced by her blog, that is mostly about CSS, and her tweets, which are largely about typography and the web.
+    She used to play basketball full-time and launched her web career during downtime between training sessions.
+    Hui Jing is currently a Developer Advocate for Nexmo, focusing on growing developer engagement around the APAC region.
+  group: Knowledge
+  description: |
+    New CSS features, like Flexbox, Grid or Shapes, introduce new properties that can sometimes be complicated to people who are encountering them for the first time. This talk will introduce DevTools features that can help us understand what’s going on, and make it less intimidating to try out new CSS.
+
+- title: A love story written in JavaScript
+  name: Ramón Guijarro
+  image: /speaker-images/01.jpg
+  about: |
+    Ramón is a product-focused web engineer and all-around web lover.
+    He enjoys building user interfaces with JavaScript and React, speaking at conferences, moving fast and learning new things (tech-related or otherwise).
+    He also likes using JavaScript to build stuff beyond the browser and finding out about unexpected uses for the web in general.
+    He cares about community, diversity and inclusion as well.
+    Making up silly personal needs in order to solve them with equally silly code projects is another of his questionable virtues.
+  group: Experience
+  description: |
+    Dating apps can feel tedious and like a waste of time.
+    Is there a way to skip the grunt work?
+    That’s what I asked myself six months ago when I built Swipr, a tool written in JavaScript that does the swiping for you.
+    In this talk we’ll see how it works and how to built CLIs with Node along the way.
+
+- title: 'Just go for it: The story of dance-mat.js'
+  name: Ramón Huidobro
+  image: /speaker-images/03.jpg
+  about: |
+    Freelance software dev, avid community member, kitten herder, kids’ coding instructor.
+  group: Experience
+  description: |
+    Side projects can be daunting. It takes discipline to get started, and even more so to finish.
+    In this talk, I’ll introduce dance-mat.js, the project for making a Dance Dance Revolution controller with a yoga mat, a Raspberry Pi, conductive paint, and Node.js.
+
+- title: "Poor Man's Patcher: A game modder's adventure through serverless sea without money"
+  name: Atthaporn Thanongkiatisak
+  image: /speaker-images/13.jpg
+  about: |
+    Application Architect @ EGG Digital, Ascend Group.
+    I cannot stop rambling about Serverless and DevOps.
+    My favorite food is Angular, .NET Core and AWS.
+    Game Design enthusiast,
+    Self-proclaimed Music Producer,
+    Tea &gt; Coffee, still caffeine.
+  group: Experience
+  description: |
+    Before the words “DevOps” and “Serverless” even become well-known, I, as a hobbyist Game Modder, was trying to achieve these 2 things using JavaScript and a lot of free services for my mod distribution patcher app. In this talk, I’ll walk you through how I did it and what’s my thinking behind.
+
+- title: Optimization design patterns - from games to web
+  name: Yonatan Kra
+  image: /speaker-images/02.jpg
+  about: |
+    Yonatan has been involved in some awesome projects in the academy and the industry - from C/C++ through Matlab to PHP and javascript. Former CTO at Webiks. Currently he is a Software Architect at WalkMe and an egghead instructor.
+  group: Performance
+  description: |
+    Gamers expect a flawless real-like experience. So do your applications users. Utilizing techniques that are heavily used in games, can help you boost your app’s performance and also save you money in cloud expanses. We’ll see how you can save on CPU, memory and bandwidth with these techniques.

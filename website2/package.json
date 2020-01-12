@@ -17,5 +17,10 @@
     "url": "https://glitch.com/edit/#!/hello-express"
   },
   "license": "MIT",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {
+    "@vuepress/plugin-google-analytics": "^1.2.0",
+    "json-loader": "^0.5.7",
+    "yaml-loader": "^0.5.0"
+  }
 }
