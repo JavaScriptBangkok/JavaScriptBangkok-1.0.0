@@ -27,6 +27,24 @@ body {
   margin: 0;
   padding: 0;
 }
+.header-anchor {
+  font-size: 0.85em;
+  float: left;
+  margin-left: -1.25em;
+  padding-right: 0.23em;
+  margin-top: 0.125em;
+  opacity: 0;
+  text-decoration: none;
+  color: #de726f;
+}
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor,
+h6:hover .header-anchor {
+  opacity: 1;
+}
 </style>
 
 <style scoped>
@@ -39,7 +57,7 @@ header {
 main {
   display: block;
   padding: 16px;
-  max-width: 1280px;
+  max-width: 960px;
   margin: 0 auto;
   box-sizing: border-box;
 }
