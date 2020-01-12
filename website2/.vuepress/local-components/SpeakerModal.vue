@@ -11,6 +11,12 @@
         <div class="speaker-name text-center fs-24 fw-800">{{ name }}</div>
         <div class="speaker-position text-center fs-24 fw-800">{{ position }}</div>
         <div class="speaker-title text-center fs-36 fw-800">{{ title }}</div>
+        <template v-if="about">
+          <div class="speaker-paragraph-title fs-36 fw-800">
+            About The Speaker
+          </div>
+          <div class="speaker-paragraph-content">{{ about }}</div>
+        </template>
         <div class="speaker-paragraph-title fs-36 fw-800">
           Talk Abstract
         </div>
@@ -39,6 +45,10 @@ export default {
     image: {
       type: String,
       default: ""
+    },
+    about: {
+      type: String,
+      default: "",
     },
     description: {
       type: String,
