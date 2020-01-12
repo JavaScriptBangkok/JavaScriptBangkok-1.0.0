@@ -6,7 +6,7 @@ This repository contains the code for JavaScript Bangkok 1.0.0’s online presen
 
 - `website` The JavaScript Bangkok 1.0.0 website.
 
-  - Currently deployed by [Netlify](https://www.netlify.com/) to <https://javascriptbangkok.netlify.com>
+  - Currently deployed by [Netlify](https://www.netlify.com/) to <https://javascriptbangkok.com>
 
 - `website2` The JavaScript Bangkok 1.0.0 website currently in development.
 
