@@ -1,4 +1,5 @@
 module.exports = {
+  plugins: [['@vuepress/google-analytics', { ga: 'UA-99360357-4' }]],
   head: [
     [
       'link',
@@ -8,20 +9,8 @@ module.exports = {
           'https://fonts.googleapis.com/css?family=K2D:400,500,700,800&display=swap',
       },
     ],
-    [
-      'meta',
-      {
-        property: 'og:image',
-        content: '/og.png',
-      },
-    ],
-    [
-      'meta',
-      {
-        property: 'og:title',
-        content: 'JavaScript Bangkok 1.0.0',
-      },
-    ],
+    ['meta', { property: 'og:image', content: '/og.png' }],
+    ['meta', { property: 'og:title', content: 'JavaScript Bangkok 1.0.0' }],
     [
       'meta',
       {
