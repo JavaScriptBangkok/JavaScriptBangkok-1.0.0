@@ -27,6 +27,9 @@ body {
   margin: 0;
   padding: 0;
 }
+a {
+  color: #2254b6;
+}
 .header-anchor {
   font-size: 0.85em;
   float: left;
