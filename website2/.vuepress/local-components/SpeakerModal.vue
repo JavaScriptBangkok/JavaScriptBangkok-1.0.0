@@ -13,9 +13,6 @@
         </div>
         <div class="speaker-title text-center fs-36 fw-800">{{ title }}</div>
 
-        <div class="speaker-paragraph-title fs-36 fw-800">
-          Talk Abstract
-        </div>
         <div class="speaker-paragraph-content">{{ description }}</div>
 
         <template v-if="about">
