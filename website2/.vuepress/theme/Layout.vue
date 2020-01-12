@@ -5,18 +5,18 @@
         <router-link to="/">&larr; JavaScript Bangkok 1.0.0</router-link>
       </header>
       <main>
-        <Content/>
+        <Content />
       </main>
     </template>
     <template v-else>
-      <Content/>
+      <Content />
     </template>
   </div>
 </template>
 
 <script>
-import "normalize.css";
-export default {};
+import 'normalize.css'
+export default {}
 </script>
 
 <style>
@@ -32,7 +32,7 @@ body {
 <style scoped>
 header {
   display: block;
-  background: url(./frame.svg)bottomleft;
+  background: url(./frame.svg) bottom left;
   background-size: cover;
   padding-bottom: 12%;
 }
