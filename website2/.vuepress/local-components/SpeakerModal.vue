@@ -1,27 +1,29 @@
 <template>
-  <div
-    class="speaker-modal"
-    @click.self="onCloseModal">
+  <div class="speaker-modal" @click.self="onCloseModal">
     <div class="modal-content">
       <div class="modal-gradient"></div>
       <span class="close" @click="onCloseModal">&times;</span>
       <div class="image-wrapper">
-        <img :src="image" alt="Speaker Image">
+        <img :src="image" alt="Speaker Image" />
       </div>
       <div class="talk-info">
         <div class="speaker-name text-center fs-24 fw-800">{{ name }}</div>
-        <div class="speaker-position text-center fs-24 fw-800">{{ position }}</div>
+        <div class="speaker-position text-center fs-24 fw-800">
+          {{ position }}
+        </div>
         <div class="speaker-title text-center fs-36 fw-800">{{ title }}</div>
-        <template v-if="about">
-          <div class="speaker-paragraph-title fs-36 fw-800">
-            About The Speaker
-          </div>
-          <div class="speaker-paragraph-content">{{ about }}</div>
-        </template>
+
         <div class="speaker-paragraph-title fs-36 fw-800">
           Talk Abstract
         </div>
         <div class="speaker-paragraph-content">{{ description }}</div>
+
+        <template v-if="about">
+          <div class="speaker-paragraph-title fs-36 fw-800">
+            About The Speaker
+          </div>
+          <div class="speaker-paragraph-content" v-html="about"></div>
+        </template>
       </div>
     </div>
   </div>
@@ -29,39 +31,39 @@
 
 <script>
 export default {
-  name: "SpeakerModal",
+  name: 'SpeakerModal',
   props: {
     name: {
       type: String,
-      default: ""
+      default: '',
     },
     position: {
       type: String,
-      default: ""
+      default: '',
     },
     title: {
       type: String,
-      default: ""
+      default: '',
     },
     image: {
       type: String,
-      default: ""
+      default: '',
     },
     about: {
       type: String,
-      default: "",
+      default: '',
     },
     description: {
       type: String,
-      default: ""
-    }
+      default: '',
+    },
   },
   methods: {
     onCloseModal() {
-      this.$emit("closeModal");
-    }
-  }
-};
+      this.$emit('closeModal')
+    },
+  },
+}
 </script>
 
 <style scoped>
@@ -108,8 +110,8 @@ export default {
   top: 0;
   left: 0;
   border-radius: 10px;
-  background: linear-gradient(179.94deg, #FAE9AD 0.06%, #FFFFFF 100%);
-  z-index: -1
+  background: linear-gradient(179.94deg, #fae9ad 0.06%, #ffffff 100%);
+  z-index: -1;
 }
 
 .image-wrapper {
@@ -138,7 +140,7 @@ export default {
 
 .speaker-paragraph-title {
   padding-top: 40px;
-  color: #CE716F;
+  color: #ce716f;
 }
 
 .speaker-paragraph-content {

@@ -76,7 +76,8 @@ export default {
         name: '',
         title: '',
         image: '',
-        description: ''
+        description: '',
+        about: '',
       }
     }
   },
