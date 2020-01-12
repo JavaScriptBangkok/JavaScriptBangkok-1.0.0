@@ -19,6 +19,8 @@
   "license": "MIT",
   "keywords": [],
   "devDependencies": {
-    "@vuepress/plugin-google-analytics": "^1.2.0"
+    "@vuepress/plugin-google-analytics": "^1.2.0",
+    "json-loader": "^0.5.7",
+    "yaml-loader": "^0.5.0"
   }
 }
