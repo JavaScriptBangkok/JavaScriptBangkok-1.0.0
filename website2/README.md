@@ -22,7 +22,7 @@ speakers:
       The SOLID principle is well-known in our industry. However, most of the articles, books, and examples are based on traditional Object-oriented language constructs.
 
       This talk will show how can we apply these principles in Javascript where classes are not necessary nor encouraged.
-  - title: "Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe"
+  - title: 'Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe'
     name: Tino Thamjarat
     image: /speaker-images/07.jpg
     group: Engineering
@@ -67,7 +67,7 @@ speakers:
       Is there a way to skip the grunt work?
       That’s what I asked myself six months ago when I built Swipr, a tool written in JavaScript that does the swiping for you.
       In this talk we’ll see how it works and how to built CLIs with Node along the way.
-  - title: "Just go for it: The story of dance-mat.js"
+  - title: 'Just go for it: The story of dance-mat.js'
     name: Ramón Huidobro
     image: /speaker-images/03.jpg
     group: Experience
@@ -134,12 +134,7 @@ speakers:
 
 </main>
 
-<footer>
-
-- [Twitter@jsbangkok](https://twitter.com/jsbangkok)
-- [facebook.me/javascriptbangkok](https://fb.com/javascriptbangkok)
-
-</footer>
+<Footer></Footer>
 
 <script>
 import Intro from './.vuepress/local-components/Intro.vue'
@@ -147,6 +142,7 @@ import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
 import SpeakerModal from './.vuepress/local-components/SpeakerModal.vue'
 import SponsorList from './.vuepress/local-components/SponsorList.vue'
 import SpeakerGroup from './.vuepress/local-components/SpeakerGroup.vue'
+import Footer from './.vuepress/local-components/Footer.vue'
 
 export default {
   components: { 
@@ -154,7 +150,8 @@ export default {
     SpeakerList,
     SpeakerModal,
     SponsorList,
-    SpeakerGroup
+    SpeakerGroup,
+    Footer
   },
   data () {
     return {
@@ -195,27 +192,10 @@ h2 {
 .header-anchor {
   display: none;
 }
-main, footer {
+main {
   display: block;
   padding: 16px;
   max-width: 1100px;
   margin: 0 auto;
-}
-
-footer {
-  background: #164194;
-  margin-top: 80px;
-}
-footer ul {
-  padding: 0;
-  text-align: right;
-}
-footer li {
-  display: inline-block;
-  margin-left: 20px;
-}
-footer a {
-  color: #FFF;
-  text-decoration: none;
 }
 </style>
