@@ -1,5 +1,7 @@
 <template>
-  <div class="speaker-modal">
+  <div
+    class="speaker-modal"
+    @click.self="onCloseModal">
     <div class="modal-content">
       <button class="close" @click="onCloseModal">&times;</button>
       <div class="image-wrapper">
