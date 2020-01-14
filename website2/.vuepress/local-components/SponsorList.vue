@@ -4,7 +4,7 @@
       <img src="./sponsors-svg/platinum/kbtg.svg" alt="KBTG" height="130" />
     </div>
 
-    <div class="sponsors-group pt-50">
+    <div class="sponsors-group sponsors-tier2">
       <img src="./sponsors-svg/gold/oozou.svg" alt="OOZOU" height="45" />
       <img
         src="./sponsors-svg/gold/exxonmobil.svg"
@@ -14,13 +14,13 @@
       <img src="./sponsors-svg/gold/odds.svg" alt="OODS" height="45" />
     </div>
 
-    <div class="sponsors-group pt-15">
+    <div class="sponsors-group sponsors-tier3 pt-15">
       <img src="./sponsors-svg/silver/nextzy.svg" alt="Nextzy" height="42" />
       <img src="./sponsors-svg/silver/nextmo.svg" alt="NEXMO" height="45" />
       <img src="./sponsors-svg/silver/appman.svg" alt="APPMAN" height="73" />
     </div>
 
-    <div class="sponsors-group pt-15">
+    <div class="sponsors-group sponsors-tier3 pt-15">
       <img src="./sponsors-svg/silver/nexthop.svg" alt="next hop" height="40" />
       <img
         src="./sponsors-svg/silver/eventpop.svg"
@@ -50,7 +50,29 @@ export default {
   padding-right: 10px;
 }
 
+@media (max-width: 639px) {
+  .sponsors-tier2 {
+    flex-direction: column;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .sponsors-tier2 > img {
+    padding-top: 30px;
+    max-height: 32px;
+  }
+  .sponsors-tier2 > img:nth-child(2) {
+    max-height: 38px;
+  }
+  .sponsors-tier3 > img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 @media (min-width: 640px) {
+  .sponsors-tier2 {
+    padding-top: 50px;
+  }
   .sponsors-group > img {
     padding-left: 25px;
     padding-right: 25px;
@@ -59,9 +81,5 @@ export default {
 
 .pt-15 {
   padding-top: 15px;
-}
-
-.pt-50 {
-  padding-top: 50px;
 }
 </style>
