@@ -1,5 +1,6 @@
 - title: The Art of Crafting Codemods
   name: Rajasegar Chandran
+  position: Front-end Developer @ Freshworks Inc.
   image: /speaker-images/04.jpg
   about: |
     Rajasegar works with Freshworks as a front-end developer. He is passionate about open-source software and currently writes codemods for the Ember community.
@@ -9,6 +10,7 @@
 
 - title: A journey of building large-scale reusable web components
   name: Varayut Lerdkanlayanawat
+  position: Software Development Engineer @ Amazon
   image: /speaker-images/05.jpg
   about: |
     I’m Varayut Lerdkanlayanawat.
@@ -25,6 +27,7 @@
 
 - title: Applying SOLID principle in JavaScript without Class and Object
   name: Chakrit Likitkhajorn
+  position: Senior Software Engineer @ Omise
   image: /speaker-images/06.png
   about: |
     Once VP engineering at Taskworld, now consulting with multiples companies. I am a developer passionate about how to build software as a team and modeling problem inside code.
@@ -36,6 +39,7 @@
 
 - title: 'Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe'
   name: Tino Thamjarat
+  position: Product Engineer @ Gojek
   image: /speaker-images/07.jpg
   about: |
     Tino is a product engineer at Gojek and currently works in the GoFinance team.
@@ -50,6 +54,7 @@
 
 - title: End-to-end Type-Safe GraphQL Apps
   name: Carlos Rufo
+  position: Organizer @ GraphQL Hong Kong
   image: /speaker-images/10.jpg
   about: |
     Carlos is a passionate developer and speaker aficionado.
@@ -63,6 +68,7 @@
 
 - title: What happens when you cancel an HTTP request?
   name: Younes Jaaidi
+  position: Developer & eXtreme Programming Coach @ Marmicode Wishtack
   image: /speaker-images/08.jpg
   about: |
     Younes is a Google Developer Expert for Angular & Web Technologies.
@@ -76,6 +82,7 @@
 
 - title: Adventures with the Event Loop
   name: Erin Zimmer
+  position: Senior Engineer & Thought Leader @ Shine Solutions
   image: /speaker-images/09.jpg
   about: |
     Erin is a software developer with over ten years experience in a variety of languages,
@@ -90,6 +97,7 @@
 
 - title: Building your first malicious chrome extension 😈
   name: Alon Kiriati
+  position: Tech Lead @ Dropbox
   image: /speaker-images/11.jpg
   about: |
     A tech lead and a full stack developer at Dropbox.
@@ -103,6 +111,7 @@
 
 - title: DevTools, the CSS advocate in your browser
   name: Chen Hui Jing
+  position: Developer Advocate @ Nexmo
   image: /speaker-images/12.jpg
   about: |
     Chen Hui Jing is a self-taught designer and developer living in Singapore, with an inordinate love for CSS, as evidenced by her blog, that is mostly about CSS, and her tweets, which are largely about typography and the web.
@@ -114,6 +123,7 @@
 
 - title: A love story written in JavaScript
   name: Ramón Guijarro
+  position: Software Engineer @ Undefined Labs
   image: /speaker-images/01.jpg
   about: |
     Ramón is a product-focused web engineer and all-around web lover.
@@ -130,6 +140,7 @@
 
 - title: 'Just go for it: The story of dance-mat.js'
   name: Ramón Huidobro
+  position: Freelancer
   image: /speaker-images/03.jpg
   about: |
     Freelance software dev, avid community member, kitten herder, kids’ coding instructor.
@@ -140,6 +151,7 @@
 
 - title: "Poor Man's Patcher: A game modder's adventure through serverless sea without money"
   name: Atthaporn Thanongkiatisak
+  position: Application Architect @ EGG Digital, Ascend Group
   image: /speaker-images/13.jpg
   about: |
     Application Architect @ EGG Digital, Ascend Group.
@@ -154,6 +166,7 @@
 
 - title: Optimization design patterns - from games to web
   name: Yonatan Kra
+  position: Staff Engineer @ WalkMe
   image: /speaker-images/02.jpg
   about: |
     Yonatan has been involved in some awesome projects in the academy and the industry - from C/C++ through Matlab to PHP and javascript. Former CTO at Webiks. Currently he is a Software Architect at WalkMe and an egghead instructor.
