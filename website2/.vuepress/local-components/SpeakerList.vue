@@ -32,13 +32,20 @@ ul {
   grid-template-columns: 1fr;
   grid-gap: 16px;
 }
+@media (min-width: 640px) {
+  ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
 @media (min-width: 1100px) {
   .image-wrapper > img {
     height: 120px;
     width: 120px;
-  }
-  ul {
-    grid-template-columns: 1fr 1fr;
   }
 }
 li {
@@ -46,6 +53,7 @@ li {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 30px;
   position: relative;
@@ -63,8 +71,7 @@ li:hover {
   transform: translateX(-50%);
 }
 .talk-info {
-  text-align: right;
-  margin-left: auto;
+  text-align: center;
 }
 h3 {
   color: #eaba06;
