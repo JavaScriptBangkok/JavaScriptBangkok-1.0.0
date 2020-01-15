@@ -13,7 +13,7 @@
       </div>
       <div class="talk-info">
         <h3 class="speaker-name text-center">{{ speaker.name }}</h3>
-        <p class="text-center">{{ speaker.title }}</p>
+        <p class="text-center line-clamp-3">{{ speaker.title }}</p>
         <h3 class="see-more text-right">seemore...</h3>
       </div>
     </li>
@@ -89,6 +89,12 @@ h3.see-more {
 }
 p {
   color: #767676;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 .text-center {
   text-align: center;
