@@ -12,8 +12,9 @@
         <img :src="speaker.image || 'https://picsum.photos/120/120'">
       </div>
       <div class="talk-info">
-        <h3>{{ speaker.name }}</h3>
-        <p>{{ speaker.title }}</p>
+        <h3 class="speaker-name text-center">{{ speaker.name }}</h3>
+        <p class="text-center">{{ speaker.title }}</p>
+        <h3 class="see-more text-right">seemore...</h3>
       </div>
     </li>
   </ul>
@@ -71,13 +72,29 @@ li:hover {
   transform: translateX(-50%);
 }
 .talk-info {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 h3 {
   color: #eaba06;
 }
+h3.see-more {
+  margin-top: auto;
+}
+@media (min-width: 1024px) {
+  h3.speaker-name {
+    min-height: 41.82px;
+  }
+}
 p {
   color: #767676;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 </style>
 
