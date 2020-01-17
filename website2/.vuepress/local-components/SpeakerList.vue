@@ -38,15 +38,13 @@ ul {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 1024px) {
-  ul {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
 @media (min-width: 1100px) {
   .image-wrapper > img {
     height: 120px;
     width: 120px;
+  }
+  ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 li {
