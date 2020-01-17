@@ -9,7 +9,39 @@ homepage: true
 
 ## Speakers
 
-<div>
+<div v-if="!$flags.preview">
+  <SpeakerGroup :groupName="'#TeamEngineering'">
+    <OldSpeakerList
+    slot="content"
+    :speakers="getSpeakersByGroup('Engineering')"
+    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
+  </SpeakerGroup>
+  <SpeakerGroup :groupName="'#TeamExperience'">
+    <OldSpeakerList
+    slot="content"
+    :speakers="getSpeakersByGroup('Experience')"
+    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
+  </SpeakerGroup>
+  <SpeakerGroup :groupName="'#TeamKnowhow'">
+    <OldSpeakerList
+    slot="content"
+    :speakers="getSpeakersByGroup('Knowledge')"
+    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
+  </SpeakerGroup>
+  <SpeakerGroup :groupName="'#TeamPerformance'">
+    <OldSpeakerList
+    slot="content"
+    :speakers="getSpeakersByGroup('Performance')"
+    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
+  </SpeakerGroup>
+  <SpeakerModal
+  v-if="isSpeakerModalActive"
+  v-bind="speakerModalData"
+  @closeModal="setIsSpeakerModalActive(false)">
+  </SpeakerModal>
+</div>
+
+<div v-if="$flags.preview">
   <SpeakerGroup :groupName="'#TeamEngineering'">
     <SpeakerList
     slot="content"
@@ -61,6 +93,7 @@ TODO
 
 <script>
 import Intro from './.vuepress/local-components/Intro.vue'
+import OldSpeakerList from './.vuepress/local-components/OldSpeakerList.vue'
 import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
 import SpeakerModal from './.vuepress/local-components/SpeakerModal.vue'
 import SponsorList from './.vuepress/local-components/SponsorList.vue'
@@ -71,6 +104,7 @@ import speakers from 'json-loader!yaml-loader!./.vuepress/data/speakers.yml'
 export default {
   components: { 
     Intro,
+    OldSpeakerList,
     SpeakerList,
     SpeakerModal,
     SponsorList,
