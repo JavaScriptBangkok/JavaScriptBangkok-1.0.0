@@ -14,7 +14,7 @@
       <div class="talk-info">
         <h3 class="speaker-name text-center">{{ speaker.name }}</h3>
         <p class="text-center line-clamp-3">{{ speaker.title }}</p>
-        <h3 class="see-more text-right">seemore...</h3>
+        <h3 class="see-more text-right">see more...</h3>
       </div>
     </li>
   </ul>
