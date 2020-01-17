@@ -16,7 +16,13 @@
 
 <script>
 import 'normalize.css'
-export default {}
+export default {
+  mounted() {
+    if (/[&?]preview=1/.test(location.search)) {
+      this.$flags.preview = true
+    }
+  }
+}
 </script>
 
 <style>
