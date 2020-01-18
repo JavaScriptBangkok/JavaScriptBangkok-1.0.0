@@ -118,6 +118,7 @@ export default {
         name: '',
         title: '',
         image: '',
+        url: '',
         description: '',
         about: '',
       }

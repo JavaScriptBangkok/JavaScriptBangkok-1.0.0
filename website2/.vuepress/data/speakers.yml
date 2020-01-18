@@ -2,6 +2,8 @@
   name: Rajasegar Chandran
   position: Front-end Developer @ Freshworks Inc.
   image: /speaker-images/04.jpg
+  url: http://hangaroundtheweb.com/
+  email: rajasegar.c@gmail.com
   about: |
     Rajasegar works with Freshworks as a front-end developer. He is passionate about open-source software and currently writes codemods for the Ember community.
   group: Engineering
@@ -12,6 +14,8 @@
   name: Varayut Lerdkanlayanawat
   position: Software Development Engineer @ Amazon
   image: /speaker-images/05.jpg
+  url: https://github.com/lvarayut
+  email: l.varayut@gmail.com
   about: |
     I’m Varayut Lerdkanlayanawat.
     I’m currently working as a Software Development Engineer at Amazon based in Berlin, Germany.
@@ -29,6 +33,8 @@
   name: Chakrit Likitkhajorn
   position: Senior Software Engineer @ Omise
   image: /speaker-images/06.png
+  ur: https://medium.com/@chrisza
+  email: chakrit.lj@gmail.com
   about: |
     Once VP engineering at Taskworld, now consulting with multiples companies. I am a developer passionate about how to build software as a team and modeling problem inside code.
   group: Engineering
@@ -41,6 +47,8 @@
   name: Tino Thamjarat
   position: Product Engineer @ Gojek
   image: /speaker-images/07.jpg
+  url: https://vtno.me/
+  email: tino@vtno.me
   about: |
     Tino is a product engineer at Gojek and currently works in the GoFinance team.
     He loves building products that solve people's problems from random Starbucks in Bangkok,
@@ -56,6 +64,8 @@
   name: Carlos Rufo
   position: Organizer @ GraphQL Hong Kong
   image: /speaker-images/10.jpg
+  url: https://medium.com/@swcarlosrj
+  email: info@carlosrj.com
   about: |
     Carlos is a passionate developer and speaker aficionado.
     While he codes with different B/FE techs, his go-to for every project is his crush: GraphQL.
@@ -70,6 +80,8 @@
   name: Younes Jaaidi
   position: Developer & eXtreme Programming Coach @ Marmicode Wishtack
   image: /speaker-images/08.jpg
+  url: https://marmicode.io
+  email: yjaaidi@gmail.com
   about: |
     Younes is a Google Developer Expert for Angular & Web Technologies.
     He is a trainer, consultant & eXtreme Programming coach who loves the challenge of boosting teams efficiency and helping everyone enjoy every part of their job.
@@ -84,6 +96,8 @@
   name: Erin Zimmer
   position: Senior Engineer & Thought Leader @ Shine Solutions
   image: /speaker-images/09.jpg
+  url: https://ez.codes
+  email: ejzimmer@gmail.com
   about: |
     Erin is a software developer with over ten years experience in a variety of languages,
     from JavaScript to Model204 (don’t worry, nobody else has heard of it either).
@@ -99,6 +113,8 @@
   name: Alon Kiriati
   position: Tech Lead @ Dropbox
   image: /speaker-images/11.jpg
+  url: https://www.linkedin.com/in/akiriati/
+  email: akiriati@hotmail.com
   about: |
     A tech lead and a full stack developer at Dropbox.
     During the last 15 years I’ve been working with companies from any size and shapes - 3 people start ups, 50 medium companies, and 1,000+ corporates, and learned precious lessons from each position I had.
@@ -113,6 +129,8 @@
   name: Chen Hui Jing
   position: Developer Advocate @ Nexmo
   image: /speaker-images/12.jpg
+  url: https://www.chenhuijing.com
+  email: kakyou_tensai@yahoo.com
   about: |
     Chen Hui Jing is a self-taught designer and developer living in Singapore, with an inordinate love for CSS, as evidenced by her blog, that is mostly about CSS, and her tweets, which are largely about typography and the web.
     She used to play basketball full-time and launched her web career during downtime between training sessions.
@@ -125,6 +143,8 @@
   name: Ramón Guijarro
   position: Software Engineer @ Undefined Labs
   image: /speaker-images/01.jpg
+  url: https://speakerdex.co/soyguijarro
+  email: hola@soyguijarro.com
   about: |
     Ramón is a product-focused web engineer and all-around web lover.
     He enjoys building user interfaces with JavaScript and React, speaking at conferences, moving fast and learning new things (tech-related or otherwise).
@@ -142,6 +162,8 @@
   name: Ramón Huidobro
   position: Freelancer
   image: /speaker-images/03.jpg
+  url: https://ramonh.dev
+  email: hola@ramonh.dev
   about: |
     Freelance software dev, avid community member, kitten herder, kids’ coding instructor.
   group: Experience
@@ -153,6 +175,8 @@
   name: Atthaporn Thanongkiatisak
   position: Application Architect @ EGG Digital, Ascend Group
   image: /speaker-images/13.jpg
+  url: https://www.atp-tha.com/
+  email: atp.tha77@gmail.com
   about: |
     Application Architect @ EGG Digital, Ascend Group.
     I cannot stop rambling about Serverless and DevOps.
@@ -168,6 +192,8 @@
   name: Yonatan Kra
   position: Staff Engineer @ WalkMe
   image: /speaker-images/02.jpg
+  url: https://bit.ly/yk_blog
+  email: kra.yonatan@gmail.com
   about: |
     Yonatan has been involved in some awesome projects in the academy and the industry - from C/C++ through Matlab to PHP and javascript. Former CTO at Webiks. Currently he is a Software Architect at WalkMe and an egghead instructor.
   group: Performance
