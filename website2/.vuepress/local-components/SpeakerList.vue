@@ -60,12 +60,6 @@ li:hover {
     width: 168px;
   }
 }
-.subtract-frame {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
 .talk-info {
   display: flex;
   flex-direction: column;
