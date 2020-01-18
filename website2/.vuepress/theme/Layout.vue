@@ -21,7 +21,7 @@ export default {
     if (/[&?]preview=1/.test(location.search)) {
       this.$flags.preview = true
     }
-  }
+  },
 }
 </script>
 
@@ -32,6 +32,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 a {
   color: #2254b6;
