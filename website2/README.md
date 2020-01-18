@@ -119,6 +119,7 @@ export default {
         title: '',
         image: '',
         url: '',
+        email: '',
         description: '',
         about: '',
       }
