@@ -155,7 +155,9 @@ export default {
 }
 
 .modal-svg {
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .image-wrapper {
@@ -174,11 +176,6 @@ export default {
 }
 
 .speaker-position {
-  padding-top: 10px;
-  color: #164194;
-}
-
-.speaker-url {
   padding-top: 10px;
   color: #164194;
 }
