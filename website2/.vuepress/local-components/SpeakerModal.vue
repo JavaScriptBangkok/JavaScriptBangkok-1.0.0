@@ -129,12 +129,24 @@ export default {
 }
 
 .speaker-title {
-  padding-top: 60px;
+  padding-top: 30px;
+}
+
+@media (min-width: 640px) {
+  .speaker-title {
+    padding-top: 60px;
+  }
 }
 
 .speaker-paragraph-title {
-  padding-top: 40px;
+  padding-top: 20px;
   color: #ce716f;
+}
+
+@media (min-width: 640px) {
+  .speaker-paragraph-title {
+    padding-top: 40px;
+  }
 }
 
 .speaker-paragraph-content {
