@@ -7,16 +7,16 @@
         <img :src="image" alt="Speaker Image" />
       </div>
       <div class="talk-info">
-        <div class="speaker-name text-center fs-24 fw-800">{{ name }}</div>
-        <div class="speaker-position text-center fs-24 fw-800">
+        <div class="speaker-name text-center fs-20 fs-sm-24 fw-800">{{ name }}</div>
+        <div class="speaker-position text-center fs-20 fs-sm-24 fw-800">
           {{ position }}
         </div>
-        <div class="speaker-title text-center fs-36 fw-800">{{ title }}</div>
+        <div class="speaker-title text-center fs-24 fs-sm-36 fw-800">{{ title }}</div>
 
         <div class="speaker-paragraph-content">{{ description }}</div>
 
         <template v-if="about">
-          <div class="speaker-paragraph-title fs-36 fw-800">
+          <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">
             About The Speaker
           </div>
           <div class="speaker-paragraph-content" v-html="about"></div>
@@ -165,12 +165,22 @@ p {
   cursor: pointer;
 }
 
+.fs-20 {
+  font-size: 20px;
+}
+
 .fs-24 {
   font-size: 24px;
 }
 
-.fs-36 {
-  font-size: 36px;
+@media (min-width: 640px) {
+  .fs-sm-24 {
+    font-size: 24px;
+  }
+
+  .fs-sm-36 {
+    font-size: 36px;
+  }
 }
 
 .fw-800 {
