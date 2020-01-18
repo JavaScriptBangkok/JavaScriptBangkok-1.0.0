@@ -5,9 +5,7 @@
       tabindex="0"
       :key="index"
       @click="$emit('clickSpeaker', speaker)"
-      @keypress="$event.keyCode === 1
-      3 && $emit('clickSpeaker', speaker)"
-    >
+      @keypress="$event.keyCode === 13 && $emit('clickSpeaker', speaker)">
       <div class="image-wrapper">
         <img :src="speaker.image || 'https://picsum.photos/120/120'">
       </div>
