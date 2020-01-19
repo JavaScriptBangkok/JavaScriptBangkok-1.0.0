@@ -5,9 +5,7 @@
       tabindex="0"
       :key="index"
       @click="$emit('clickSpeaker', speaker)"
-      @keypress="$event.keyCode === 1
-      3 && $emit('clickSpeaker', speaker)"
-    >
+      @keypress="$event.keyCode === 13 && $emit('clickSpeaker', speaker)">
       <div class="image-wrapper">
         <img :src="speaker.image || 'https://picsum.photos/120/120'">
       </div>
@@ -26,26 +24,19 @@
   height: 96px;
   width: 96px;
 }
-ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 16px;
-}
-@media (min-width: 640px) {
-  ul {
-    grid-template-columns: 1fr 1fr;
-  }
-}
 @media (min-width: 1100px) {
   .image-wrapper > img {
     height: 120px;
     width: 120px;
   }
-  ul {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
+}
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  margin: -10px;
 }
 li {
   background: #fff;
@@ -54,20 +45,20 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 16px;
   position: relative;
   cursor: pointer;
   transition: opacity ease-out 0.3s;
+  margin: 10px;
+  width: 100%;
 }
-
 li:hover {
   opacity: 0.7;
 }
-.subtract-frame {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+@media (min-width: 640px) {
+  li {
+    width: 168px;
+  }
 }
 .talk-info {
   display: flex;
@@ -80,7 +71,7 @@ h3 {
 h3.see-more {
   margin-top: auto;
 }
-@media (min-width: 1024px) {
+@media (min-width: 640px) {
   h3.speaker-name {
     min-height: 41.82px;
   }
