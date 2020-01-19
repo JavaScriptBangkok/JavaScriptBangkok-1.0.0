@@ -83,9 +83,7 @@ TODO
 
 ## Sponsors
 
-<div>
-  <SponsorList></SponsorList>
-</div>
+<SponsorList />
 
 </main>
 
