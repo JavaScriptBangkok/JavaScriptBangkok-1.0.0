@@ -49,7 +49,7 @@
         </template>
 
         <div class="speaker-paragraph-title fs-36 fw-800">Contact</div>
-        <div class="speaker-paragraph-content" v-if="url">
+        <div class="speaker-paragraph-content">
           <div v-if="url">
             Website:
             <a :href="url" target="_blank">{{ url }}</a>
