@@ -49,18 +49,20 @@
           <div class="speaker-paragraph-content" v-html="about"></div>
         </template>
 
-        <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">Contact</div>
-        <div class="speaker-paragraph-content">
-          <template v-if="url">
-            <div>
-              Website:
-              <a :href="url" target="_blank">{{ url }}</a>
-            </div>
-          </template>
-          <template v-if="email">
-            <div>Email: {{ email }}</div>
-          </template>
-        </div>
+        <template v-if="url || email">
+          <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">Contact</div>
+          <div class="speaker-paragraph-content">
+            <template v-if="url">
+              <div>
+                Website:
+                <a :href="url" target="_blank">{{ url }}</a>
+              </div>
+            </template>
+            <template v-if="email">
+              <div>Email: {{ email }}</div>
+            </template>
+          </div>
+        </template>
       </div>
     </div>
   </div>
