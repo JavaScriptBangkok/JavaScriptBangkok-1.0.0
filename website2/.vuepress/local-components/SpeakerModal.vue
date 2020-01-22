@@ -38,23 +38,28 @@
         <img :src="image" alt="Speaker Image" />
       </div>
       <div class="talk-info">
-        <div class="speaker-name text-center fs-24 fw-800">{{ name }}</div>
-        <div class="speaker-position text-center fs-24 fw-800">{{ position }}</div>
-        <div class="speaker-title text-center fs-36 fw-800">{{ title }}</div>
+        <div class="speaker-name text-center fs-20 fs-sm-24 fw-800">{{ name }}</div>
+        <div class="speaker-position text-center fs-20 fs-sm-24 fw-800">{{ position }}</div>
+        <div class="speaker-title text-center fs-24 fs-sm-36 fw-800">{{ title }}</div>
+
         <div class="speaker-paragraph-content">{{ description }}</div>
 
         <template v-if="about">
-          <div class="speaker-paragraph-title fs-36 fw-800">About The Speaker</div>
+          <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">About The Speaker</div>
           <div class="speaker-paragraph-content" v-html="about"></div>
         </template>
 
-        <div class="speaker-paragraph-title fs-36 fw-800">Contact</div>
+        <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">Contact</div>
         <div class="speaker-paragraph-content">
-          <div v-if="url">
-            Website:
-            <a :href="url" target="_blank">{{ url }}</a>
-          </div>
-          <div v-if="email">Email: {{ email }}</div>
+          <template v-if="url">
+            <div>
+              Website:
+              <a :href="url" target="_blank">{{ url }}</a>
+            </div>
+          </template>
+          <template v-if="email">
+            <div>Email: {{ email }}</div>
+          </template>
         </div>
       </div>
     </div>
@@ -108,15 +113,13 @@ export default {
 
 <style scoped>
 .speaker-modal {
-  /* display: none; */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -128,7 +131,6 @@ export default {
   width: 80%;
   max-width: 960px;
 
-  /* background: linear-gradient(90.38deg, #fae9ad 0.14%, #ffffff 50.01%); */
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 
@@ -181,12 +183,24 @@ export default {
 }
 
 .speaker-title {
-  padding-top: 60px;
+  padding-top: 30px;
+}
+
+@media (min-width: 640px) {
+  .speaker-title {
+    padding-top: 60px;
+  }
 }
 
 .speaker-paragraph-title {
-  padding-top: 40px;
+  padding-top: 20px;
   color: #ce716f;
+}
+
+@media (min-width: 640px) {
+  .speaker-paragraph-title {
+    padding-top: 40px;
+  }
 }
 
 .speaker-paragraph-content {
@@ -200,7 +214,6 @@ p {
   color: #767676;
 }
 
-/* The Close Button */
 .close {
   color: #aaa;
   font-size: 28px;
@@ -218,12 +231,22 @@ p {
   cursor: pointer;
 }
 
+.fs-20 {
+  font-size: 20px;
+}
+
 .fs-24 {
   font-size: 24px;
 }
 
-.fs-36 {
-  font-size: 36px;
+@media (min-width: 640px) {
+  .fs-sm-24 {
+    font-size: 24px;
+  }
+
+  .fs-sm-36 {
+    font-size: 36px;
+  }
 }
 
 .fw-800 {

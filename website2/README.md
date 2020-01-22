@@ -75,17 +75,15 @@ homepage: true
 
 <template v-if="$flags.preview">
 
-## Schedule
+## Schedule [Tentative]
 
-TODO
+<Schedule />
 
 </template>
 
 ## Sponsors
 
-<div>
-  <SponsorList></SponsorList>
-</div>
+<SponsorList />
 
 </main>
 
@@ -98,6 +96,7 @@ import SpeakerList from './.vuepress/local-components/SpeakerList.vue'
 import SpeakerModal from './.vuepress/local-components/SpeakerModal.vue'
 import SponsorList from './.vuepress/local-components/SponsorList.vue'
 import SpeakerGroup from './.vuepress/local-components/SpeakerGroup.vue'
+import Schedule from './.vuepress/local-components/Schedule.vue'
 import Footer from './.vuepress/local-components/Footer.vue'
 import speakers from 'json-loader!yaml-loader!./.vuepress/data/speakers.yml'
 
@@ -109,6 +108,7 @@ export default {
     SpeakerModal,
     SponsorList,
     SpeakerGroup,
+    Schedule,
     Footer
   },
   data () {
