@@ -64,6 +64,7 @@ export default {
   height: 150px;
   width: 100%;
   background-image: url('/speaker-section-background.svg');
+  background-repeat: repeat-x;
 }
 
 .sponsors-background--top {
