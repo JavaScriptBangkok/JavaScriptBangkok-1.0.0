@@ -63,7 +63,7 @@ export default {
   position: absolute;
   height: 150px;
   width: 100%;
-  background-image: url('/speaker-section-background.svg');
+  background-image: url('./sponsors-svg/sponsor-section-background.svg');
   background-repeat: repeat-x;
 }
 
