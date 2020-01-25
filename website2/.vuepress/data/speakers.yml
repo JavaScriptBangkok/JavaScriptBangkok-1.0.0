@@ -199,3 +199,28 @@
   group: Performance
   description: |
     Gamers expect a flawless real-like experience. So do your applications users. Utilizing techniques that are heavily used in games, can help you boost your app’s performance and also save you money in cloud expanses. We’ll see how you can save on CPU, memory and bandwidth with these techniques.
+
+- title: How I met my superset of JavaScript
+  name: Sirirat Rungpetcharat
+  position: CTO @ Builk One Group Co., Ltd.
+  image: /speaker-images/14.jpg
+  url: https://medium.com/@coalapaparazzi
+  email: kra.yonatan@gmail.com
+  about: |
+    Sirirat Rungpetcharat (Yui) Chief Technology Officer of Builk One Group Co., Ltd.
+    With 10 years experience in technology field. From mere programmer to CTO with Lead UX Designer position. Cat lady w/ 6 cats under my care.
+    What’s more to sell? ;)
+  group: Experience
+  description: |
+    My love for TypeScript is what people call “destiny”. With strongly-typed, OOP concept and how familiar we’ve been with Angular, etc. But it’s taken me awhile to hop in since changing technology require heavily researching, convincing both my team and the board. I’m here to tell you how my love life be.
+
+- title: Speed up heavy data visualization with Rust and WebAssembly
+  name: Rujira Aksornsin
+  position: Frontend Developer Team Lead @ AppMan
+  image: /speaker-images/15.jpg
+  url:
+  email:
+  about:
+  group: Performance
+  description: |
+    When we need to perform a large data calculation and a large data visualization on the website, performance issues always came as an old familiar friend. This talk will share my experiment on using Rust and WebAssembly to solve this problem base on old project limitations and conditions.
