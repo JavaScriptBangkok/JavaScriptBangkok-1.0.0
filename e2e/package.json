@@ -1,0 +1,16 @@
+{
+  "name": "javascriptbangkok-cypress",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@testing-library/cypress": "^5.0.2",
+    "@types/testing-library__cypress": "^5.0.1",
+    "cypress": "^3.8.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^0.20.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
