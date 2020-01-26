@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "website2",
-    "e2e"
+    "e2e",
+    "backend/*"
   ]
 }
