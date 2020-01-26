@@ -3,6 +3,6 @@ typings/
 
 node_modules/
 
-src/service-account.json
+service-account.json
 
 ./lib

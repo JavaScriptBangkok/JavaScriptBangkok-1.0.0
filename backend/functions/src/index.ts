@@ -1,12 +1,7 @@
 import * as functions from 'firebase-functions'
-import admin from 'firebase-admin'
-import serviceAccount from './service-account.json'
+import { initializeFirebase } from './FirebaseSetup'
 
-admin.initializeApp({
-  // @ts-ignore
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://javascriptbangkok-companion.firebaseio.com',
-})
+initializeFirebase()
 
 export const helloWorld = functions.https.onRequest((request, response) => {
   response.send('Hello from Firebase!')
