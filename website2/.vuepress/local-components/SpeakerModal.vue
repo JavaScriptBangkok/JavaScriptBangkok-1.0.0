@@ -143,7 +143,7 @@ export default {
   box-sizing: border-box;
   z-index: -2;
 
-  animation-timing-function: ease-out;
+  animation-timing-function: linear;
   animation: modal-expand 1.5s, modal-opacity 1s;
 }
 @media (min-width: 720px) {
@@ -162,11 +162,13 @@ export default {
   background: linear-gradient(179.94deg, #fae9ad 0.06%, #ffffff 100%);
   z-index: -1;
   opacity: 0;
+  animation-timing-function: linear;
   animation: modal-opacity 1s 1s forwards;
 }
 
 .modal-content {
   opacity: 0;
+  animation-timing-function: linear;
   animation: modal-opacity 1s 1.5s forwards;
 }
 
