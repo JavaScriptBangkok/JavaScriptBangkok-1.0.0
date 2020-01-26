@@ -140,6 +140,10 @@ export default {
   position: relative;
   box-sizing: border-box;
   z-index: -2;
+
+  animation-timing-function: ease-out;
+  animation: modal-expand 1.8s, modal-opacity 1s;
+  animation-direction: alternate;
 }
 @media (min-width: 720px) {
   .modal-content {
@@ -257,5 +261,25 @@ p {
 
 .text-center {
   text-align: center;
+}
+
+@keyframes modal-expand {
+  from {
+    width: 150px;
+  }
+
+  to {
+    width: 80%;
+  }
+}
+
+@keyframes modal-opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 </style>
