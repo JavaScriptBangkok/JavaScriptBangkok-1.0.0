@@ -241,7 +241,7 @@ p {
   top: 30px;
   right: 30px;
   transition: color ease-out 0.3s;
-  z-index: 2s;
+  z-index: 2;
 }
 
 .close:hover,
