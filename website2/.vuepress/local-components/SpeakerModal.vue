@@ -279,11 +279,11 @@ p {
 
 @keyframes modal-expand {
   from {
-    width: 150px;
+    transform: scaleX(.25);
   }
 
   to {
-    width: 80%;
+    transform: scaleX(1);
   }
 }
 
