@@ -4,7 +4,6 @@
       <div class="modal-gradient">
         <div class="modal-svg">
           <svg
-            width="626"
             height="231"
             viewBox="0 0 626 231"
             fill="none"
@@ -178,6 +177,10 @@ export default {
   transform: translateX(-50%);
 }
 
+.modal-svg, .modal-svg > svg {
+  width: 100%;
+}
+
 .image-wrapper {
   text-align: center;
 }
@@ -238,6 +241,7 @@ p {
   top: 30px;
   right: 30px;
   transition: color ease-out 0.3s;
+  z-index: 2s;
 }
 
 .close:hover,
