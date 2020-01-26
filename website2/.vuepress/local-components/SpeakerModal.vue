@@ -143,7 +143,7 @@ export default {
   z-index: -2;
 
   animation-timing-function: linear;
-  animation: modal-expand 1.5s, modal-opacity 1s;
+  animation: modal-expand .4s, modal-opacity .4s;
 }
 @media (min-width: 720px) {
   .modal-wrapper {
@@ -162,13 +162,13 @@ export default {
   z-index: -1;
   opacity: 0;
   animation-timing-function: linear;
-  animation: modal-opacity 1s 1s forwards;
+  animation: modal-opacity .4s .4s forwards;
 }
 
 .modal-content {
   opacity: 0;
   animation-timing-function: linear;
-  animation: modal-opacity 1s 1.5s forwards;
+  animation: modal-opacity .4s .8s forwards;
 }
 
 .modal-svg {
