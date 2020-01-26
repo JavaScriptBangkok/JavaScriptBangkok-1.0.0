@@ -1,6 +1,6 @@
 <template>
   <div class="speaker-modal" @click.self="onCloseModal">
-    <div class="modal-content">
+    <div class="modal-wrapper">
       <div class="modal-gradient">
         <div class="modal-svg">
           <svg
@@ -34,35 +34,37 @@
         </div>
       </div>
       <span class="close" @click="onCloseModal">&times;</span>
-      <div class="image-wrapper">
-        <img :src="image" alt="Speaker Image" />
-      </div>
-      <div class="talk-info">
-        <div class="speaker-name text-center fs-20 fs-sm-24 fw-800">{{ name }}</div>
-        <div class="speaker-position text-center fs-20 fs-sm-24 fw-800">{{ position }}</div>
-        <div class="speaker-title text-center fs-24 fs-sm-36 fw-800">{{ title }}</div>
+      <div class="modal-content">
+        <div class="image-wrapper">
+          <img :src="image" alt="Speaker Image" />
+        </div>
+        <div class="talk-info">
+          <div class="speaker-name text-center fs-20 fs-sm-24 fw-800">{{ name }}</div>
+          <div class="speaker-position text-center fs-20 fs-sm-24 fw-800">{{ position }}</div>
+          <div class="speaker-title text-center fs-24 fs-sm-36 fw-800">{{ title }}</div>
 
-        <div class="speaker-paragraph-content">{{ description }}</div>
+          <div class="speaker-paragraph-content">{{ description }}</div>
 
-        <template v-if="about">
-          <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">About The Speaker</div>
-          <div class="speaker-paragraph-content" v-html="about"></div>
-        </template>
+          <template v-if="about">
+            <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">About The Speaker</div>
+            <div class="speaker-paragraph-content" v-html="about"></div>
+          </template>
 
-        <template v-if="url || email">
-          <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">Contact</div>
-          <div class="speaker-paragraph-content">
-            <template v-if="url">
-              <div>
-                Website:
-                <a :href="url" target="_blank">{{ url }}</a>
-              </div>
-            </template>
-            <template v-if="email">
-              <div>Email: {{ email }}</div>
-            </template>
-          </div>
-        </template>
+          <template v-if="url || email">
+            <div class="speaker-paragraph-title fs-24 fs-sm-36 fw-800">Contact</div>
+            <div class="speaker-paragraph-content">
+              <template v-if="url">
+                <div>
+                  Website:
+                  <a :href="url" target="_blank">{{ url }}</a>
+                </div>
+              </template>
+              <template v-if="email">
+                <div>Email: {{ email }}</div>
+              </template>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -125,7 +127,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content {
+.modal-wrapper {
   background-color: #fefefe;
   margin: 24px auto;
   padding: 20px;
@@ -142,11 +144,10 @@ export default {
   z-index: -2;
 
   animation-timing-function: ease-out;
-  animation: modal-expand 1.8s, modal-opacity 1s;
-  animation-direction: alternate;
+  animation: modal-expand 1.5s, modal-opacity 1s;
 }
 @media (min-width: 720px) {
-  .modal-content {
+  .modal-wrapper {
     padding: 60px 100px;
   }
 }
@@ -160,6 +161,13 @@ export default {
   border-radius: 10px;
   background: linear-gradient(179.94deg, #fae9ad 0.06%, #ffffff 100%);
   z-index: -1;
+  opacity: 0;
+  animation: modal-opacity 1s 1s forwards;
+}
+
+.modal-content {
+  opacity: 0;
+  animation: modal-opacity 1s 1.5s forwards;
 }
 
 .modal-svg {
