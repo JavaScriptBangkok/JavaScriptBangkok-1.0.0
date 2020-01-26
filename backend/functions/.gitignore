@@ -7,4 +7,6 @@ typings/
 
 node_modules/
 
-service-account.json
+src/service-account.json
+
+./lib
