@@ -1,6 +1,7 @@
 import * as t from 'io-ts'
 import * as Either from 'fp-ts/lib/Either'
 import { PathReporter } from 'io-ts/lib/PathReporter'
+import admin from 'firebase-admin'
 
 type FoodModel = t.TypeOf<typeof FoodModel>
 
@@ -19,7 +20,13 @@ export function decodeFoodModel(data: any): FoodModel {
 }
 
 export async function importFood(env: string, model: FoodModel) {
-  console.log('meow')
+  await admin
+    .firestore()
+    .collection('environments')
+    .doc(env)
+    .collection('configuration')
+    .doc('food')
+    .set({ menu: model }, { merge: true })
 }
 
 // Type definitions
