@@ -1,0 +1,90 @@
+groups:
+  - title: 'Group A'
+    choices:
+      - id: FoodStall
+        title: 'Choose 2 from our food stalls'
+        availability: 200
+        info: |
+          - A
+          - B
+          - C
+          - D
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            allowedChoices: 2
+            choices:
+              - id: A
+                title: A
+                availability: 100
+              - id: B
+                title: B
+                availability: 100
+              - id: C
+                title: C
+                availability: 100
+              - id: D
+                title: D
+                availability: 100
+  - title: 'Group B'
+    choices:
+      - id: RestaurantA
+        title: 'Restaurant A'
+        availability: 42
+        info: |
+          - E
+          - F
+          - G
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: E
+                title: E
+              - id: F
+                title: F
+              - id: G
+                title: G
+          - id: Spice
+            title: 'Spice level (ความเผ็ด)'
+            textLength: short
+            choices:
+              - id: L0
+                title: 'Level 0 (ระดับ 0)'
+              - id: L1
+                title: 'Level 1 (ระดับ 1)'
+              - id: L2
+                title: 'Level 2 (ระดับ 2)'
+              - id: L3
+                title: 'Level 3 (ระดับ 3)'
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: WTR
+                title: 'Drinking water (น้ำดื่ม)'
+      - id: RestaurantB
+        title: 'Restaurant B'
+        availability: 35
+        info: |
+          - H
+          - I
+          - J
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: H
+                title: H
+              - id: I
+                title: I
+              - id: J
+                title: J
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: SOF
+                title: 'Soft drink'
