@@ -29,5 +29,6 @@ tkt
     }
 
     await importFood('data/food-test.yml', 'dev')
+    log.info('All done!')
   })
   .parse()
