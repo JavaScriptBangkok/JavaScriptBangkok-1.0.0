@@ -30,6 +30,36 @@ export async function clearEnv(env: string) {
   // yarn firebase firestore:delete environments/test --recursive --yes
 }
 
+export async function saveFoodChoice(
+  env: string,
+  userId: string,
+  foodChoice: FoodChoice,
+) {
+  await getEnvDoc(env)
+    .collection('foodChoices')
+    .doc(userId)
+    .set(foodChoice)
+}
+
+export async function retrieveFoodChoice(
+  env: string,
+  userId: string,
+): Promise<FoodChoice | undefined> {
+  return (
+    await getEnvDoc(env)
+      .collection('foodChoices')
+      .doc(userId)
+      .get()
+  ).data() as any
+}
+
+export type FoodChoice = {
+  restaurantId: string
+  customizations: {
+    [customizationId: string]: string[]
+  }
+}
+
 // Type definitions
 export const CustomizationChoice = t.intersection(
   [
@@ -88,6 +118,7 @@ export const FoodModel = t.type(
   },
   'FoodModel',
 )
+
 function getEnvDoc(env: string) {
   return admin
     .firestore()
