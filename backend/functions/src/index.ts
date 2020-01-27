@@ -3,6 +3,6 @@ import { initializeFirebase } from './FirebaseSetup'
 
 initializeFirebase()
 
-export const helloWorld = functions.https.onRequest((request, response) => {
+export const helloWorld = functions.region('asia-northeast1').https.onRequest((request, response) => {
   response.send('Hello from Firebase!')
 })

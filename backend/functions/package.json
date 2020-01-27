@@ -23,6 +23,7 @@
     "@types/jest": "^24.9.1",
     "@types/node": "^13.5.0",
     "firebase-functions-test": "^0.1.6",
+    "firebase-tools": "^7.12.1",
     "jest": "^25.1.0",
     "ts-jest": "^25.0.0",
     "tslint": "^5.12.0",
