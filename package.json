@@ -3,6 +3,7 @@
   "workspaces": [
     "website2",
     "e2e",
-    "backend/*"
+    "backend",
+    "backend/functions"
   ]
 }
