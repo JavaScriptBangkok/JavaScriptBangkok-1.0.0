@@ -26,4 +26,4 @@ jobs:
       - name: Deploy
         run: |
           cd backend
-          env GOOGLE_APPLICATION_CREDENTIALS=~/secrets/service-account.json yarn deploy
+          env GOOGLE_APPLICATION_CREDENTIALS=~/secrets/service-account.json yarn firebase deploy
