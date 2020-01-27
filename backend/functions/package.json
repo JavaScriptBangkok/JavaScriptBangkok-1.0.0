@@ -19,6 +19,7 @@
     "firebase-admin": "^8.6.0",
     "firebase-functions": "^3.3.0",
     "fp-ts": "^2.4.2",
+    "tkt": "^2.0.0",
     "io-ts": "^2.0.6",
     "js-yaml": "^3.13.1"
   },
@@ -28,7 +29,6 @@
     "@types/node": "^13.5.0",
     "firebase-functions-test": "^0.1.6",
     "jest": "^25.1.0",
-    "tkt": "^2.0.0",
     "ts-jest": "^25.0.0",
     "ts-node": "^8.6.2",
     "tslint": "^5.12.0",
