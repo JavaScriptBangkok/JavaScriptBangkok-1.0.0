@@ -20,13 +20,14 @@ export function decodeFoodModel(data: any): FoodModel {
 }
 
 export async function importFood(env: string, model: FoodModel) {
-  await admin
-    .firestore()
-    .collection('environments')
-    .doc(env)
+  await getEnvDoc(env)
     .collection('configuration')
     .doc('food')
     .set({ menu: model }, { merge: true })
+}
+
+export async function clearEnv(env: string) {
+  // yarn firebase firestore:delete environments/test --recursive --yes
 }
 
 // Type definitions
@@ -87,3 +88,9 @@ export const FoodModel = t.type(
   },
   'FoodModel',
 )
+function getEnvDoc(env: string) {
+  return admin
+    .firestore()
+    .collection('environments')
+    .doc(env)
+}
