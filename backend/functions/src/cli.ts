@@ -11,7 +11,7 @@ tkt
   .cli({
     env: {
       desc: 'Environment',
-      default: 'dev',
+      default: 'development',
     },
   })
   .command('import-food', 'Import food list', {}, async () => {
@@ -28,7 +28,8 @@ tkt
       await FoodReservation.importFood(env, foodModel)
     }
 
-    await importFood('data/food-test.yml', 'dev')
+    await importFood('data/food-test.yml', 'development')
+    await importFood('data/food.yml', 'production')
     log.info('All done!')
   })
   .parse()
