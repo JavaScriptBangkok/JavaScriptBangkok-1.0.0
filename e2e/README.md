@@ -3,5 +3,5 @@
 An E2E test.
 
 ```
-cypress open
+yarn cypress open
 ```
