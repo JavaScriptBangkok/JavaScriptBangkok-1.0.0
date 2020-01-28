@@ -18,7 +18,8 @@ it('records food choice for user', async () => {
     },
   }
   await FoodReservation.saveFoodChoice(env, 'userA', foodChoice)
-  await FoodReservation.retrieveFoodChoice(env, 'userA')
+  const storedChoice = await FoodReservation.retrieveFoodChoice(env, 'userA')
+  expect(storedChoice).toEqual(foodChoice)
 })
 
 it.todo('prevents adding food choice if restaurant is full')
