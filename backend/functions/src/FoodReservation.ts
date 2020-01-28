@@ -1,7 +1,7 @@
 import * as t from 'io-ts'
 import * as Either from 'fp-ts/lib/Either'
 import { PathReporter } from 'io-ts/lib/PathReporter'
-import admin from 'firebase-admin'
+import { getEnvDoc } from './FirebaseSetup'
 
 type FoodModel = t.TypeOf<typeof FoodModel>
 
@@ -118,10 +118,3 @@ export const FoodModel = t.type(
   },
   'FoodModel',
 )
-
-function getEnvDoc(env: string) {
-  return admin
-    .firestore()
-    .collection('environments')
-    .doc(env)
-}

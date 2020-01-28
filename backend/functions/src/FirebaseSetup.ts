@@ -14,3 +14,14 @@ export function initializeFirebase() {
     admin.initializeApp()
   }
 }
+
+export function getEnvRef(env: string) {
+  return admin.database().ref(`environments/${env}`)
+}
+
+export function getEnvDoc(env: string) {
+  return admin
+    .firestore()
+    .collection('environments')
+    .doc(env)
+}
