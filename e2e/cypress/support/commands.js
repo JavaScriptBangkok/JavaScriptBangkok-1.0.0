@@ -1,5 +1,6 @@
 // @ts-check
 import '@testing-library/cypress/add-commands'
+import 'cypress-wait-until'
 
 /* eslint no-loop-func: off */
 
@@ -10,8 +11,12 @@ const actualCustomCommands = {
   enterConferenceSection() {
     cy.visit('/')
   },
-  resetAnnouncement() {},
-  updateAnnouncement() {},
+  updateAnnouncement(message) {
+    const method = 'POST'
+    const url = 'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/setTestAnnouncement'
+    const body = {"text": message}
+    cy.request(method, url, body)
+  },
 }
 
 for (const key of Object.keys(actualCustomCommands)) {
