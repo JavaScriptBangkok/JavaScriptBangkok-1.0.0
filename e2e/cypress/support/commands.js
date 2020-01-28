@@ -11,7 +11,6 @@ const actualCustomCommands = {
   enterConferenceSection() {
     cy.visit('/')
   },
-  resetAnnouncement() {},
   updateAnnouncement(message) {
     const method = 'POST'
     const url = 'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/setTestAnnouncement'

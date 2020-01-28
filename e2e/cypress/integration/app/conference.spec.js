@@ -3,7 +3,7 @@ describe('Conference page', () => {
     cy.viewport('iphone-6')
   })
   it('displays the latest announcement', () => {
-    cy.resetAnnouncement()
+    cy.updateAnnouncement('First announcement')
     cy.enterConferenceSection()
     cy.waitUntil(() => cy.findByLabelText('Announcement').should('exist'))
   })
@@ -14,7 +14,7 @@ describe('Conference page', () => {
   })
   it('has a tweet button', () => {
     cy.enterConferenceSection()
-    cy.waitUntil(() => cy.findByLabelText('Announcement').should('exist'))
+    cy.waitUntil(() => cy.findByTestId('tweet-button').should('exist'))
   })
   it('displays schedule', () => {
     cy.enterConferenceSection()

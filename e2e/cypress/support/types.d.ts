@@ -7,6 +7,5 @@ namespace Cypress {
 }
 interface OurCustomCommands {
   enterConferenceSection(): void;
-  resetAnnouncement(): void;
   updateAnnouncement(text: string): void;
 }
