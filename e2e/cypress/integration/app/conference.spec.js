@@ -5,7 +5,7 @@ describe('Conference page', () => {
   it('displays the latest announcement', () => {
     cy.updateAnnouncement('First announcement')
     cy.enterConferenceSection()
-    cy.waitUntil(() => cy.findByLabelText('Announcement').should('exist'))
+    cy.waitUntil(() => cy.findByLabelText('Announcement').should('have.text', 'First announcement'))
   })
   it('can display links in announcement', () => {
     cy.updateAnnouncement('This is an announcement! Make sure to give us <a href="#">feedback</a>.')
