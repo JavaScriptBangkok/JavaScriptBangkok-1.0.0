@@ -5,22 +5,25 @@ describe('Conference page', () => {
   it('displays the latest announcement', () => {
     cy.resetAnnouncement()
     cy.enterConferenceSection()
-    cy.queryByText(/This is an announcement!/).should('exist')
+    cy.waitUntil(() => cy.findByLabelText('Announcement').should('exist'))
   })
   it('can display links in announcement', () => {
-    cy.resetAnnouncement()
+    cy.updateAnnouncement('This is an announcement! Make sure to give us <a href="#">feedback</a>.')
     cy.enterConferenceSection()
-    cy.queryByText('feedback').should('match', 'a[href]')
+    cy.waitUntil(() => cy.findByText('feedback').should('match', 'a[href]'))
   })
-  it('has a tweet button')
+  it('has a tweet button', () => {
+    cy.enterConferenceSection()
+    cy.waitUntil(() => cy.findByLabelText('Announcement').should('exist'))
+  })
   it('displays schedule', () => {
     cy.enterConferenceSection()
     cy.queryByText('Schedule').should('exist')
   })
   it('updates the announcement in real-time', () => {
-    cy.resetAnnouncement()
-    cy.enterConferenceSection()
+    cy.updateAnnouncement('This is an announcement! Make sure to give us <a href="#">feedback</a>.')
+    cy.waitUntil(() => cy.findByLabelText('Announcement').should('have.text', 'This is an announcement! Make sure to give us feedback.'))
     cy.updateAnnouncement('Networking party will start at 19:00')
-    cy.queryByText('Networking party will start at 19:00').should('exist')
+    cy.waitUntil(() => cy.findByLabelText('Announcement').should('have.text', 'Networking party will start at 19:00'))
   })
 })
