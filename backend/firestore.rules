@@ -1,8 +1,10 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if false;
+    match /environments/{environment} {
+      match /profiles/{uid} {
+        allow read: if request.auth.uid == uid;
+      }
     }
   }
 }
