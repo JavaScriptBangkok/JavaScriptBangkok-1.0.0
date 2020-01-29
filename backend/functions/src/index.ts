@@ -28,24 +28,18 @@ export const getTestToken = functions
   .https.onRequest(async (request, response) => {
     try {
       const uid = String(request.query.uid)
-      const allowedUids = ['test01', 'test02', 'test03', 'test04', 'test05']
-      if (!allowedUids.includes(uid)) {
-        response
-          .status(400)
-          .json({ ok: false, message: 'This uid is not allowed' })
-        return
-      }
-      await Authentication.intializeProfile('test', uid, {
-        firstname: uid,
-        lastname: 'user',
-        email: `${uid}@example.com`,
-        referenceCode: uid.toUpperCase(),
-        ticketType: 'Test Ticket',
-      })
-      const token = await Authentication.mintUserToken(uid)
+      const token = await Authentication.getTestToken(uid)
       response.json({ ok: true, token: token })
     } catch (e) {
       response.status(500).json({ ok: false })
       console.error(e)
     }
+  })
+
+export const getTestTokenFromApp = functions
+  .region('asia-northeast1')
+  .https.onCall(async data => {
+    const uid = String(data.uid)
+    const token = await Authentication.getTestToken(uid)
+    return { ok: true, token: token }
   })

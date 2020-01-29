@@ -45,3 +45,19 @@ export async function intializeProfile(
   })
   return result as ProfileData
 }
+
+export async function getTestToken(uid: string) {
+  const allowedUids = ['test01', 'test02', 'test03', 'test04', 'test05']
+  if (!allowedUids.includes(uid)) {
+    throw new Error('This uid is not allowed')
+  }
+  await intializeProfile('test', uid, {
+    firstname: uid,
+    lastname: 'user',
+    email: `${uid}@example.com`,
+    referenceCode: uid.toUpperCase(),
+    ticketType: 'Test Ticket',
+  })
+  const token = await mintUserToken(uid)
+  return token
+}
