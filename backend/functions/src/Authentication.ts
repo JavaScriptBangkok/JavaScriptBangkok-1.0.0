@@ -1,5 +1,6 @@
 import admin from 'firebase-admin'
 import { getEnvDoc } from './FirebaseSetup'
+import * as functions from 'firebase-functions'
 
 export async function mintUserToken(uid: string) {
   return admin.auth().createCustomToken(uid)
@@ -49,7 +50,11 @@ export async function intializeProfile(
 export async function getTestToken(uid: string) {
   const allowedUids = ['test01', 'test02', 'test03', 'test04', 'test05']
   if (!allowedUids.includes(uid)) {
-    throw new Error('This uid is not allowed')
+    throw new functions.https.HttpsError(
+      'invalid-argument',
+      'Invalid UID specified for testing. Allowed UIDs are: ' +
+        allowedUids.join(', '),
+    )
   }
   await intializeProfile('test', uid, {
     firstname: uid,
