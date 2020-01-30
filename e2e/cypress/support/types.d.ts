@@ -2,10 +2,13 @@
 // eslint-disable-next-line
 namespace Cypress {
   interface Chainable<Subject = any> extends OurCustomCommands {
-    usePrototype(): void;
+    usePrototype(): void
   }
 }
 interface OurCustomCommands {
-  enterConferenceSection(): void;
-  updateAnnouncement(text: string): void;
+  enterConferenceSection(): void
+  enterFoodSection(): void
+  updateAnnouncement(text: string): void
+  login(username: string): void
+  logout(): void
 }
