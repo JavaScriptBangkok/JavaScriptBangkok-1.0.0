@@ -19,13 +19,13 @@ groups:
                 availability: 100
               - id: B
                 title: B
-                availability: 100
+                availability: 2
               - id: C
                 title: C
-                availability: 100
+                availability: 1
               - id: D
                 title: D
-                availability: 100
+                availability: 0
   - title: 'Group B'
     choices:
       - id: RestaurantA
@@ -82,6 +82,51 @@ groups:
                 title: I
               - id: J
                 title: J
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: SOF
+                title: 'Soft drink'
+      - id: RestaurantC
+        title: 'Restaurant C'
+        availability: 1
+        info: |
+          - K
+          - L
+          - M
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: K
+                title: K
+              - id: L
+                title: L
+              - id: M
+                title: M
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: SOF
+                title: 'Soft drink'
+      - id: RestaurantD
+        title: 'Restaurant D'
+        availability: 0
+        info: |
+          - N
+          - O
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: 'N'
+                title: 'N'
+              - id: 'O'
+                title: 'O'
           - id: Drink
             title: 'Drink (เครื่องดื่ม)'
             textLength: short
