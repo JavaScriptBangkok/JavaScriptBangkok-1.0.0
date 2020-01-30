@@ -21,15 +21,15 @@ const actualCustomCommands = {
     cy.request(method, url, body)
   },
   login(username) {
-    cy.waitUntil(() => cy.get('input').should('be.visible'), {timeout: 20000})
+    cy.get('input', { timeout: 20000 }).should('be.visible')
     cy.get('input').type('test01')
     cy.findByText('Login').click()
-    cy.waitUntil(() => cy.get('input').should('not.exist'), {timeout: 20000})
+    cy.get('input', { timeout: 20000 }).should('not.be.visible')
   },
   logout() {
-    cy.waitUntil(() => cy.findByText('Logout').should('be.visible'), {timeout: 20000})
+    cy.findByText('Logout', {timeout: 20000}).should('be.visible')
     cy.findByText('Logout').click()
-    cy.waitUntil(() => cy.findByText('Logout').should('not.exist'), {timeout: 20000})
+    cy.findByText('Logout', {timeout: 20000}).should('not.be.visible')
   }
 }
 
