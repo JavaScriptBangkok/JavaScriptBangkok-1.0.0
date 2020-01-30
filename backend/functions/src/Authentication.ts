@@ -70,6 +70,25 @@ export async function getTestToken(uid: string) {
   return token
 }
 
+export async function authenticateWithEventpopAuthorizationCode(
+  env: string,
+  code: string,
+): Promise<{ profile: ProfileData; firebaseToken: string }[]> {
+  const accessToken = await getAccessTokenFromEventpop(code)
+  const profiles = await getProfilesFromEventpop(accessToken)
+  return Promise.all(
+    profiles.map(async profile => {
+      const uid = 'eventpop_' + profile.referenceCode
+      await intializeProfile(env, uid, profile)
+      const token = await mintUserToken(uid)
+      return {
+        profile,
+        firebaseToken: token,
+      }
+    }),
+  )
+}
+
 export async function getAccessTokenFromEventpop(
   code: string,
 ): Promise<string> {
