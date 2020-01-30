@@ -28,7 +28,8 @@ tkt
       await FoodReservation.importFood(env, foodModel)
     }
 
-    await importFood('data/food-test.yml', 'development')
+    await importFood('data/food-test.yml', 'test')
+    await importFood('data/food.yml', 'development')
     await importFood('data/food.yml', 'production')
     log.info('All done!')
   })
