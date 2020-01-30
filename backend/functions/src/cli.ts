@@ -36,6 +36,22 @@ tkt
     log.info('All done!')
   })
   .command(
+    'sign-in-with-eventpop <code>',
+    'Performs the sign-in-with-Eventpop flow',
+    {
+      code: {
+        desc: 'OAuth2 authorization code received from Eventpop',
+      },
+    },
+    async (args: any) => {
+      const result = await Authentication.authenticateWithEventpopAuthorizationCode(
+        args.env,
+        args.code,
+      )
+      console.log(JSON.stringify(result, null, 2))
+    },
+  )
+  .command(
     'check-eventpop-code <code>',
     'Check Eventpop OAuth2 authorization code and return the Eventpop access token',
     {
