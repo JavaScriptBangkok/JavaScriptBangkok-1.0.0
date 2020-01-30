@@ -78,7 +78,7 @@ export const selectFoodChoice = functions
   })
 
 function envFromUserInput(env: string) {
-  const allowedEnvs = ['test01', 'test02', 'test03', 'test04', 'test05']
+  const allowedEnvs = ['development', 'test', 'production']
   if (!allowedEnvs.includes(env)) {
     throw new functions.https.HttpsError(
       'invalid-argument',
