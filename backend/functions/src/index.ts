@@ -45,6 +45,18 @@ export const getTestTokenFromApp = functions
     return { ok: true, token: token }
   })
 
+export const signInWithEventpop = functions
+  .region('asia-northeast1')
+  .https.onCall(async data => {
+    const env = envFromUserInput(data.env)
+    const code = String(data.code)
+    const result = await Authentication.authenticateWithEventpopAuthorizationCode(
+      env,
+      code,
+    )
+    return { ok: true, result }
+  })
+
 export const selectFoodChoice = functions
   .region('asia-northeast1')
   .https.onCall(async (data, context) => {
