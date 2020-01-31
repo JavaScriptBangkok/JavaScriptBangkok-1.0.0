@@ -6,3 +6,6 @@ node_modules/
 service-account.json
 
 /lib/
+
+#Contains private key
+networking-bangkok-js-firebase-adminsdk-d3d5j-1b2eb3ffbf.json
