@@ -9,7 +9,7 @@ import 'cypress-wait-until'
 /** @type {OurCustomCommands} */
 const actualCustomCommands = {
   enterConferenceSection() {
-    cy.visit('/')
+    cy.visit('/?env=test')
   },
   enterFoodSection() {
     cy.visit('/user/order?env=test')
