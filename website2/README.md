@@ -73,9 +73,13 @@ homepage: true
   </SpeakerModal>
 </div>
 
-<div v-if="$flags.preview">
 ## Schedule
 
+<div>
+  <Schedule />
+</div>
+
+<div v-if="$flags.preview">
 <Session />
 <BreakTime />
 </div>
