@@ -137,30 +137,64 @@ function envFromUserInput(env: string) {
 export const addUserToNetwork = functions
   .region('asia-northeast1')
   .https.onCall(async (data, context) => {
-    // const auth = context.auth
-    // if (!auth) {
-    // throw new functions.https.HttpsError(
-    //   'failed-precondition',
-    //   'The function must be called while authenticated.',
-    // )
-    // }
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
     const env = envFromUserInput(data.env)
-    // const uid = auth.uid
-    const checkedUser = await Networking.getUser(env, data.uid)
-    if (!checkedUser) {
+    const uid = auth.uid
+
+    const checks = [
+      await Networking.getUser(env, data.uid),
+      await Networking.getUser(env, uid),
+    ]
+
+    try {
+      const [checkedUser, me] = await Promise.all(checks)
+      if (!checkedUser) {
+        throw new functions.https.HttpsError(
+          'failed-precondition',
+          'User does not exist.',
+        )
+      }
+
+      // NOT ME
+      const secondUser: Networking.Network = {
+        uid: data.uid,
+        name: checkedUser.firstname,
+        badge: checkedUser.badge,
+      }
+
+      // ME
+      const firstUser: Networking.Network = {
+        uid: uid,
+        name: me.firstname,
+        badge: me.badge,
+      }
+
+      // CHECK
+      if (Networking.isSastifiedWinningCondition(env, me, secondUser)) {
+        console.log('All collected.')
+      }
+
+      if (Networking.isSastifiedWinningCondition(env, checkedUser, firstUser)) {
+        console.log('All collected.')
+      }
+
+      const actions = [
+        await Networking.addUser(env, firstUser.uid, secondUser),
+        await Networking.addUser(env, secondUser.uid, firstUser),
+      ]
+
+      await Promise.all(actions)
+      return { ok: true }
+    } catch (_) {
       throw new functions.https.HttpsError(
         'failed-precondition',
         'User does not exist.',
       )
     }
-
-    // console.log(checkedUser)
-    const user: Networking.Network = {
-      uid: data.uid,
-      name: checkedUser.firstname,
-      badge: checkedUser.badge,
-    }
-
-    await Networking.addUser(env, 'test03', user)
-    return { ok: true }
   })
