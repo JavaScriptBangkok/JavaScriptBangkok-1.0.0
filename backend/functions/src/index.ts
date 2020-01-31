@@ -176,11 +176,11 @@ export const addUserToNetwork = functions
       }
 
       // CHECK
-      if (Networking.isSastifiedWinningCondition(env, me, secondUser)) {
+      if (Networking.willSastifyWinningCondition(me, secondUser)) {
         console.log('All collected.')
       }
 
-      if (Networking.isSastifiedWinningCondition(env, checkedUser, firstUser)) {
+      if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
         console.log('All collected.')
       }
 

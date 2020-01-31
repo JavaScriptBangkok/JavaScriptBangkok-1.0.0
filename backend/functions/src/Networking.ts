@@ -36,13 +36,13 @@ export const createNetwork = async (
   return true
 }
 
-export const isSastifiedWinningCondition = async (
-  env: string,
+export const willSastifyWinningCondition = async (
   user: ProfileData,
   nextUser: Network,
 ) => {
   let currentBadges = user.networks.map(network => network.badge)
   currentBadges.push(user.badge)
+  currentBadges.push(nextUser.badge)
   currentBadges = currentBadges.filter(onlyUnique)
   const isSastified = currentBadges.sort().join('.') === badges.sort().join('.')
   return isSastified
