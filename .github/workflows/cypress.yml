@@ -19,15 +19,16 @@ jobs:
           install: false
           working-directory: e2e
       - name: Ensure we have a necessary directories for artifacts
+        if: always()
         run: |
-          mkdir -p cypress/screenshots cypress/videos
+          mkdir -p e2e/cypress/screenshots cypress/videos
       - uses: actions/upload-artifact@v1
         if: always()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: e2e/cypress/screenshots
       - uses: actions/upload-artifact@v1
         if: always()
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: e2e/cypress/videos
