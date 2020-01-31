@@ -1,3 +1,4 @@
 {
-  "baseUrl": "https://js-bkk-front.now.sh/?env=test"
+  "baseUrl": "https://js-bkk-front.now.sh/?env=test",
+  "integrationFolder": "cypress/integration/app"
 }
