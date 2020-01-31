@@ -1,0 +1,16 @@
+name: E2E
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install dependencies
+        uses: cypress-io/github-action@v1
+        with:
+          runTests: false
+      - name: Run e2e tests
+        uses: cypress-io/github-action@v1
+        with:
+          install: false
+          working-directory: e2e
