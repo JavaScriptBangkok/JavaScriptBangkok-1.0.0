@@ -5,6 +5,12 @@ service cloud.firestore {
       match /profiles/{uid} {
         allow read: if request.auth.uid == uid;
       }
+      match /foodChoices/{uid} {
+        allow read: if request.auth.uid == uid;
+      }
+      match /configuration/{configKey} {
+        allow read: if true;
+      }
     }
   }
 }

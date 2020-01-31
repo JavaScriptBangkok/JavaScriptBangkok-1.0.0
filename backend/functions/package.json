@@ -16,12 +16,14 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
     "firebase-admin": "^8.6.0",
     "firebase-functions": "^3.3.0",
     "fp-ts": "^2.4.2",
-    "tkt": "^2.0.0",
     "io-ts": "^2.0.6",
-    "js-yaml": "^3.13.1"
+    "js-yaml": "^3.13.1",
+    "tkt": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",

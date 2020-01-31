@@ -15,17 +15,17 @@ groups:
             allowedChoices: 2
             choices:
               - id: A
-                title: A
+                title: Menu A
                 availability: 100
               - id: B
-                title: B
-                availability: 100
+                title: Menu B
+                availability: 2
               - id: C
-                title: C
-                availability: 100
+                title: Menu C
+                availability: 1
               - id: D
-                title: D
-                availability: 100
+                title: Menu D
+                availability: 0
   - title: 'Group B'
     choices:
       - id: RestaurantA
@@ -41,11 +41,11 @@ groups:
             textLength: long
             choices:
               - id: E
-                title: E
+                title: Menu E
               - id: F
-                title: F
+                title: Menu F
               - id: G
-                title: G
+                title: Menu G
           - id: Spice
             title: 'Spice level (ความเผ็ด)'
             textLength: short
@@ -77,11 +77,56 @@ groups:
             textLength: long
             choices:
               - id: H
-                title: H
+                title: Menu H
               - id: I
-                title: I
+                title: Menu I
               - id: J
-                title: J
+                title: Menu J
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: SOF
+                title: 'Soft drink'
+      - id: RestaurantC
+        title: 'Restaurant C'
+        availability: 1
+        info: |
+          - K
+          - L
+          - M
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: K
+                title: Menu K
+              - id: L
+                title: Menu L
+              - id: M
+                title: Menu M
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: SOF
+                title: 'Soft drink'
+      - id: RestaurantD
+        title: 'Restaurant D'
+        availability: 0
+        info: |
+          - N
+          - O
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: 'N'
+                title: 'Menu N'
+              - id: 'O'
+                title: 'Menu O'
           - id: Drink
             title: 'Drink (เครื่องดื่ม)'
             textLength: short
