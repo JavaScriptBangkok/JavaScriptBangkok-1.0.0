@@ -9,10 +9,10 @@ import 'cypress-wait-until'
 /** @type {OurCustomCommands} */
 const actualCustomCommands = {
   enterConferenceSection() {
-    cy.visit('/')
+    cy.visit('/?env=test')
   },
   enterFoodSection() {
-    cy.visit('https://92941e14.ngrok.io/user/order?env=test')
+    cy.visit('/user/order?env=test')
   },
   updateAnnouncement(message) {
     const method = 'POST'
