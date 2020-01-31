@@ -36,8 +36,8 @@ const actualCustomCommands = {
   },
   clickUpdateFoodSelection() {
     cy.findByLabelText('Change your lunchtime meal selection').should('be.visible').click()
-    cy.findByLabelText('Restaurant title').should('be.visible')
-    // cy.findByLabelText('').should('be.visible')
+    cy.findByTestId('restaurant-title').should('be.visible')
+    cy.findByTestId('restaurant-availability').should('be.visible')
   }
 }
 

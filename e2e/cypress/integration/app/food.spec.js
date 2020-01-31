@@ -15,8 +15,8 @@ describe('Food page - before selecting food', () => {
     cy.findByText('Your Food Selection').should('not.be.visible')
   })
   it('displays lunchtime choices, available slots', () => {
-    cy.findByLabelText('Restaurant title').should('be.visible')
-    // cy.findByLabelText('').should('be.visible')
+    cy.findByTestId('restaurant-title').should('be.visible')
+    cy.findByTestId('restaurant-availability').should('be.visible')
   })
   it('opens and closes food selection modal', () => {
     cy.findByLabelText('Restaurant title').should('be.visible').click()
@@ -49,8 +49,8 @@ describe('Food page - after selecting food', () => {
     cy.findByText('Your Food Selection').should('be.visible')
   })
   it('hides lunchtime choices, available slots', () => {
-    cy.findByLabelText('Restaurant title').should('not.be.visible')
-    // cy.findByLabelText('').should('not.be.visible')
+    cy.findByTestId('restaurant-title').should('not.be.visible')
+    cy.findByTestId('restaurant-availability').should('not.be.visible')
   })
   it('becomes unavailable when the time is up', () => {
     cy.updateFoodSelectionTimeout(Date.now() - 300e3)
