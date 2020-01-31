@@ -12,7 +12,7 @@ const actualCustomCommands = {
     cy.visit('/')
   },
   enterFoodSection() {
-    cy.visit('https://92941e14.ngrok.io/user/order?env=test')
+    cy.visit('/user/order?env=test')
   },
   updateAnnouncement(message) {
     const method = 'POST'
