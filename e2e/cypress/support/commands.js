@@ -21,10 +21,8 @@ const actualCustomCommands = {
     cy.request(method, url, body)
   },
   login(username) {
-    cy.get('input', { timeout: 20000 }).should('be.visible')
-    cy.get('input').type('test01')
-    cy.findByText('Login').click()
-    cy.get('input', { timeout: 20000 }).should('not.be.visible')
+    cy.get('button', {timeout:20000}).contains(username).should('be.visible').click()
+    cy.findByText('Ordering as', {timeout: 20000}).should('be.visible')
   },
   logout() {
     cy.findByText('Logout', {timeout: 20000}).should('be.visible')
