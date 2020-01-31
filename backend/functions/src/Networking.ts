@@ -22,7 +22,7 @@ export const getUser = async (env: string, userID: string) => {
   ).data() as ProfileData
 }
 
-export const addUser = async (
+export const createNetwork = async (
   env: string,
   targetUserID: string,
   user: Network,

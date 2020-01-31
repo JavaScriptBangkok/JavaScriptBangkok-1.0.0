@@ -185,8 +185,8 @@ export const addUserToNetwork = functions
       }
 
       const actions = [
-        await Networking.addUser(env, firstUser.uid, secondUser),
-        await Networking.addUser(env, secondUser.uid, firstUser),
+        await Networking.createNetwork(env, firstUser.uid, secondUser),
+        await Networking.createNetwork(env, secondUser.uid, firstUser),
       ]
 
       await Promise.all(actions)
