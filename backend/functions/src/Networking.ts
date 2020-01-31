@@ -1,6 +1,6 @@
 import admin from 'firebase-admin'
 import { ProfileData } from './Authentication'
-import { getEnvDoc } from './FirebaseSetup'
+import { getEnvDoc, getEnvRef } from './FirebaseSetup'
 
 const onlyUnique = (value: any, index: any, self: any) =>
   self.indexOf(value) === index
@@ -56,6 +56,14 @@ export const editBio = async (env: string, userID: string, bio: string) => {
       bio,
     })
   return true
+}
+
+export const addEventWinner = async (env: string, userID: string) => {
+  await getEnvRef(env)
+    .child('networking')
+    .child('winners')
+    .child(userID)
+    .set(new Date())
 }
 
 export const getRandomBadge = () =>
