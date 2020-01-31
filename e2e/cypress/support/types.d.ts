@@ -11,4 +11,6 @@ interface OurCustomCommands {
   updateAnnouncement(text: string): void
   login(username: string): void
   logout(): void
+  updateFoodSelectionTimeout(): void
+  clickUpdateFoodSelection(): void
 }

@@ -25,9 +25,19 @@ const actualCustomCommands = {
     cy.findByText('Ordering as', {timeout: 20000}).should('be.visible')
   },
   logout() {
-    cy.findByText('Logout', {timeout: 20000}).should('be.visible')
-    cy.findByText('Logout').click()
+    cy.findByText('Logout', {timeout: 20000}).should('be.visible').click()
     cy.findByText('Logout', {timeout: 20000}).should('not.be.visible')
+  },
+  updateFoodSelectionTimeout(time) {
+    const method = 'POST'
+    const url = 'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/tester'
+    const body = { "command": "setOrderingPeriodEndTime", "orderingPeriodEndTime": time }
+    cy.request(method, url, body)
+  },
+  clickUpdateFoodSelection() {
+    cy.findByLabelText('Change your lunchtime meal selection').should('be.visible').click()
+    cy.findByLabelText('Restaurant title').should('be.visible')
+    // cy.findByLabelText('').should('be.visible')
   }
 }
 
