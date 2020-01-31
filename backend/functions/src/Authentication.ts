@@ -4,7 +4,7 @@ import * as functions from 'firebase-functions'
 import querystring from 'querystring'
 import { getConfig } from './Configuration'
 import { getEnvDoc } from './FirebaseSetup'
-import { Network } from './Networking'
+import { getRandomBadge, Network } from './Networking'
 
 export async function mintUserToken(uid: string) {
   return admin.auth().createCustomToken(uid)
@@ -18,6 +18,7 @@ export type ProfileData = {
   ticketType: string
   badge: string
   networks: Network[]
+  bio: string
 }
 
 export async function intializeProfile(
@@ -76,6 +77,7 @@ export async function getTestToken(uid: string) {
     ticketType: 'Test Ticket',
     badge: 'Test Badge',
     networks: [],
+    bio: '',
   })
   const token = await mintUserToken(uid)
   return token
@@ -155,8 +157,9 @@ export async function getProfilesFromEventpop(
       email: ticket.email,
       referenceCode: ticket.reference_code,
       ticketType: ticket.ticket_type?.name,
-      badge: 'TypeScript', // TO-DO: Add random
+      badge: getRandomBadge(), // TO-DO: Add random
       networks: [],
+      bio: '',
     }),
   )
 }

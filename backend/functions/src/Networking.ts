@@ -36,7 +36,7 @@ export const createNetwork = async (
   return true
 }
 
-export const willSastifyWinningCondition = async (
+export const willSastifyWinningCondition = (
   user: ProfileData,
   nextUser: Network,
 ) => {
@@ -47,3 +47,16 @@ export const willSastifyWinningCondition = async (
   const isSastified = currentBadges.sort().join('.') === badges.sort().join('.')
   return isSastified
 }
+
+export const editBio = async (env: string, userID: string, bio: string) => {
+  await getEnvDoc(env)
+    .collection('profiles')
+    .doc(userID)
+    .set({
+      bio,
+    })
+  return true
+}
+
+export const getRandomBadge = () =>
+  badges[Math.floor(Math.random() * badges.length)]
