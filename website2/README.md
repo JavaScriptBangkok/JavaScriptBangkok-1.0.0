@@ -73,13 +73,16 @@ homepage: true
   </SpeakerModal>
 </div>
 
-<template v-if="$flags.preview">
+## Schedule
 
-## Schedule [Tentative]
+<div>
+  <Schedule />
+</div>
 
-<Schedule />
-
-</template>
+<div v-if="$flags.preview">
+<Session />
+<BreakTime />
+</div>
 
 ## Sponsors
 
@@ -97,6 +100,8 @@ import SpeakerModal from './.vuepress/local-components/SpeakerModal.vue'
 import SponsorList from './.vuepress/local-components/SponsorList.vue'
 import SpeakerGroup from './.vuepress/local-components/SpeakerGroup.vue'
 import Schedule from './.vuepress/local-components/Schedule.vue'
+import Session from './.vuepress/local-components/Session.vue'
+import BreakTime from './.vuepress/local-components/BreakTime.vue'
 import Footer from './.vuepress/local-components/Footer.vue'
 import speakers from 'json-loader!yaml-loader!./.vuepress/data/speakers.yml'
 
@@ -109,7 +114,9 @@ export default {
     SponsorList,
     SpeakerGroup,
     Schedule,
-    Footer
+    Footer,
+    Session,
+    BreakTime,
   },
   data () {
     return {
