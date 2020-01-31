@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
       - name: Install dependencies
         uses: cypress-io/github-action@v1
         with:
