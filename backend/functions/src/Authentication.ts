@@ -1,9 +1,10 @@
-import admin from 'firebase-admin'
-import { getEnvDoc } from './FirebaseSetup'
-import * as functions from 'firebase-functions'
 import axios from 'axios'
+import admin from 'firebase-admin'
+import * as functions from 'firebase-functions'
 import querystring from 'querystring'
 import { getConfig } from './Configuration'
+import { getEnvDoc } from './FirebaseSetup'
+import { Network } from './Networking'
 
 export async function mintUserToken(uid: string) {
   return admin.auth().createCustomToken(uid)
@@ -15,6 +16,8 @@ export type ProfileData = {
   email: string
   referenceCode: string
   ticketType: string
+  badge: string
+  networks: Network[]
 }
 
 export async function intializeProfile(
@@ -71,6 +74,8 @@ export async function getTestToken(uid: string) {
     email: `${uid}@example.com`,
     referenceCode: uid.toUpperCase(),
     ticketType: 'Test Ticket',
+    badge: 'Test Badge',
+    networks: [],
   })
   const token = await mintUserToken(uid)
   return token
@@ -150,6 +155,8 @@ export async function getProfilesFromEventpop(
       email: ticket.email,
       referenceCode: ticket.reference_code,
       ticketType: ticket.ticket_type?.name,
+      badge: 'TypeScript', // TO-DO: Add random
+      networks: [],
     }),
   )
 }

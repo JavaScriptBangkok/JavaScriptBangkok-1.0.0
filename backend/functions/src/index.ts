@@ -1,8 +1,9 @@
 import * as functions from 'firebase-functions'
-import { initializeFirebase } from './FirebaseSetup'
-import * as Authentication from './Authentication'
 import * as Announcement from './Announcement'
+import * as Authentication from './Authentication'
+import { initializeFirebase } from './FirebaseSetup'
 import * as FoodReservation from './FoodReservation'
+import * as Networking from './Networking'
 
 initializeFirebase()
 
@@ -132,3 +133,34 @@ function envFromUserInput(env: string) {
   }
   return env
 }
+
+export const addUserToNetwork = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    // const auth = context.auth
+    // if (!auth) {
+    // throw new functions.https.HttpsError(
+    //   'failed-precondition',
+    //   'The function must be called while authenticated.',
+    // )
+    // }
+    const env = envFromUserInput(data.env)
+    // const uid = auth.uid
+    const checkedUser = await Networking.getUser(env, data.uid)
+    if (!checkedUser) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'User does not exist.',
+      )
+    }
+
+    // console.log(checkedUser)
+    const user: Networking.Network = {
+      uid: data.uid,
+      name: checkedUser.firstname,
+      badge: checkedUser.badge,
+    }
+
+    await Networking.addUser(env, 'test03', user)
+    return { ok: true }
+  })
