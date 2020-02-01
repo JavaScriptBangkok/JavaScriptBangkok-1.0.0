@@ -5,9 +5,8 @@ import 'cypress-wait-until'
 /* eslint no-loop-func: off */
 
 // https://on.cypress.io/custom-commands
-
 /** @type {OurCustomCommands} */
-const actualCustomCommands = {
+export const actualCustomCommands = {
   enterConferenceSection() {
     cy.visit('/?env=test')
   },
@@ -32,13 +31,10 @@ const actualCustomCommands = {
       timeout: 20000,
     }).should('be.visible')
   },
-  logout() {
-    cy.get('[data-authentication-state="authenticated"]', {
-      timeout: 20000,
-    }).should('be.visible')
-    cy.findByText('Logout', { timeout: 20000 })
-      .should('be.visible')
-      .click()
+  ensureLoggedOut() {
+    cy.window().then(async window => {
+      await getAppTestCommands(window).logoutFromFirebase()
+    })
     cy.get('[data-authentication-state="unauthenticated"]', {
       timeout: 20000,
     }).should('be.visible')
@@ -64,4 +60,8 @@ const actualCustomCommands = {
 
 for (const key of Object.keys(actualCustomCommands)) {
   Cypress.Commands.add(key, (...args) => actualCustomCommands[key](...args))
+}
+
+function getAppTestCommands(window) {
+  return window.JSBangkokApp.testCommands
 }
