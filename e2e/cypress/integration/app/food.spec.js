@@ -9,7 +9,9 @@ describe('Food page - before selecting food', () => {
     cy.logout()
   })
   it('displays a countdown section', () => {
-    cy.findByText('Please select your menu before time limit:').should('be.visible')
+    cy.findByText('Please select your menu before time limit:').should(
+      'be.visible',
+    )
     const timer = cy.findByTestId('food-ordering-countdown-timer')
     expect(timer).to.not.equal('00:00:00')
   })
@@ -17,14 +19,20 @@ describe('Food page - before selecting food', () => {
     cy.findByText('Your Food Selection').should('not.be.visible')
     cy.findByTestId('selected-restaurant-title').should('not.be.visible')
   })
-  it('displays lunchtime choices, available slots', () => {
-    cy.findByTestId('restaurant-title').should('be.visible')
-    cy.findByTestId('restaurant-availability').should('be.visible')
+  it.only('displays lunchtime choices, available slots', () => {
+    cy.findByText('Restaurant B').should('be.visible')
+    cy.findByLabelText('Restaurant B').within(() => {
+      cy.findByTestId('restaurant-availability').should('have.text', '35')
+    })
   })
   it('opens and closes food selection modal', () => {
-    cy.findByLabelText('Restaurant title').should('be.visible').click()
+    cy.findByLabelText('Restaurant title')
+      .should('be.visible')
+      .click()
     cy.findByTestId('food-customization-modal').should('be.visible')
-    cy.findByLabelText('Close modal').should('be.visible').click()
+    cy.findByLabelText('Close modal')
+      .should('be.visible')
+      .click()
     cy.findByTestId('food-customization-modal').should('not.be.visible')
   })
   it('becomes unavailable when the time is up', () => {
@@ -48,7 +56,9 @@ describe('Food page - after selecting food', () => {
   })
 
   it('displays a countdown section', () => {
-    cy.findByText('Please select your menu before time limit:').should('be.visible')
+    cy.findByText('Please select your menu before time limit:').should(
+      'be.visible',
+    )
     const timer = cy.findByTestId('food-ordering-countdown-timer')
     expect(timer).to.not.equal('00:00:00')
   })
