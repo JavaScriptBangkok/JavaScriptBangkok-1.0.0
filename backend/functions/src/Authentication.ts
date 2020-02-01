@@ -62,6 +62,13 @@ export async function intializeProfile(
 
 export async function getTestToken(uid: string) {
   const allowedUids = ['test01', 'test02', 'test03', 'test04', 'test05']
+  const testBadge: Record<string, string> = {
+    test01: 'TypeScript',
+    test02: 'JavaScript',
+    test03: 'React',
+    test04: 'TypeScript',
+    test05: 'JavaScript',
+  }
   if (!allowedUids.includes(uid)) {
     throw new functions.https.HttpsError(
       'invalid-argument',
@@ -75,7 +82,7 @@ export async function getTestToken(uid: string) {
     email: `${uid}@example.com`,
     referenceCode: uid.toUpperCase(),
     ticketType: 'Test Ticket',
-    badge: getRandomBadge(),
+    badge: testBadge[uid],
     networks: [],
     bio: '',
   })
@@ -157,7 +164,7 @@ export async function getProfilesFromEventpop(
       email: ticket.email,
       referenceCode: ticket.reference_code,
       ticketType: ticket.ticket_type?.name,
-      badge: getRandomBadge(), // TO-DO: Add random
+      badge: getRandomBadge(),
       networks: [],
       bio: '',
     }),
