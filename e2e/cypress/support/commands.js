@@ -16,29 +16,50 @@ const actualCustomCommands = {
   },
   updateAnnouncement(message) {
     const method = 'POST'
-    const url = 'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/setTestAnnouncement'
-    const body = {"text": message}
+    const url =
+      'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/setTestAnnouncement'
+    const body = { text: message }
     cy.request(method, url, body)
   },
   login(username) {
-    cy.get('button', {timeout:20000}).contains(username).should('be.visible').click()
-    cy.findByText('Ordering as', {timeout: 20000}).should('be.visible')
+    cy.get('[data-authentication-state="unauthenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
+    cy.findByText(`Sign in as test user ${username}`, { timeout: 20000 })
+      .should('be.visible')
+      .click()
+    cy.get('[data-authentication-state="authenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
   },
   logout() {
-    cy.findByText('Logout', {timeout: 20000}).should('be.visible').click()
-    cy.findByText('Logout', {timeout: 20000}).should('not.be.visible')
+    cy.get('[data-authentication-state="authenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
+    cy.findByText('Logout', { timeout: 20000 })
+      .should('be.visible')
+      .click()
+    cy.get('[data-authentication-state="unauthenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
   },
   updateFoodSelectionTimeout(time) {
     const method = 'POST'
-    const url = 'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/tester'
-    const body = { "command": "setOrderingPeriodEndTime", "orderingPeriodEndTime": time }
+    const url =
+      'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/tester'
+    const body = {
+      command: 'setOrderingPeriodEndTime',
+      orderingPeriodEndTime: time,
+    }
     cy.request(method, url, body)
   },
   clickUpdateFoodSelection() {
-    cy.findByLabelText('Change your lunchtime meal selection').should('be.visible').click()
+    cy.findByLabelText('Change your lunchtime meal selection')
+      .should('be.visible')
+      .click()
     cy.findByTestId('restaurant-title').should('be.visible')
     cy.findByTestId('restaurant-availability').should('be.visible')
-  }
+  },
 }
 
 for (const key of Object.keys(actualCustomCommands)) {
