@@ -45,6 +45,34 @@ export const getTestTokenFromApp = functions
     return { ok: true, token: token }
   })
 
+export const tester = functions
+  .region('asia-northeast1')
+  .https.onRequest(async (request, response) => {
+    try {
+      switch (request.body.command) {
+        case 'setOrderingPeriodEndTime': {
+          const time = +request.body.orderingPeriodEndTime
+          if (!time) {
+            response
+              .status(400)
+              .json({ ok: false, message: 'Invalid timestamp' })
+            return
+          }
+          await FoodReservation.setOrderingPeriodEndTime('test', time)
+          response.status(200).json({ ok: true })
+          return
+        }
+        default: {
+          response.status(400).json({ ok: false, message: 'Invalid command' })
+          return
+        }
+      }
+    } catch (e) {
+      response.status(500).json({ ok: false })
+      console.error(e)
+    }
+  })
+
 export const signInWithEventpop = functions
   .region('asia-northeast1')
   .https.onCall(async data => {

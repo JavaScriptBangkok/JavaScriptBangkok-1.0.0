@@ -26,6 +26,13 @@ export async function importFood(env: string, model: FoodModel) {
     .set({ menu: model }, { merge: true })
 }
 
+export async function setOrderingPeriodEndTime(env: string, time: number) {
+  await getEnvDoc(env)
+    .collection('configuration')
+    .doc('food')
+    .set({ orderingPeriodEndTime: time }, { merge: true })
+}
+
 export async function clearEnv(env: string) {
   // yarn firebase firestore:delete environments/test --recursive --yes
 }
