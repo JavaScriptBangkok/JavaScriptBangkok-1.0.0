@@ -75,7 +75,7 @@ export async function getTestToken(uid: string) {
     email: `${uid}@example.com`,
     referenceCode: uid.toUpperCase(),
     ticketType: 'Test Ticket',
-    badge: 'Test Badge',
+    badge: getRandomBadge(),
     networks: [],
     bio: '',
   })
