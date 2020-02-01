@@ -53,40 +53,43 @@ describe('Food page - after selecting food', () => {
     cy.ensureLoggedOut()
     cy.login('test01')
   })
-
-  it('displays a countdown section', () => {
-    cy.findByText('Please select your menu before time limit:').should(
-      'be.visible',
-    )
-    const timer = cy.findByTestId('food-ordering-countdown-timer')
-    expect(timer).to.not.equal('00:00:00')
-  })
   it('displays your food selection section', () => {
     cy.findByText('Your Food Selection').should('be.visible')
-    cy.findByTestId('selected-restaurant-title').should('be.visible')
+    cy.findByLabelText('Your Food Selection').within(() => {
+      cy.findByText('Choose 2 from our food stalls').should('be.visible')
+      cy.findByText('Menu C').should('be.visible')
+      cy.findByText('Menu D').should('be.visible')
+    })
   })
-  it('hides lunchtime choices, available slots', () => {
+  it.skip('hides lunchtime choices, available slots', () => {
     cy.findByTestId('restaurant-title').should('not.be.visible')
     cy.findByTestId('restaurant-availability').should('not.be.visible')
   })
   it('becomes unavailable when the time is up', () => {
     cy.updateFoodSelectionTimeout(Date.now() - 300e3)
-    // see only selected food summary
-    // not see change food button
-    const timer = cy.findByTestId('food-ordering-countdown-timer')
-    expect(timer).to.equal('00:00:00')
+    cy.findByTestId('food-ordering-countdown-timer').should(
+      'have.text',
+      '00:00:00',
+    )
   })
 })
 
-describe('Food page - updating food selection', () => {
+describe('Food page - making a food selection', () => {
   beforeEach(() => {
     cy.viewport('iphone-6')
     cy.updateFoodSelectionTimeout(Date.now() + 300e3)
     cy.enterFoodSection()
     cy.login('test01')
   })
-  it('reduces the restaurant and menu availability after making a selection', () => {
-    cy.clickUpdateFoodSelection()
-    // check availability
+  it('reduces the restaurant and menu availability after making a selection')
+})
+
+describe('Food page - updating a food selection', () => {
+  beforeEach(() => {
+    cy.viewport('iphone-6')
+    cy.updateFoodSelectionTimeout(Date.now() + 300e3)
+    cy.enterFoodSection()
+    cy.login('test01')
   })
+  it('reduces the restaurant and menu availability after making a selection')
 })

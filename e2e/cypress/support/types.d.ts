@@ -13,5 +13,4 @@ interface OurCustomCommands {
   login(username: string): void
   ensureLoggedOut(): void
   updateFoodSelectionTimeout(): void
-  clickUpdateFoodSelection(): void
 }

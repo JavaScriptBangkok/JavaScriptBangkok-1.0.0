@@ -49,13 +49,6 @@ export const actualCustomCommands = {
     }
     cy.request(method, url, body)
   },
-  clickUpdateFoodSelection() {
-    cy.findByLabelText('Change your lunchtime meal selection')
-      .should('be.visible')
-      .click()
-    cy.findByTestId('restaurant-title').should('be.visible')
-    cy.findByTestId('restaurant-availability').should('be.visible')
-  },
 }
 
 for (const key of Object.keys(actualCustomCommands)) {
