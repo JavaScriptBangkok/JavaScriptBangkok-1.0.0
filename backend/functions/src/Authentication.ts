@@ -30,6 +30,12 @@ export async function intializeProfile(
       emailVerified: true,
     })
     .catch(error => {
+      if (error?.errorInfo?.code === 'auth/email-already-exists') {
+        return admin.auth().createUser({ uid: uid })
+      }
+      throw error
+    })
+    .catch(error => {
       if (error?.errorInfo?.code === 'auth/uid-already-exists') {
         return
       }
