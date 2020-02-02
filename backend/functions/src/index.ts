@@ -50,6 +50,11 @@ export const tester = functions
   .https.onRequest(async (request, response) => {
     try {
       switch (request.body.command) {
+        case 'resetFoodReservationTestEnvironment': {
+          await FoodReservation.resetTestEnv()
+          response.status(200).json({ ok: true })
+          return
+        }
         case 'setOrderingPeriodEndTime': {
           const time = +request.body.orderingPeriodEndTime
           if (!time) {
