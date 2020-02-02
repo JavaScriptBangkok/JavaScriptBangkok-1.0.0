@@ -5,9 +5,8 @@ import 'cypress-wait-until'
 /* eslint no-loop-func: off */
 
 // https://on.cypress.io/custom-commands
-
 /** @type {OurCustomCommands} */
-const actualCustomCommands = {
+export const actualCustomCommands = {
   enterConferenceSection() {
     cy.visit('/?env=test')
   },
@@ -16,23 +15,46 @@ const actualCustomCommands = {
   },
   updateAnnouncement(message) {
     const method = 'POST'
-    const url = 'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/setTestAnnouncement'
-    const body = {"text": message}
+    const url =
+      'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/setTestAnnouncement'
+    const body = { text: message }
     cy.request(method, url, body)
   },
   login(username) {
-    cy.get('input', { timeout: 20000 }).should('be.visible')
-    cy.get('input').type('test01')
-    cy.findByText('Login').click()
-    cy.get('input', { timeout: 20000 }).should('not.be.visible')
+    cy.get('[data-authentication-state="unauthenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
+    cy.findByText(`Sign in as test user ${username}`, { timeout: 20000 })
+      .should('be.visible')
+      .click()
+    cy.get('[data-authentication-state="authenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
   },
-  logout() {
-    cy.findByText('Logout', {timeout: 20000}).should('be.visible')
-    cy.findByText('Logout').click()
-    cy.findByText('Logout', {timeout: 20000}).should('not.be.visible')
-  }
+  ensureLoggedOut() {
+    cy.window().then(async window => {
+      await getAppTestCommands(window).logoutFromFirebase()
+    })
+    cy.get('[data-authentication-state="unauthenticated"]', {
+      timeout: 20000,
+    }).should('be.visible')
+  },
+  updateFoodSelectionTimeout(time) {
+    const method = 'POST'
+    const url =
+      'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/tester'
+    const body = {
+      command: 'setOrderingPeriodEndTime',
+      orderingPeriodEndTime: time,
+    }
+    cy.request(method, url, body)
+  },
 }
 
 for (const key of Object.keys(actualCustomCommands)) {
   Cypress.Commands.add(key, (...args) => actualCustomCommands[key](...args))
+}
+
+function getAppTestCommands(window) {
+  return window.JSBangkokApp.testCommands
 }
