@@ -1,7 +1,9 @@
 import * as t from 'io-ts'
 import * as Either from 'fp-ts/lib/Either'
 import { PathReporter } from 'io-ts/lib/PathReporter'
-import { getEnvDoc } from './FirebaseSetup'
+import { getEnvDoc, getEnvRef } from './FirebaseSetup'
+import { testMenu } from './FoodReservationTestFixture'
+import admin from 'firebase-admin'
 
 type FoodModel = t.TypeOf<typeof FoodModel>
 
@@ -33,8 +35,33 @@ export async function setOrderingPeriodEndTime(env: string, time: number) {
     .set({ orderingPeriodEndTime: time }, { merge: true })
 }
 
-export async function clearEnv(env: string) {
-  // yarn firebase firestore:delete environments/test --recursive --yes
+export async function resetTestEnv() {
+  const env = 'test'
+  await getEnvDoc(env)
+    .collection('configuration')
+    .doc('food')
+    .delete()
+  await getEnvDoc(env)
+    .collection('foodChoices')
+    .get()
+    .then(snapshot => {
+      if (snapshot.size === 0) return
+      const batch = admin.firestore().batch()
+      snapshot.docs.forEach(doc => {
+        batch.delete(doc.ref)
+      })
+      return batch.commit()
+    })
+  const foodModel = decodeFoodModel(testMenu)
+  await importFood(env, foodModel)
+  await setOrderingPeriodEndTime(env, Date.now() + 3600e3)
+  await saveFoodChoice(env, 'test01', {
+    restaurantId: 'FoodStall',
+    customizations: {
+      Food: ['A', 'B'],
+    },
+  })
+  await synchronizeSelectionStats(env)
 }
 
 export async function saveFoodChoice(
@@ -42,10 +69,15 @@ export async function saveFoodChoice(
   userId: string,
   foodChoice: FoodChoice,
 ) {
+  // TODO check if stock lasts
+
   await getEnvDoc(env)
     .collection('foodChoices')
     .doc(userId)
     .set(foodChoice)
+
+  // TODO optimize this
+  await synchronizeSelectionStats(env)
 }
 
 export async function retrieveFoodChoice(
@@ -58,6 +90,35 @@ export async function retrieveFoodChoice(
       .doc(userId)
       .get()
   ).data() as any
+}
+
+export async function synchronizeSelectionStats(env: string): Promise<void> {
+  const snapshot = await getEnvDoc(env)
+    .collection('foodChoices')
+    .get()
+  const selectionStats: { [key: string]: number } = {}
+  const increase = (key: string) => {
+    selectionStats[key] = (selectionStats[key] || 0) + 1
+  }
+  snapshot.forEach(docSnapshot => {
+    const item = docSnapshot.data()
+    if (item) {
+      increase(item.restaurantId)
+      if (item.customizations) {
+        for (const key of Object.keys(item.customizations)) {
+          const values = item.customizations[key]
+          if (Array.isArray(values)) {
+            for (const value of values) {
+              increase([item.restaurantId, key, value].join('-'))
+            }
+          }
+        }
+      }
+    }
+  })
+  await getEnvRef(env)
+    .child('selectionStats')
+    .set(selectionStats)
 }
 
 export type FoodChoice = {

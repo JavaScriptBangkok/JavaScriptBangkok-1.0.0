@@ -10,12 +10,7 @@ initializeFirebase()
 require('dotenv').config()
 
 tkt
-  .cli({
-    env: {
-      desc: 'Environment',
-      default: 'development',
-    },
-  })
+  .cli({})
   .command('import-food', 'Import food list', {}, async () => {
     const log = tkt.logger('import-food')
 
@@ -30,15 +25,37 @@ tkt
       await FoodReservation.importFood(env, foodModel)
     }
 
-    await importFood('data/food-test.yml', 'test')
     await importFood('data/food.yml', 'development')
     await importFood('data/food.yml', 'production')
     log.info('All done!')
   })
   .command(
-    'sign-in-with-eventpop <code>',
+    'reset-test-env',
+    'Resets the food reservation database for test environment',
+    {},
+    async () => {
+      await FoodReservation.resetTestEnv()
+    },
+  )
+  .command(
+    'synchronize-food-selection-stats <env>',
+    'Synchronizes the food selection stats',
+    {
+      env: {
+        desc: 'Environment to update',
+      },
+    },
+    async (args: any) => {
+      await FoodReservation.synchronizeSelectionStats(args.env)
+    },
+  )
+  .command(
+    'sign-in-with-eventpop <env> <code>',
     'Performs the sign-in-with-Eventpop flow',
     {
+      env: {
+        desc: 'Environment to sign in to',
+      },
       code: {
         desc: 'OAuth2 authorization code received from Eventpop',
       },

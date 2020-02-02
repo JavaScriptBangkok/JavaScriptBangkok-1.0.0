@@ -36,6 +36,11 @@ They are restricted for use with the `test` environment only.
 // Set announcement text
 http.post('/setTestAnnouncement', { text: 'Announcement text' })
 
+// Resets the test environment to a known state.
+http.post('/tester', {
+  command: 'resetFoodReservationTestEnvironment',
+})
+
 // Set the time to end the food ordering period
 http.post('/tester', {
   command: 'setOrderingPeriodEndTime',

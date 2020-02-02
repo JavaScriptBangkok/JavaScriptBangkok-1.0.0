@@ -11,7 +11,9 @@ export function initializeFirebase() {
       databaseURL: 'https://javascriptbangkok-companion.firebaseio.com',
     })
   } else {
-    admin.initializeApp()
+    admin.initializeApp({
+      databaseURL: 'https://javascriptbangkok-companion.firebaseio.com',
+    })
   }
 }
 
