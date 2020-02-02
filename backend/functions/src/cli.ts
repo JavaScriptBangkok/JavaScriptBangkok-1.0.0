@@ -10,12 +10,7 @@ initializeFirebase()
 require('dotenv').config()
 
 tkt
-  .cli({
-    env: {
-      desc: 'Environment',
-      default: 'development',
-    },
-  })
+  .cli({})
   .command('import-food', 'Import food list', {}, async () => {
     const log = tkt.logger('import-food')
 
@@ -43,9 +38,24 @@ tkt
     },
   )
   .command(
-    'sign-in-with-eventpop <code>',
+    'synchronize-food-selection-stats <env>',
+    'Synchronizes the food selection stats',
+    {
+      env: {
+        desc: 'Environment to update',
+      },
+    },
+    async (args: any) => {
+      await FoodReservation.synchronizeSelectionStats(args.env)
+    },
+  )
+  .command(
+    'sign-in-with-eventpop <env> <code>',
     'Performs the sign-in-with-Eventpop flow',
     {
+      env: {
+        desc: 'Environment to sign in to',
+      },
       code: {
         desc: 'OAuth2 authorization code received from Eventpop',
       },
