@@ -7,7 +7,7 @@ beforeAll(() => {
 })
 
 beforeEach(async () => {
-  await FoodReservation.clearEnv(env)
+  await FoodReservation.resetTestEnv()
 })
 
 it('records food choice for user', async () => {

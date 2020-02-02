@@ -45,8 +45,8 @@ export async function resetTestEnv() {
     .collection('foodChoices')
     .get()
     .then(snapshot => {
-      if (snapshot.size == 0) return
-      let batch = admin.firestore().batch()
+      if (snapshot.size === 0) return
+      const batch = admin.firestore().batch()
       snapshot.docs.forEach(doc => {
         batch.delete(doc.ref)
       })
