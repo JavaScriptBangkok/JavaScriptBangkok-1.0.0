@@ -69,10 +69,15 @@ export async function saveFoodChoice(
   userId: string,
   foodChoice: FoodChoice,
 ) {
+  // TODO check if stock lasts
+
   await getEnvDoc(env)
     .collection('foodChoices')
     .doc(userId)
     .set(foodChoice)
+
+  // TODO optimize this
+  await synchronizeSelectionStats(env)
 }
 
 export async function retrieveFoodChoice(
