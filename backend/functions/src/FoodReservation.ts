@@ -2,6 +2,8 @@ import * as t from 'io-ts'
 import * as Either from 'fp-ts/lib/Either'
 import { PathReporter } from 'io-ts/lib/PathReporter'
 import { getEnvDoc } from './FirebaseSetup'
+import { testMenu } from './FoodReservationTestFixture'
+import admin from 'firebase-admin'
 
 type FoodModel = t.TypeOf<typeof FoodModel>
 
@@ -33,8 +35,32 @@ export async function setOrderingPeriodEndTime(env: string, time: number) {
     .set({ orderingPeriodEndTime: time }, { merge: true })
 }
 
-export async function clearEnv(env: string) {
-  // yarn firebase firestore:delete environments/test --recursive --yes
+export async function resetTestEnv() {
+  const env = 'test'
+  await getEnvDoc(env)
+    .collection('configuration')
+    .doc('food')
+    .delete()
+  await getEnvDoc(env)
+    .collection('foodChoices')
+    .get()
+    .then(snapshot => {
+      if (snapshot.size == 0) return
+      let batch = admin.firestore().batch()
+      snapshot.docs.forEach(doc => {
+        batch.delete(doc.ref)
+      })
+      return batch.commit()
+    })
+  const foodModel = decodeFoodModel(testMenu)
+  await importFood(env, foodModel)
+  await setOrderingPeriodEndTime(env, Date.now() + 3600e3)
+  await saveFoodChoice(env, 'test01', {
+    restaurantId: 'FoodStall',
+    customizations: {
+      Food: ['A', 'B'],
+    },
+  })
 }
 
 export async function saveFoodChoice(

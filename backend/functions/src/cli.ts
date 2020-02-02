@@ -30,11 +30,18 @@ tkt
       await FoodReservation.importFood(env, foodModel)
     }
 
-    await importFood('data/food-test.yml', 'test')
     await importFood('data/food.yml', 'development')
     await importFood('data/food.yml', 'production')
     log.info('All done!')
   })
+  .command(
+    'reset-test-env',
+    'Resets the food reservation database for test environment',
+    {},
+    async () => {
+      await FoodReservation.resetTestEnv()
+    },
+  )
   .command(
     'sign-in-with-eventpop <code>',
     'Performs the sign-in-with-Eventpop flow',
