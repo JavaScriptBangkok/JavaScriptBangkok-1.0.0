@@ -49,6 +49,15 @@ export const actualCustomCommands = {
     }
     cy.request(method, url, body)
   },
+  resetFoodReservationTestEnvironment() {
+    const method = 'POST'
+    const url =
+      'https://asia-northeast1-javascriptbangkok-companion.cloudfunctions.net/tester'
+    const body = {
+      command: 'resetFoodReservationTestEnvironment',
+    }
+    cy.request(method, url, body)
+  },
 }
 
 for (const key of Object.keys(actualCustomCommands)) {
