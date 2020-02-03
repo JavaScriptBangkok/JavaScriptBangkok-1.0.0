@@ -13,4 +13,5 @@ interface OurCustomCommands {
   login(username: string): void
   ensureLoggedOut(): void
   updateFoodSelectionTimeout(): void
+  resetFoodReservationTestEnvironment(): void
 }
