@@ -11,10 +11,10 @@
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
+  "main": "lib/index.js",
   "engines": {
     "node": "10"
   },
-  "main": "lib/index.js",
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
