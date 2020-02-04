@@ -1,0 +1,38 @@
+name: E2E
+on:
+  push:
+    paths:
+      - 'e2e/**'
+      - '.github/workflows/cypress.yml'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Install dependencies
+        uses: cypress-io/github-action@v1
+        with:
+          runTests: false
+      - name: Run e2e tests
+        uses: cypress-io/github-action@v1
+        with:
+          install: false
+          working-directory: e2e
+      - name: Ensure we have a necessary directories for artifacts
+        if: always()
+        run: |
+          mkdir -p e2e/cypress/screenshots cypress/videos
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-screenshots
+          path: e2e/cypress/screenshots
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: cypress-videos
+          path: e2e/cypress/videos

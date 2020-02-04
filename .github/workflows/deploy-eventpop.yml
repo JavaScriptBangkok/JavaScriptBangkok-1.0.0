@@ -1,0 +1,18 @@
+name: Deploy event description to Eventpop
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'eventpop/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: docker://dtinth/puppeteer-event-popper:latest
+      with:
+        args: eventpop/description.html
+      env:
+        EVENT_POPPER_API_KEY: ${{ secrets.EVENT_POPPER_API_KEY }}
+        EVENT_POPPER_URL: ${{ secrets.EVENT_POPPER_URL }}

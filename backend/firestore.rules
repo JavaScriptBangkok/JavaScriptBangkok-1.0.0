@@ -1,0 +1,16 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /environments/{environment} {
+      match /profiles/{uid} {
+        allow read: if request.auth.uid == uid;
+      }
+      match /foodChoices/{uid} {
+        allow read: if request.auth.uid == uid;
+      }
+      match /configuration/{configKey} {
+        allow read: if true;
+      }
+    }
+  }
+}

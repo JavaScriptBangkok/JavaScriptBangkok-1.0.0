@@ -1,0 +1,27 @@
+name: Run backend tests
+on:
+  push:
+    paths:
+      - 'backend/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: Set up Firebase Admin Service Account
+        run: |
+          mkdir -p ~/secrets
+          echo "$FIREBASE_SERVICE_ACCOUNT" > ~/secrets/service-account.json
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      - name: Install Dependencies
+        run: |
+          npm i -g yarn && yarn
+      - name: Test
+        run: |
+          cd backend/functions
+          env GOOGLE_APPLICATION_CREDENTIALS=~/secrets/service-account.json yarn jest --ci --forceExit

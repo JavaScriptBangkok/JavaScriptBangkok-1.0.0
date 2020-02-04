@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "environments": {
+      "$environment": {
+        ".read": "true",
+        ".write": "false"
+      }
+    }
+  }
+}
