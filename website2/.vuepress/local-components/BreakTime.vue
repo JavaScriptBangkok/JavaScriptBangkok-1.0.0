@@ -1,12 +1,13 @@
 <template>
-  <div>
-    <div v-if="primary" class="root primary">{{ title }}</div>
-    <div v-if="secondary" class="root secondary">{{ title }}</div>
+  <div v-if="primary" class="root primary">
+    <div>{{ title }}</div>
   </div>
+  <div v-else class="root secondary">{{ title }}</div>
 </template>
 
 <style scope>
 .root {
+  flex: 1;
   padding: 16px;
   color: #fff;
   border-radius: 10px;
@@ -28,10 +29,6 @@ export default {
     primary: {
       type: Boolean,
       default: true,
-    },
-    secondary: {
-      type: Boolean,
-      default: false,
     },
     title: {
       type: String,

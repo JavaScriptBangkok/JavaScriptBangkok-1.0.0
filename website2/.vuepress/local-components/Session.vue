@@ -1,14 +1,14 @@
 <template>
   <div class="root">
-    <div class="avatar">
+    <div class="avatar" v-if="image">
       <img :src="image" />
     </div>
-    <div class="details">
-      <h3 class="title">
-        {{ title }}
-      </h3>
-      <div class="description">
-        {{ description }}
+    <div>
+      <h3 class="title">{{ title }}</h3>
+      <div class="description" v-if="speaker">
+        {{ speaker.name }}
+        <br />
+        {{ speaker.from}}
       </div>
     </div>
   </div>
@@ -16,8 +16,9 @@
 
 <style scoped>
 .root {
+  flex: 1;
   display: flex;
-  padding: 22px 16px;
+  padding: 13px 16px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   align-items: center;
@@ -30,41 +31,38 @@
   border-radius: 50%;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.08);
+  margin-right: 16px;
 }
 .avatar > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.details {
-  padding-left: 16px;
-}
 .title {
   color: #eaba06;
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 0;
 }
 .description {
   color: #767676;
   font-weight: 500;
+  margin-top: 6px;
+  line-height: 1.5;
 }
 </style>
 
 <script>
 export default {
-  name: 'ScheduleItem',
+  name: 'Session',
   props: {
     image: {
       type: String,
-      default: 'https://picsum.photos/120/120',
     },
     title: {
       type: String,
-      default: 'A journey of building large-scale reusable web components',
     },
-    description: {
-      type: String,
-      default: 'Varayut Lerdkanlayanawat from 🇩🇪 Germany',
+    speaker: {
+      type: Object,
     },
   },
 }
