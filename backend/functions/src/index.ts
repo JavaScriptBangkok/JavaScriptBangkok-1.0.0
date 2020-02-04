@@ -195,11 +195,11 @@ export const addUserToNetwork = functions
 
       // CHECK
       if (Networking.willSastifyWinningCondition(me, secondUser)) {
-        Networking.addEventWinner(env, uid)
+        await Networking.addEventWinner(env, uid)
       }
 
       if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
-        Networking.addEventWinner(env, data.uid)
+        await Networking.addEventWinner(env, data.uid)
       }
 
       const actions = [
