@@ -1,15 +1,9 @@
 import admin from 'firebase-admin'
-import { NetworkingProfile, ProfileData } from './Authentication'
+import { Network, NetworkingProfile, ProfileData } from './@types'
 import { getEnvDoc, getEnvRef } from './FirebaseSetup'
 
 const onlyUnique = (value: any, index: any, self: any) =>
   self.indexOf(value) === index
-
-export type Network = {
-  uid: string
-  name: string
-  badge: number
-}
 
 export const badges = [
   {
@@ -29,11 +23,11 @@ export const badges = [
 export const initializeNetworkingProfile = async (
   env: string,
   userID: string,
+  userProfile: ProfileData,
 ) => {
-  const user = await getUserProfile(env, userID)
   const networkingProfile: NetworkingProfile = {
-    firstname: user.firstname,
-    lastname: user.lastname,
+    firstname: userProfile.firstname,
+    lastname: userProfile.lastname,
     networks: [],
     badge: getRandomBadge(),
     bio: '',
@@ -52,15 +46,6 @@ export const getNetworkingProfile = async (env: string, userID: string) => {
       .doc(userID)
       .get()
   ).data() as NetworkingProfile
-}
-
-export const getUserProfile = async (env: string, userID: string) => {
-  return (
-    await getEnvDoc(env)
-      .collection('profiles')
-      .doc(userID)
-      .get()
-  ).data() as ProfileData
 }
 
 export const createNetwork = async (

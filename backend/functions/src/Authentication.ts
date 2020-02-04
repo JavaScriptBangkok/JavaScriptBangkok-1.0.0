@@ -2,28 +2,12 @@ import axios from 'axios'
 import admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
 import querystring from 'querystring'
+import { ProfileData } from './@types'
 import { getConfig } from './Configuration'
 import { getEnvDoc } from './FirebaseSetup'
-import { Network } from './Networking'
 
 export async function mintUserToken(uid: string) {
   return admin.auth().createCustomToken(uid)
-}
-
-export type ProfileData = {
-  firstname: string
-  lastname: string
-  email: string
-  referenceCode: string
-  ticketType: string
-}
-
-export type NetworkingProfile = {
-  firstname: string
-  lastname: string
-  badge: number
-  networks: Network[]
-  bio: string
 }
 
 export async function intializeProfile(
@@ -171,4 +155,13 @@ function handleNetworkError(action: string) {
     }
     throw new Error('Failed to ' + action + ': ' + error)
   }
+}
+
+export const getUserProfile = async (env: string, userID: string) => {
+  return (
+    await getEnvDoc(env)
+      .collection('profiles')
+      .doc(userID)
+      .get()
+  ).data() as ProfileData
 }

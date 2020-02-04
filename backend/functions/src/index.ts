@@ -1,4 +1,5 @@
 import * as functions from 'firebase-functions'
+import { Network } from './@types'
 import * as Announcement from './Announcement'
 import * as Authentication from './Authentication'
 import { initializeFirebase } from './FirebaseSetup'
@@ -146,7 +147,9 @@ export const createNetworkingProfile = functions
     }
     const env = envFromUserInput(data.env)
     const uid = auth.uid
-    await Networking.initializeNetworkingProfile(env, uid)
+    const userProfile = await Authentication.getUserProfile(env, uid)
+    await Networking.initializeNetworkingProfile(env, uid, userProfile)
+    return { ok: true }
   })
 
 export const addUserToNetwork = functions
@@ -177,14 +180,14 @@ export const addUserToNetwork = functions
       }
 
       // NOT ME
-      const secondUser: Networking.Network = {
+      const secondUser: Network = {
         uid: data.uid,
         name: checkedUser.firstname,
         badge: checkedUser.badge,
       }
 
       // ME
-      const firstUser: Networking.Network = {
+      const firstUser: Network = {
         uid: uid,
         name: me.firstname,
         badge: me.badge,
