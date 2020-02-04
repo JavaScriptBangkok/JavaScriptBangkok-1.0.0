@@ -1,5 +1,5 @@
 import admin from 'firebase-admin'
-import { ProfileData } from './Authentication'
+import { NetworkingProfile, ProfileData } from './Authentication'
 import { getEnvDoc, getEnvRef } from './FirebaseSetup'
 
 const onlyUnique = (value: any, index: any, self: any) =>
@@ -8,12 +8,53 @@ const onlyUnique = (value: any, index: any, self: any) =>
 export type Network = {
   uid: string
   name: string
-  badge: string
+  badge: number
 }
 
-export const badges = ['TypeScript', 'JavaScript', 'React']
+export const badges = [
+  {
+    id: 1,
+    name: 'React',
+  },
+  {
+    id: 2,
+    name: 'TypeScript',
+  },
+  {
+    id: 3,
+    name: 'JavaScript',
+  },
+]
 
-export const getUser = async (env: string, userID: string) => {
+export const initializeNetworkingProfile = async (
+  env: string,
+  userID: string,
+) => {
+  const user = await getUserProfile(env, userID)
+  const networkingProfile: NetworkingProfile = {
+    firstname: user.firstname,
+    lastname: user.lastname,
+    networks: [],
+    badge: getRandomBadge(),
+    bio: '',
+  }
+  await getEnvDoc(env)
+    .collection('networkingProfiles')
+    .doc(userID)
+    .set(networkingProfile)
+  return true
+}
+
+export const getNetworkingProfile = async (env: string, userID: string) => {
+  return (
+    await getEnvDoc(env)
+      .collection('networkingProfiles')
+      .doc(userID)
+      .get()
+  ).data() as NetworkingProfile
+}
+
+export const getUserProfile = async (env: string, userID: string) => {
   return (
     await getEnvDoc(env)
       .collection('profiles')
@@ -28,7 +69,7 @@ export const createNetwork = async (
   user: Network,
 ) => {
   await getEnvDoc(env)
-    .collection('profiles')
+    .collection('networkingProfiles')
     .doc(targetUserID)
     .update({
       networks: admin.firestore.FieldValue.arrayUnion(user),
@@ -37,7 +78,7 @@ export const createNetwork = async (
 }
 
 export const willSastifyWinningCondition = (
-  user: ProfileData,
+  user: NetworkingProfile,
   nextUser: Network,
 ) => {
   let currentBadges = user.networks.map(network => network.badge)
@@ -50,7 +91,7 @@ export const willSastifyWinningCondition = (
 
 export const editBio = async (env: string, userID: string, bio: string) => {
   await getEnvDoc(env)
-    .collection('profiles')
+    .collection('networkingProfiles')
     .doc(userID)
     .set({
       bio,
@@ -67,4 +108,4 @@ export const addEventWinner = async (env: string, userID: string) => {
 }
 
 export const getRandomBadge = () =>
-  badges[Math.floor(Math.random() * badges.length)]
+  badges[Math.floor(Math.random() * badges.length)].id

@@ -4,7 +4,7 @@ import * as functions from 'firebase-functions'
 import querystring from 'querystring'
 import { getConfig } from './Configuration'
 import { getEnvDoc } from './FirebaseSetup'
-import { getRandomBadge, Network } from './Networking'
+import { Network } from './Networking'
 
 export async function mintUserToken(uid: string) {
   return admin.auth().createCustomToken(uid)
@@ -16,7 +16,12 @@ export type ProfileData = {
   email: string
   referenceCode: string
   ticketType: string
-  badge: string
+}
+
+export type NetworkingProfile = {
+  firstname: string
+  lastname: string
+  badge: number
   networks: Network[]
   bio: string
 }
@@ -62,13 +67,6 @@ export async function intializeProfile(
 
 export async function getTestToken(uid: string) {
   const allowedUids = ['test01', 'test02', 'test03', 'test04', 'test05']
-  const testBadge: Record<string, string> = {
-    test01: 'TypeScript',
-    test02: 'JavaScript',
-    test03: 'React',
-    test04: 'TypeScript',
-    test05: 'JavaScript',
-  }
   if (!allowedUids.includes(uid)) {
     throw new functions.https.HttpsError(
       'invalid-argument',
@@ -82,9 +80,6 @@ export async function getTestToken(uid: string) {
     email: `${uid}@example.com`,
     referenceCode: uid.toUpperCase(),
     ticketType: 'Test Ticket',
-    badge: testBadge[uid],
-    networks: [],
-    bio: '',
   })
   const token = await mintUserToken(uid)
   return token
@@ -164,9 +159,6 @@ export async function getProfilesFromEventpop(
       email: ticket.email,
       referenceCode: ticket.reference_code,
       ticketType: ticket.ticket_type?.name,
-      badge: getRandomBadge(),
-      networks: [],
-      bio: '',
     }),
   )
 }

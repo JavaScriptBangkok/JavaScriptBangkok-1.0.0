@@ -134,6 +134,21 @@ function envFromUserInput(env: string) {
   return env
 }
 
+export const createNetworkingProfile = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const uid = auth.uid
+    await Networking.initializeNetworkingProfile(env, uid)
+  })
+
 export const addUserToNetwork = functions
   .region('asia-northeast1')
   .https.onCall(async (data, context) => {
@@ -148,8 +163,8 @@ export const addUserToNetwork = functions
     const uid = auth.uid
 
     const checks = [
-      await Networking.getUser(env, data.uid),
-      await Networking.getUser(env, uid),
+      await Networking.getNetworkingProfile(env, data.uid),
+      await Networking.getNetworkingProfile(env, uid),
     ]
 
     try {
