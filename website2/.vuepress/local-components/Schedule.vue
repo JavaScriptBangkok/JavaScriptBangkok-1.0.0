@@ -17,6 +17,7 @@
 <style scoped>
 .schedule {
   display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -24,13 +25,8 @@ ul {
   padding: 0;
 }
 
-ul:not(:first-child) {
-  margin-left: 80px;
-}
-
 li {
-  display: flex;
-  align-items: center;
+  display: block;
 }
 
 li:not(:last-child) {
@@ -47,6 +43,28 @@ li:focus {
   font-weight: 800;
   font-size: 18px;
   color: #164194;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 640px) {
+  li {
+    display: flex;
+    align-items: center;
+  }
+
+  .time {
+    margin-bottom: none;
+  }
+}
+
+@media (min-width: 1100px) {
+  .schedule {
+    flex-direction: row;
+  }
+
+  ul:not(:first-child) {
+    margin-left: 80px;
+  }
 }
 </style>
 
