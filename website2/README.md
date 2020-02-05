@@ -76,6 +76,7 @@ homepage: true
 ## Schedule
 
 <div>
+  <a id="#schedule" />
   <Schedule />
 </div>
 
