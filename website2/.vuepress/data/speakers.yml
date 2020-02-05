@@ -1,5 +1,6 @@
 - title: The Art of Crafting Codemods
   name: Rajasegar Chandran
+  from: 🇮🇳India
   position: Front-end Developer @ Freshworks Inc.
   image: /speaker-images/04.jpg
   url: http://hangaroundtheweb.com/
@@ -12,6 +13,7 @@
 
 - title: A journey of building large-scale reusable web components
   name: Varayut Lerdkanlayanawat
+  from: 🇩🇪Germany
   position: Software Development Engineer @ Amazon
   image: /speaker-images/05.jpg
   url: https://github.com/lvarayut
@@ -31,6 +33,7 @@
 
 - title: Applying SOLID principle in JavaScript without Class and Object
   name: Chakrit Likitkhajorn
+  from: 🇹🇭Thailand
   position: Senior Software Engineer @ Omise
   image: /speaker-images/06.png
   url: https://medium.com/@chrisza
@@ -45,6 +48,7 @@
 
 - title: 'Talking about “Scale”: Takeaways from our attempt on scaling a small system in the Gojek Universe'
   name: Tino Thamjarat
+  from: 🇹🇭Thailand
   position: Product Engineer @ Gojek
   image: /speaker-images/07.jpg
   url: https://vtno.me/
@@ -62,6 +66,7 @@
 
 - title: End-to-end Type-Safe GraphQL Apps
   name: Carlos Rufo
+  from: 🇪🇸Spain
   position: Organizer @ GraphQL Hong Kong
   image: /speaker-images/10.jpg
   url: https://medium.com/@swcarlosrj
@@ -78,6 +83,7 @@
 
 - title: What happens when you cancel an HTTP request?
   name: Younes Jaaidi
+  from: 🇫🇷France
   position: Developer & eXtreme Programming Coach @ Marmicode Wishtack
   image: /speaker-images/08.jpg
   url: https://marmicode.io
@@ -94,6 +100,7 @@
 
 - title: Adventures with the Event Loop
   name: Erin Zimmer
+  from: 🇦🇺Australia
   position: Senior Engineer & Thought Leader @ Shine Solutions
   image: /speaker-images/09.jpg
   url: https://ez.codes
@@ -111,6 +118,7 @@
 
 - title: Building your first malicious chrome extension 😈
   name: Alon Kiriati
+  from: 🇮🇱Israel
   position: Tech Lead @ Dropbox
   image: /speaker-images/11.jpg
   url: https://www.linkedin.com/in/akiriati/
@@ -127,6 +135,7 @@
 
 - title: DevTools, the CSS advocate in your browser
   name: Chen Hui Jing
+  from: 🇸🇬Singapore
   position: Developer Advocate @ Nexmo
   image: /speaker-images/12.jpg
   url: https://www.chenhuijing.com
@@ -141,6 +150,7 @@
 
 - title: A love story written in JavaScript
   name: Ramón Guijarro
+  from: 🇪🇸Spain
   position: Software Engineer @ Undefined Labs
   image: /speaker-images/01.jpg
   url: https://speakerdex.co/soyguijarro
@@ -160,6 +170,7 @@
 
 - title: 'Just go for it: The story of dance-mat.js'
   name: Ramón Huidobro
+  from: 🇦🇹Austria
   position: Freelancer
   image: /speaker-images/03.jpg
   url: https://ramonh.dev
@@ -173,6 +184,7 @@
 
 - title: "Poor Man's Patcher: A game modder's adventure through serverless sea without money"
   name: Atthaporn Thanongkiatisak
+  from: 🇹🇭Thailand
   position: Application Architect @ EGG Digital, Ascend Group
   image: /speaker-images/13.jpg
   url: https://www.atp-tha.com/
@@ -190,6 +202,7 @@
 
 - title: Optimization design patterns - from games to web
   name: Yonatan Kra
+  from: 🇮🇱Israel
   position: Staff Engineer @ WalkMe
   image: /speaker-images/02.jpg
   url: https://bit.ly/yk_blog
@@ -202,6 +215,7 @@
 
 - title: How I met my superset of JavaScript
   name: Sirirat Rungpetcharat
+  from: 🇹🇭Thailand
   position: CTO @ Builk One Group Co., Ltd.
   image: /speaker-images/14.jpg
   url: https://medium.com/@coalapaparazzi
@@ -216,6 +230,7 @@
 
 - title: Speed up heavy data visualization with Rust and WebAssembly
   name: Rujira Aksornsin
+  from: 🇹🇭Thailand
   position: Frontend Developer Team Lead @ AppMan
   image: /speaker-images/15.jpg
   url:
