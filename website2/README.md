@@ -76,7 +76,7 @@ homepage: true
 ## Schedule
 
 <div>
-  <Schedule />
+  <Schedule :schedule="schedule" :speakers="speakers" />
 </div>
 
 ## Sponsors
@@ -97,6 +97,7 @@ import SpeakerGroup from './.vuepress/local-components/SpeakerGroup.vue'
 import Schedule from './.vuepress/local-components/Schedule.vue'
 import Footer from './.vuepress/local-components/Footer.vue'
 import speakers from 'json-loader!yaml-loader!./.vuepress/data/speakers.yml'
+import schedule from 'json-loader!yaml-loader!./.vuepress/data/schedule.yml'
 
 export default {
   components: {
@@ -111,6 +112,11 @@ export default {
   },
   data () {
     return {
+      speakers: speakers.reduce(
+        (acc, speaker) => ({ ...acc, [speaker.name]: speaker }),
+        {},
+      ),
+      schedule,
       isSpeakerModalActive: false,
       speakerModalData: {
         name: '',

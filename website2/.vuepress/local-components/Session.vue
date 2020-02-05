@@ -1,10 +1,10 @@
 <template>
   <div class="root">
-    <div class="avatar" v-if="image">
-      <img :src="image" />
+    <div class="avatar" v-if="speaker.image">
+      <img :src="speaker.image" />
     </div>
     <div>
-      <h3 class="title">{{ title }}</h3>
+      <h3 class="title">{{ speaker.title | title }}</h3>
       <div class="description" v-if="speaker">
         {{ speaker.name }}
         <br />
@@ -55,14 +55,11 @@
 export default {
   name: 'Session',
   props: {
-    image: {
-      type: String,
+    speaker: {
+      type: Object,
     },
     title: {
       type: String,
-    },
-    speaker: {
-      type: Object,
     },
   },
 }
