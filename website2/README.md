@@ -76,7 +76,7 @@ homepage: true
 ## Schedule
 
 <div>
-  <Schedule :schedule="schedule" :speakers="speakers" />
+  <Schedule />
 </div>
 
 ## Sponsors
