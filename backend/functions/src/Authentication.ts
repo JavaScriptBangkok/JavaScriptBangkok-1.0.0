@@ -5,6 +5,7 @@ import querystring from 'querystring'
 import { ProfileData } from './@types'
 import { getConfig } from './Configuration'
 import { getEnvDoc } from './FirebaseSetup'
+import ObjectID from 'bson-objectid'
 
 export async function mintUserToken(uid: string) {
   return admin.auth().createCustomToken(uid)
@@ -17,17 +18,7 @@ export async function intializeProfile(
 ): Promise<ProfileData> {
   await admin
     .auth()
-    .createUser({
-      uid: uid,
-      email: initialProfileData.email,
-      emailVerified: true,
-    })
-    .catch(error => {
-      if (error?.errorInfo?.code === 'auth/email-already-exists') {
-        return admin.auth().createUser({ uid: uid })
-      }
-      throw error
-    })
+    .createUser({ uid: uid })
     .catch(error => {
       if (error?.errorInfo?.code === 'auth/uid-already-exists') {
         return
@@ -77,7 +68,7 @@ export async function authenticateWithEventpopAuthorizationCode(
   const profiles = await getProfilesFromEventpop(accessToken)
   return Promise.all(
     profiles.map(async profile => {
-      const uid = 'eventpop_' + profile.referenceCode
+      const uid = await getFirebaseUidFromTicketCode(env, profile.referenceCode)
       await intializeProfile(env, uid, profile)
       const token = await mintUserToken(uid)
       return {
@@ -164,4 +155,23 @@ export const getUserProfile = async (env: string, userID: string) => {
       .doc(userID)
       .get()
   ).data() as ProfileData
+}
+
+export function getFirebaseUidFromTicketCode(
+  env: string,
+  referenceCode: string,
+) {
+  const doc = getEnvDoc(env)
+    .collection('ticketReferenceCodeToUid')
+    .doc(referenceCode)
+  return admin.firestore().runTransaction(async tx => {
+    const existing = await tx.get(doc)
+    if (existing.exists) {
+      return existing.get('uid')
+    } else {
+      const uid = 'eventpop_' + ObjectID.generate()
+      tx.set(doc, { uid })
+      return uid
+    }
+  })
 }
