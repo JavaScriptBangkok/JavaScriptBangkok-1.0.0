@@ -108,6 +108,37 @@ groups:
               - id: GJS
                 title: 'Grass Jelly with Syrup (เฉาก๊วยน้ำเชื่อม)'
                 availability: 20
+      - id: Kin
+        title: 'Kin'
+        availability: 30
+        info: |
+          - Yakibuta Set
+          - Grilled Saba with Rice
+          - Fried Pork with Rice
+          - Grilled Chicken with Rice
+        customizations:
+          - id: Food
+            title: 'Food (อาหาร)'
+            textLength: long
+            choices:
+              - id: YKB
+                title: 'Yakibuta Set (ชุดหมูผัดซีอิ๊ว)'
+                availability: 5
+              - id: SBA
+                title: 'Grilled Saba with Rice (ข้าวหน้าปลาซาบะย่าง)'
+                availability: 10
+              - id: FPK
+                title: 'Fried Pork with Rice (ข้าวหน้าหมูทอด)'
+                availability: 10
+              - id: CHK
+                title: 'Grilled Chicken with Rice (ข้าวหน้าไก่ย่างซีอิ๊ว)'
+                availability: 5
+          - id: Drink
+            title: 'Drink (เครื่องดื่ม)'
+            textLength: short
+            choices:
+              - id: WTR
+                title: 'Drinking water (น้ำดื่ม)'
   - title: 'Floor 4: Restaurants'
     allowedChoices: 1
     choices:
@@ -353,37 +384,6 @@ groups:
               - id: EPK
                 title: 'Karaage Bowl (ข้าวไก่ทอดคาราอะเกะ)'
                 availability: 10
-          - id: Drink
-            title: 'Drink (เครื่องดื่ม)'
-            textLength: short
-            choices:
-              - id: WTR
-                title: 'Drinking water (น้ำดื่ม)'
-      - id: Kin
-        title: 'Kin'
-        availability: 30
-        info: |
-          - Yakibuta Set
-          - Grilled Saba with Rice
-          - Fried Pork with Rice
-          - Grilled Chicken with Rice
-        customizations:
-          - id: Food
-            title: 'Food (อาหาร)'
-            textLength: long
-            choices:
-              - id: YKB
-                title: 'Yakibuta Set (ชุดหมูผัดซีอิ๊ว)'
-                availability: 5
-              - id: SBA
-                title: 'Grilled Saba with Rice (ข้าวหน้าปลาซาบะย่าง)'
-                availability: 10
-              - id: FPK
-                title: 'Fried Pork with Rice (ข้าวหน้าหมูทอด)'
-                availability: 10
-              - id: CHK
-                title: 'Grilled Chicken with Rice (ข้าวหน้าไก่ย่างซีอิ๊ว)'
-                availability: 5
           - id: Drink
             title: 'Drink (เครื่องดื่ม)'
             textLength: short
