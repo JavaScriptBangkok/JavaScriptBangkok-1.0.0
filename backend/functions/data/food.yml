@@ -68,37 +68,6 @@ groups:
             choices:
               - id: WTR
                 title: 'Drinking water (น้ำดื่ม)'
-      - id: Yoshinoya
-        title: 'Yoshinoya'
-        availability: 35
-        info: |
-          - Spicy Teriyaki Saba Set
-          - Dice Buta Steak Set
-          - Buta Spicy Honey and Soy Sauce Set
-        customizations:
-          - id: Food
-            title: 'Food (อาหาร)'
-            textLength: long
-            choices:
-              - id: STA
-                title: 'Spicy Teriyaki Saba Set (ชุดปลาซะบาเทริยากิรสเผ็ด)'
-                availability: 10
-              - id: BFK
-                title: 'Dice Buta Steak Set (ชุดสเต็กหมูหั่นเต๋า)'
-                availability: 13
-              - id: PRK
-                title: 'Buta Spicy Honey and Soy Sauce Set (ชุดหมูผัดซอสสไปซี่ฮันนี่โชยุ)'
-                availability: 12
-          - id: Drink
-            title: 'Drink (เครื่องดื่ม)'
-            textLength: short
-            choices:
-              - id: GRT
-                title: 'Green Tea (ชาเขียว)'
-              - id: PEP
-                title: 'Pepsi (เป๊ปซี่)'
-              - id: LMT
-                title: 'Lemon Tea (ชามะนาว)'
       - id: Doodee
         title: 'Kuek Kak by Doodee (คึกคัก โดย ดู๋ดี๋สยาม)'
         info: |
