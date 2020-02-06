@@ -1,5 +1,5 @@
-import * as fs from 'fs'
 import admin from 'firebase-admin'
+import * as fs from 'fs'
 
 export function initializeFirebase() {
   if (fs.existsSync('service-account.json')) {

@@ -1,8 +1,10 @@
 import * as functions from 'firebase-functions'
-import { initializeFirebase } from './FirebaseSetup'
-import * as Authentication from './Authentication'
+import { Network } from './@types'
 import * as Announcement from './Announcement'
+import * as Authentication from './Authentication'
+import { initializeFirebase } from './FirebaseSetup'
 import * as FoodReservation from './FoodReservation'
+import * as Networking from './Networking'
 
 initializeFirebase()
 
@@ -132,3 +134,85 @@ function envFromUserInput(env: string) {
   }
   return env
 }
+
+export const createNetworkingProfile = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const uid = auth.uid
+    const userProfile = await Authentication.getUserProfile(env, uid)
+    await Networking.initializeNetworkingProfile(env, uid, userProfile)
+    return { ok: true }
+  })
+
+export const addUserToNetwork = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const uid = auth.uid
+
+    const checks = [
+      await Networking.getNetworkingProfile(env, data.uid),
+      await Networking.getNetworkingProfile(env, uid),
+    ]
+
+    try {
+      const [checkedUser, me] = await Promise.all(checks)
+      if (!checkedUser) {
+        throw new functions.https.HttpsError(
+          'failed-precondition',
+          'User does not exist.',
+        )
+      }
+
+      // NOT ME
+      const secondUser: Network = {
+        uid: data.uid,
+        name: checkedUser.firstname,
+        badge: checkedUser.badge,
+      }
+
+      // ME
+      const firstUser: Network = {
+        uid: uid,
+        name: me.firstname,
+        badge: me.badge,
+      }
+
+      // CHECK
+      if (Networking.willSastifyWinningCondition(me, secondUser)) {
+        await Networking.addEventWinner(env, uid)
+      }
+
+      if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
+        await Networking.addEventWinner(env, data.uid)
+      }
+
+      const actions = [
+        await Networking.createNetwork(env, firstUser.uid, secondUser),
+        await Networking.createNetwork(env, secondUser.uid, firstUser),
+      ]
+
+      await Promise.all(actions)
+      return { ok: true }
+    } catch (_) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'User does not exist.',
+      )
+    }
+  })

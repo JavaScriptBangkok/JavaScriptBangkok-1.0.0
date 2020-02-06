@@ -1,0 +1,96 @@
+- time: 8:30 - 9:00
+  type: register
+  title: 📝Registration
+
+- time: 9:00 - 9:10
+  type: remarks
+  title: Opening remarks
+
+- time: 9:10 - 9:35
+  type: session
+  speakerName: Varayut Lerdkanlayanawat
+
+- time: 9:40 - 10:05
+  type: session
+  speakerName: Yonatan Kra
+
+- time: 10:10 - 10:35
+  type: session
+  speakerName: Rajasegar Chandran
+
+- time: 10:40 - 10:50
+  type: sponsor
+  title: '👑Our lovely sponsor: KBTG'
+
+- time: 10:55 - 11:20
+  type: session
+  speakerName: Sirirat Rungpetcharat
+
+- time: 11:25 - 11:50
+  type: session
+  speakerName: Younes Jaaidi
+
+- time: 11:55 - 12:20
+  type: session
+  speakerName: Tino Thamjarat
+
+- time: 12:25 - 13:25
+  type: break
+  title: Lunch Break
+
+- time: 13:25 - 13:50
+  type: session
+  speakerName: Erin Zimmer
+
+- time: 13:55 - 14:20
+  type: session
+  speakerName: Carlos Rufo
+
+- time: 14:25 - 14:30
+  type: sponsor
+  title: '👑Our lovely sponsor: Oozou'
+
+- time: 14:35 - 15:00
+  type: session
+  speakerName: Chakrit Likitkhajorn
+
+- time: 15:05 - 15:30
+  type: session
+  speakerName: Chen Hui Jing
+
+- time: 15:35 - 15:40
+  type: sponsor
+  title: '👑Our lovely sponsor: ODDS'
+
+- time: 15:45 - 16:10
+  type: session
+  speakerName: Atthaporn Thanongkiatisak
+
+- time: 16:15 - 16:40
+  type: session
+  speakerName: Alon Kiriati
+
+  # title: Building your first malicious chrome extension 😈
+- time: 16:45 - 16:50
+  type: sponsor
+  title: '👑Our lovely sponsor: ExxonMobil'
+
+- time: 16:55 - 17:20
+  type: session
+  speakerName: Ramón Huidobro
+
+- time: 17:25 - 17:50
+  type: session
+  speakerName: Rujira Aksornsin
+
+- time: 17:55 - 18:20
+  type: session
+  speakerName: Ramón Guijarro
+
+- time: 18:25 - 18:35
+  type: remarks
+  title: Closing remarks
+
+- time: 18:35 - 23:00
+  type: break
+  title: 🎉Networking party
