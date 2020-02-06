@@ -30,7 +30,7 @@ staffRoll:
       - Tananan Tangthanachaikul
   - title: Logistics
     roles:
-      - role: Organizers
+      - role: Organizer
         list:
           - Jinsiree Palakawongsa Na Ayudhya
       - role: Accounting
@@ -99,7 +99,9 @@ staffRoll:
   <table v-if="section.roles" style="margin: 0 auto">
     <tbody>
       <tr v-for="role of section.roles">
-        <td style="text-align: right; padding-right: 1ex; vertical-align: top;">{{role.role}}</td>
+        <td style="text-align: right; padding-right: 1ex; vertical-align: top;">
+          <span style="opacity: 0.75">{{role.role}}</span>
+        </td>
         <td style="text-align: left">
           <div v-for="name of role.list || []">
             <template v-if="$page.frontmatter.urls[name]">
