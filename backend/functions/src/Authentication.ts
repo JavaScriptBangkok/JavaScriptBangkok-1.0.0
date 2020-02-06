@@ -18,17 +18,7 @@ export async function intializeProfile(
 ): Promise<ProfileData> {
   await admin
     .auth()
-    .createUser({
-      uid: uid,
-      email: initialProfileData.email,
-      emailVerified: true,
-    })
-    .catch(error => {
-      if (error?.errorInfo?.code === 'auth/email-already-exists') {
-        return admin.auth().createUser({ uid: uid })
-      }
-      throw error
-    })
+    .createUser({ uid: uid })
     .catch(error => {
       if (error?.errorInfo?.code === 'auth/uid-already-exists') {
         return
