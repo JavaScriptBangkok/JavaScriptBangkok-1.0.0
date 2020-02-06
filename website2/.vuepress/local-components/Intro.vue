@@ -141,7 +141,6 @@
         <strong>Get Tickets</strong>
       </a>
       <router-link to="/code-of-conduct/" class="button secondary">Code of Conduct</router-link>
-      <router-link to="/scholarship/" class="button secondary">Scholarship</router-link>
     </p>
 
     <p class="date">February 8th, 2020</p>
