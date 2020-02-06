@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions'
 import { Network } from './@types'
 import * as Announcement from './Announcement'
 import * as Authentication from './Authentication'
-import { initializeFirebase } from './FirebaseSetup'
+import { initializeFirebase, getEnvDoc } from './FirebaseSetup'
 import * as FoodReservation from './FoodReservation'
 import * as Networking from './Networking'
 
@@ -19,6 +19,31 @@ export const setTestAnnouncement = functions
   .https.onRequest(async (request, response) => {
     try {
       await Announcement.updateAnnouncementText('test', request.body.text)
+      response.json({ ok: true })
+    } catch (e) {
+      response.status(500).json({ ok: false })
+      console.error(e)
+    }
+  })
+
+export const setAnnouncement = functions
+  .region('asia-northeast1')
+  .https.onRequest(async (request, response) => {
+    try {
+      const env = envFromUserInput(request.body.env || request.query.env)
+      const authorization = await getEnvDoc(env)
+        .collection('apiKeys')
+        .doc(request.body.apiKey || request.query.apiKey)
+        .get()
+      if (!authorization.exists || !authorization.get('canEditAnnouncement')) {
+        response.status(401).json({ ok: false, message: 'Not authorized' })
+        return
+      }
+      const isAnIssue = request.body.issue?.number === 46
+      await Announcement.updateAnnouncementText(
+        env,
+        isAnIssue ? request.body.issue.body : request.body.text,
+      )
       response.json({ ok: true })
     } catch (e) {
       response.status(500).json({ ok: false })
