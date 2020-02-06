@@ -170,11 +170,7 @@ export function getFirebaseUidFromTicketCode(
       return existing.get('uid')
     } else {
       const uid = 'eventpop_' + ObjectID.generate()
-      const reverseDoc = getEnvDoc(env)
-        .collection('uidToTicketReferenceCode')
-        .doc(uid)
       tx.set(doc, { uid })
-      tx.set(reverseDoc, { referenceCode })
       return uid
     }
   })
