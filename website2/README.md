@@ -9,39 +9,7 @@ homepage: true
 
 ## Speakers
 
-<div v-if="!$flags.preview">
-  <SpeakerGroup :groupName="'#TeamEngineering'">
-    <OldSpeakerList
-    slot="content"
-    :speakers="getSpeakersByGroup('Engineering')"
-    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
-  </SpeakerGroup>
-  <SpeakerGroup :groupName="'#TeamExperience'">
-    <OldSpeakerList
-    slot="content"
-    :speakers="getSpeakersByGroup('Experience')"
-    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
-  </SpeakerGroup>
-  <SpeakerGroup :groupName="'#TeamKnowhow'">
-    <OldSpeakerList
-    slot="content"
-    :speakers="getSpeakersByGroup('Knowledge')"
-    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
-  </SpeakerGroup>
-  <SpeakerGroup :groupName="'#TeamPerformance'">
-    <OldSpeakerList
-    slot="content"
-    :speakers="getSpeakersByGroup('Performance')"
-    @clickSpeaker="openSpeakerModal"></OldSpeakerList>
-  </SpeakerGroup>
-  <SpeakerModal
-  v-if="isSpeakerModalActive"
-  v-bind="speakerModalData"
-  @closeModal="setIsSpeakerModalActive(false)">
-  </SpeakerModal>
-</div>
-
-<div v-if="$flags.preview">
+<div>
   <SpeakerGroup :groupName="'#TeamEngineering'">
     <SpeakerList
     slot="content"
@@ -76,7 +44,7 @@ homepage: true
 ## Schedule
 
 <div>
-  <Schedule />
+  <Schedule :speakers="speakers" :schedule="schedule" />
 </div>
 
 ## Sponsors
