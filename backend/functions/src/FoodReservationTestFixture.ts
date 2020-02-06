@@ -73,9 +73,9 @@ export const testMenu = {
               title: 'Food (อาหาร)',
               textLength: 'long',
               choices: [
-                { id: 'H', title: 'Menu H' },
-                { id: 'I', title: 'Menu I' },
-                { id: 'J', title: 'Menu J' },
+                { id: 'H', title: 'Menu H', availability: 2 },
+                { id: 'I', title: 'Menu I', availability: 1 },
+                { id: 'J', title: 'Menu J', availability: 0 },
               ],
             },
             {
