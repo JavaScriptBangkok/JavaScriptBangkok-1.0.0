@@ -28,7 +28,7 @@ export const badges = [
   },
   {
     id: 6,
-    name: 'VueJS',
+    name: 'Vue',
   },
   {
     id: 7,
