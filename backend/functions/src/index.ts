@@ -173,7 +173,12 @@ export const createNetworkingProfile = functions
     const env = envFromUserInput(data.env)
     const uid = auth.uid
     const userProfile = await Authentication.getUserProfile(env, uid)
-    await Networking.initializeNetworkingProfile(env, uid, userProfile)
+    await Networking.initializeNetworkingProfile(
+      env,
+      uid,
+      userProfile,
+      data.bio,
+    )
     return { ok: true }
   })
 

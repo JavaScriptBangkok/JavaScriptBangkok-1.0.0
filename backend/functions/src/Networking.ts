@@ -40,13 +40,14 @@ export const initializeNetworkingProfile = async (
   env: string,
   userID: string,
   userProfile: ProfileData,
+  bio: string,
 ) => {
   const networkingProfile: NetworkingProfile = {
     firstname: userProfile.firstname,
     lastname: userProfile.lastname,
     networks: [],
     badge: getRandomBadge(),
-    bio: '',
+    bio: bio ?? '',
   }
   await getEnvDoc(env)
     .collection('networkingProfiles')
