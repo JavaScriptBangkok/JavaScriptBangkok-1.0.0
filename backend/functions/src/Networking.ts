@@ -80,7 +80,7 @@ export const editBio = async (env: string, userID: string, bio: string) => {
   await getEnvDoc(env)
     .collection('networkingProfiles')
     .doc(userID)
-    .set({
+    .update({
       bio,
     })
   return true
@@ -94,10 +94,12 @@ export const addEventWinner = async (env: string, userID: string) => {
   console.log(`[addEventWinner:${env}]`, userID)
   const payload: { [key: string]: number } = {}
   payload[userID] = admin.database.ServerValue.TIMESTAMP
+  const timestamp = admin.database.ServerValue.TIMESTAMP
   await getEnvRef(env)
     .child('networking')
     .child('winners')
-    .set(payload)
+    .child(userID)
+    .set(timestamp)
   return true
 }
 
