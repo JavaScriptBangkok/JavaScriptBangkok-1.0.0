@@ -47,7 +47,10 @@ export const initializeNetworkingProfile = async (
     firstname: userProfile.firstname,
     lastname: userProfile.lastname,
     networks: [],
-    badge: env === 'test' ? allowedUids.indexOf(userID) + 1 : getRandomBadge(),
+    badge:
+      env === 'test'
+        ? (allowedUids.indexOf(userID) % badges.length) + 1
+        : getRandomBadge(),
     bio: bio ?? '',
   }
   await getEnvDoc(env)
