@@ -117,6 +117,18 @@ export const signInWithEventpop = functions
     return { ok: true, result }
   })
 
+export const signInWithEventpopInfo = functions
+  .region('asia-northeast1')
+  .https.onCall(async data => {
+    const env = envFromUserInput(data.env)
+    const result = await Authentication.authenticateWithEventpopTicketInfo(
+      env,
+      String(data.referenceCode),
+      String(data.phoneNumber),
+    )
+    return { ok: true, result }
+  })
+
 export const selectFoodChoice = functions
   .region('asia-northeast1')
   .https.onCall(async (data, context) => {
