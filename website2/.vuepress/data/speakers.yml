@@ -239,3 +239,15 @@
   group: Performance
   description: |
     When we need to perform a large data calculation and a large data visualization on the website, performance issues always came as an old familiar friend. This talk will share my experiment on using Rust and WebAssembly to solve this problem base on old project limitations and conditions.
+
+- title: Understanding React practice by learning functional programming in JavaScript
+  name: Nattapon Rattajak
+  from: 🇹🇭Thailand
+  position: Full-stack JavaScript Developer at KBTG
+  image:
+  url:
+  email:
+  about:
+  group: Engineering
+  description: |
+    Functional programming has become a hot topic in the JavaScript world. And so many frontend framework heavy use functional programming ideas.
