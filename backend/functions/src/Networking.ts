@@ -91,7 +91,7 @@ export const willSastifyWinningCondition = (
   currentBadges.push(user.badge)
   currentBadges.push(nextUser.badge)
   currentBadges = currentBadges.filter(onlyUnique)
-  let badgeIDs = badges.map(b => b.id)
+  const badgeIDs = badges.map(b => b.id)
   const isSastified =
     currentBadges.sort().join('.') === badgeIDs.sort().join('.')
   return isSastified
