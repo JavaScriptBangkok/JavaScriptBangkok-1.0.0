@@ -9,7 +9,8 @@ urls:
   Siwat Kaolueng: https://perjerz.me
   Tananan Tangthanachaikul: https://microbenz.in.th/
   Thai Pangsakulyanont: https://dt.in.th/
-  Thunyaporn Samrankase: thunya-sam.com
+  Thohirah Husaini: https://github.com/thoritie
+  Thunyaporn Samrankase: https://thunya-sam.com
   Wutichai Saejao: https://github.com/wootsaejao
 staffRoll:
   - title: Executive producer
@@ -40,6 +41,11 @@ staffRoll:
         list:
           - Wutichai Saejao
           - Arnon Kaewprasert
+      - role: Sponsors Coordinator
+        list:
+          - Chinnabhorn Soonue
+          - Kelwalee Patcharanunthorn
+          - Punpikorn Rattanawirojkul
       - role: Food and Beverages
         list:
           - Siwat Kaolueng
@@ -47,6 +53,7 @@ staffRoll:
         list:
           - Mahatthana Nomsawadi
           - Arnon Kaewprasert
+          - Thohirah Husaini
   - title: Development
     roles:
       - role: Architect
