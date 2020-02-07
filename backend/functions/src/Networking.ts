@@ -8,15 +8,31 @@ const onlyUnique = (value: any, index: any, self: any) =>
 export const badges = [
   {
     id: 1,
-    name: 'React',
+    name: 'JavaScript Bangkok',
   },
   {
     id: 2,
-    name: 'TypeScript',
+    name: 'Angular',
   },
   {
     id: 3,
+    name: 'React',
+  },
+  {
+    id: 4,
     name: 'JavaScript',
+  },
+  {
+    id: 5,
+    name: 'Firebase',
+  },
+  {
+    id: 6,
+    name: 'VueJS',
+  },
+  {
+    id: 7,
+    name: 'TypeScript',
   },
 ]
 
