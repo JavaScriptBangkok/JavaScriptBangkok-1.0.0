@@ -18,22 +18,22 @@ export const badges = [
     id: 3,
     name: 'React',
   },
-  {
-    id: 4,
-    name: 'NodeJS',
-  },
-  {
-    id: 5,
-    name: 'Firebase',
-  },
-  {
-    id: 6,
-    name: 'Vue',
-  },
-  {
-    id: 7,
-    name: 'TypeScript',
-  },
+  // {
+  //   id: 4,
+  //   name: 'NodeJS',
+  // },
+  // {
+  //   id: 5,
+  //   name: 'Firebase',
+  // },
+  // {
+  //   id: 6,
+  //   name: 'Vue',
+  // },
+  // {
+  //   id: 7,
+  //   name: 'TypeScript',
+  // },
 ]
 
 export const initializeNetworkingProfile = async (
@@ -42,11 +42,12 @@ export const initializeNetworkingProfile = async (
   userProfile: ProfileData,
   bio: string,
 ) => {
+  const allowedUids = ['test01', 'test02', 'test03', 'test04', 'test05']
   const networkingProfile: NetworkingProfile = {
     firstname: userProfile.firstname,
     lastname: userProfile.lastname,
     networks: [],
-    badge: getRandomBadge(),
+    badge: env === 'test' ? allowedUids.indexOf(userID) + 1 : getRandomBadge(),
     bio: bio ?? '',
   }
   await getEnvDoc(env)
