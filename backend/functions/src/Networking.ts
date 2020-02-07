@@ -8,15 +8,31 @@ const onlyUnique = (value: any, index: any, self: any) =>
 export const badges = [
   {
     id: 1,
-    name: 'React',
+    name: 'JavaScript Bangkok',
   },
   {
     id: 2,
-    name: 'TypeScript',
+    name: 'Angular',
   },
   {
     id: 3,
-    name: 'JavaScript',
+    name: 'React',
+  },
+  {
+    id: 4,
+    name: 'NodeJS',
+  },
+  {
+    id: 5,
+    name: 'Firebase',
+  },
+  {
+    id: 6,
+    name: 'Vue',
+  },
+  {
+    id: 7,
+    name: 'TypeScript',
   },
 ]
 
@@ -70,7 +86,9 @@ export const willSastifyWinningCondition = (
   currentBadges.push(user.badge)
   currentBadges.push(nextUser.badge)
   currentBadges = currentBadges.filter(onlyUnique)
-  const isSastified = currentBadges.sort().join('.') === badges.sort().join('.')
+  let badgeIDs = badges.map(b => b.id)
+  const isSastified =
+    currentBadges.sort().join('.') === badgeIDs.sort().join('.')
   return isSastified
 }
 
@@ -78,18 +96,27 @@ export const editBio = async (env: string, userID: string, bio: string) => {
   await getEnvDoc(env)
     .collection('networkingProfiles')
     .doc(userID)
-    .set({
+    .update({
       bio,
     })
   return true
 }
 
 export const addEventWinner = async (env: string, userID: string) => {
+  // await getEnvRef(env)
+  //   .child('networking')
+  //   .child('winners')
+  //   .set({ [userID]: 'Hello!' })
+  console.log(`[addEventWinner:${env}]`, userID)
+  const payload: { [key: string]: number } = {}
+  payload[userID] = admin.database.ServerValue.TIMESTAMP
+  const timestamp = admin.database.ServerValue.TIMESTAMP
   await getEnvRef(env)
     .child('networking')
     .child('winners')
     .child(userID)
-    .set(new Date())
+    .set(timestamp)
+  return true
 }
 
 export const getRandomBadge = () =>
