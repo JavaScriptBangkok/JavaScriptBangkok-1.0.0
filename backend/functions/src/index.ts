@@ -203,6 +203,21 @@ export const addWinner = functions
     }
   })
 
+export const getNetworkingProfile = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const profile = await Networking.getNetworkingProfile(env, data.uid)
+    return profile
+  })
+
 export const updateBio = functions
   .region('asia-northeast1')
   .https.onCall(async (data, context) => {
