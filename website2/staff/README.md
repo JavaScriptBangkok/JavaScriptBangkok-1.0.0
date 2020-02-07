@@ -82,6 +82,24 @@ staffRoll:
           - Phatcharaphan Ananpreechakun
 ---
 
+<div v-if="$flags.preview" style="background: white; border: 4px solid #f0f; padding: 1em;">
+
+# Dear everyone involved in making JavaScript Bangkok 1.0.0 possible
+
+I’d like to **make sure that everyone involved in this event got credited for their contributions.**
+
+However I wasn’t able to remember everyone,
+so if you have any information to add,
+please help make this credits page more complete
+by helping out in one of the following ways:
+
+- [Edit the data file directly](https://github.com/JavaScriptBangkok/JavaScriptBangkok-1.0.0/edit/staff/website2/staff/README.md?pr=%2FJavaScriptBangkok%2FJavaScriptBangkok-1.0.0%2Fpull%2F47)
+- Suggest a change by [commenting on the pull request](https://github.com/JavaScriptBangkok/JavaScriptBangkok-1.0.0/pull/47) or [message me on Facebook](https://m.me/dtinth).
+
+Thanks, —Thai
+
+</div>
+
 <div style="text-align: center">
 
 # JavaScript Bangkok 1.0.0 Staff List
