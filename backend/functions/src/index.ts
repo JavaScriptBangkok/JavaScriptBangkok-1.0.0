@@ -261,20 +261,21 @@ export const addUserToNetwork = functions
       }
 
       // CHECK
-      if (Networking.willSastifyWinningCondition(me, secondUser)) {
-        await Networking.addEventWinner(env, uid)
-      }
-
-      if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
-        await Networking.addEventWinner(env, data.uid)
-      }
-
       const actions = [
         Networking.createNetwork(env, firstUser.uid, secondUser),
         Networking.createNetwork(env, secondUser.uid, firstUser),
       ]
 
+      if (Networking.willSastifyWinningCondition(me, secondUser)) {
+        actions.push(Networking.addEventWinner(env, uid))
+      }
+
+      if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
+        actions.push(Networking.addEventWinner(env, data.uid))
+      }
+
       await Promise.all(actions)
+
       return { ok: true }
     } catch (_) {
       throw new functions.https.HttpsError(
