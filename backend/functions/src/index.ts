@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions'
 import { Network } from './@types'
 import * as Announcement from './Announcement'
 import * as Authentication from './Authentication'
-import { initializeFirebase, getEnvDoc } from './FirebaseSetup'
+import { getEnvDoc, initializeFirebase } from './FirebaseSetup'
 import * as FoodReservation from './FoodReservation'
 import * as Networking from './Networking'
 
@@ -173,7 +173,12 @@ export const createNetworkingProfile = functions
     const env = envFromUserInput(data.env)
     const uid = auth.uid
     const userProfile = await Authentication.getUserProfile(env, uid)
-    await Networking.initializeNetworkingProfile(env, uid, userProfile)
+    await Networking.initializeNetworkingProfile(
+      env,
+      uid,
+      userProfile,
+      data.bio,
+    )
     return { ok: true }
   })
 
@@ -196,6 +201,21 @@ export const addWinner = functions
     } else {
       return { ok: false }
     }
+  })
+
+export const getNetworkingProfile = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const profile = await Networking.getNetworkingProfile(env, data.uid)
+    return profile
   })
 
 export const updateBio = functions
@@ -228,8 +248,8 @@ export const addUserToNetwork = functions
     const uid = auth.uid
 
     const checks = [
-      await Networking.getNetworkingProfile(env, data.uid),
-      await Networking.getNetworkingProfile(env, uid),
+      Networking.getNetworkingProfile(env, data.uid),
+      Networking.getNetworkingProfile(env, uid),
     ]
 
     try {
@@ -256,20 +276,21 @@ export const addUserToNetwork = functions
       }
 
       // CHECK
+      const actions = [
+        Networking.createNetwork(env, firstUser.uid, secondUser),
+        Networking.createNetwork(env, secondUser.uid, firstUser),
+      ]
+
       if (Networking.willSastifyWinningCondition(me, secondUser)) {
-        await Networking.addEventWinner(env, uid)
+        actions.push(Networking.addEventWinner(env, uid))
       }
 
       if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
-        await Networking.addEventWinner(env, data.uid)
+        actions.push(Networking.addEventWinner(env, data.uid))
       }
 
-      const actions = [
-        await Networking.createNetwork(env, firstUser.uid, secondUser),
-        await Networking.createNetwork(env, secondUser.uid, firstUser),
-      ]
-
       await Promise.all(actions)
+
       return { ok: true }
     } catch (_) {
       throw new functions.https.HttpsError(
