@@ -110,7 +110,7 @@ tkt
             'production',
             doc.get('referenceCode'),
           )
-          const existing = data.docs.find(doc => doc.id === uid)
+          const existing = data.docs.find(d => d.id === uid)
           if (existing) {
             if (doc.createTime.toMillis() > existing.createTime.toMillis()) {
               console.log('migrate existing', doc.id, existing.id)
@@ -142,13 +142,13 @@ tkt
         .collection('foodChoices')
         .get()
       for (const doc of data.docs) {
-        let m: any
-        if ((m = doc.id.match(/^eventpop_(......)$/))) {
+        const m = doc.id.match(/^eventpop_(......)$/)
+        if (m) {
           const uid = await Authentication.getFirebaseUidFromTicketCode(
             'production',
             m[1],
           )
-          const existing = data.docs.find(doc => doc.id === uid)
+          const existing = data.docs.find(d => d.id === uid)
           if (existing) {
             if (doc.createTime.toMillis() > existing.createTime.toMillis()) {
               console.log('migrate existing', doc.id, existing.id)
