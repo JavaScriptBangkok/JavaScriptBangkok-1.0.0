@@ -20,7 +20,7 @@ export const badges = [
   },
   {
     id: 4,
-    name: 'JavaScript',
+    name: 'NodeJS',
   },
   {
     id: 5,
