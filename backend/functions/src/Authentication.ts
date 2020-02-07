@@ -79,6 +79,45 @@ export async function authenticateWithEventpopAuthorizationCode(
   )
 }
 
+export const normalizePhoneNumber = (phoneNumber: string) =>
+  phoneNumber.replace(/\D/g, '').slice(-8)
+
+export async function authenticateWithEventpopTicketInfo(
+  env: string,
+  referenceCode: string,
+  phoneNumber: string,
+): Promise<{ profile: ProfileData; firebaseToken: string }[]> {
+  if (!referenceCode.match(/^\w{6}$/)) return []
+  const snapshot = await admin
+    .database()
+    .ref('eventpopTickets')
+    .child(referenceCode.toUpperCase())
+    .once('value')
+  if (!snapshot.exists()) return []
+  const foundPhoneNumber = String(snapshot.child('phoneNumber').val())
+  if (
+    normalizePhoneNumber(foundPhoneNumber) !== normalizePhoneNumber(phoneNumber)
+  ) {
+    return []
+  }
+  const profile: ProfileData = {
+    firstname: String(snapshot.child('firstname').val()),
+    lastname: String(snapshot.child('lastname').val()),
+    email: String(snapshot.child('email').val()),
+    referenceCode: String(snapshot.child('referenceCode').val()),
+    ticketType: String(snapshot.child('ticketType').val()),
+  }
+  const uid = await getFirebaseUidFromTicketCode(env, profile.referenceCode)
+  await intializeProfile(env, uid, profile)
+  const token = await mintUserToken(uid)
+  return [
+    {
+      profile,
+      firebaseToken: token,
+    },
+  ]
+}
+
 export async function getAccessTokenFromEventpop(
   code: string,
 ): Promise<string> {
