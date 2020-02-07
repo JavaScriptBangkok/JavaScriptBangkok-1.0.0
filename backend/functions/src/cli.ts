@@ -2,7 +2,7 @@ import * as tkt from 'tkt'
 import yaml from 'js-yaml'
 import * as fs from 'fs'
 
-import { initializeFirebase } from './FirebaseSetup'
+import { initializeFirebase, getEnvDoc } from './FirebaseSetup'
 import * as FoodReservation from './FoodReservation'
 import * as Authentication from './Authentication'
 
@@ -94,6 +94,111 @@ tkt
       const log = tkt.logger('get-eventpop-profile')
       const profile = await Authentication.getProfilesFromEventpop(args.token)
       log.info(profile)
+    },
+  )
+  .command(
+    'emergency:migrate-profile',
+    'Migrate profiles to new scheme',
+    {},
+    async (args: any) => {
+      const data = await getEnvDoc('production')
+        .collection('profiles')
+        .get()
+      for (const doc of data.docs) {
+        if (doc.id.match(/^eventpop_......$/)) {
+          const uid = await Authentication.getFirebaseUidFromTicketCode(
+            'production',
+            doc.get('referenceCode'),
+          )
+          const existing = data.docs.find(doc => doc.id === uid)
+          if (existing) {
+            if (doc.createTime.toMillis() > existing.createTime.toMillis()) {
+              console.log('migrate existing', doc.id, existing.id)
+              await getEnvDoc('production')
+                .collection('profiles')
+                .doc(uid)
+                .set(doc.data())
+            } else {
+              console.log('keep existing', doc.id, existing.id)
+            }
+          } else {
+            console.log('migrate new', doc.id, uid)
+            await getEnvDoc('production')
+              .collection('profiles')
+              .doc(uid)
+              .set(doc.data())
+          }
+        }
+      }
+      console.log('all done')
+    },
+  )
+  .command(
+    'emergency:migrate-food',
+    'Migrates food choice to new UID',
+    {},
+    async (args: any) => {
+      const data = await getEnvDoc('production')
+        .collection('foodChoices')
+        .get()
+      for (const doc of data.docs) {
+        let m: any
+        if ((m = doc.id.match(/^eventpop_(......)$/))) {
+          const uid = await Authentication.getFirebaseUidFromTicketCode(
+            'production',
+            m[1],
+          )
+          const existing = data.docs.find(doc => doc.id === uid)
+          if (existing) {
+            if (doc.createTime.toMillis() > existing.createTime.toMillis()) {
+              console.log('migrate existing', doc.id, existing.id)
+              await getEnvDoc('production')
+                .collection('foodChoices')
+                .doc(uid)
+                .set(doc.data())
+            } else {
+              console.log('keep existing', doc.id, existing.id)
+            }
+          } else {
+            console.log('migrate new', doc.id, uid)
+            await getEnvDoc('production')
+              .collection('foodChoices')
+              .doc(uid)
+              .set(doc.data())
+          }
+        }
+      }
+      console.log('all done')
+    },
+  )
+  .command(
+    'emergency:purge-old-ids',
+    'Purges profiles and food choices with old ID scheme',
+    {},
+    async (args: any) => {
+      {
+        const data = await getEnvDoc('production')
+          .collection('profiles')
+          .get()
+        for (const doc of data.docs) {
+          if (doc.id.match(/^eventpop_......$/)) {
+            console.log('remove', doc.id)
+            await doc.ref.delete()
+          }
+        }
+      }
+      {
+        const data = await getEnvDoc('production')
+          .collection('foodChoices')
+          .get()
+        for (const doc of data.docs) {
+          if (doc.id.match(/^eventpop_......$/)) {
+            console.log('remove', doc.id)
+            await doc.ref.delete()
+          }
+        }
+      }
+      console.log('all done')
     },
   )
   .parse()
