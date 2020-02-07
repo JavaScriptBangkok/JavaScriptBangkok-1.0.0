@@ -2,7 +2,7 @@ import * as functions from 'firebase-functions'
 import { Network } from './@types'
 import * as Announcement from './Announcement'
 import * as Authentication from './Authentication'
-import { initializeFirebase, getEnvDoc } from './FirebaseSetup'
+import { getEnvDoc, initializeFirebase } from './FirebaseSetup'
 import * as FoodReservation from './FoodReservation'
 import * as Networking from './Networking'
 
@@ -233,8 +233,8 @@ export const addUserToNetwork = functions
     const uid = auth.uid
 
     const checks = [
-      await Networking.getNetworkingProfile(env, data.uid),
-      await Networking.getNetworkingProfile(env, uid),
+      Networking.getNetworkingProfile(env, data.uid),
+      Networking.getNetworkingProfile(env, uid),
     ]
 
     try {
@@ -270,8 +270,8 @@ export const addUserToNetwork = functions
       }
 
       const actions = [
-        await Networking.createNetwork(env, firstUser.uid, secondUser),
-        await Networking.createNetwork(env, secondUser.uid, firstUser),
+        Networking.createNetwork(env, firstUser.uid, secondUser),
+        Networking.createNetwork(env, secondUser.uid, firstUser),
       ]
 
       await Promise.all(actions)
