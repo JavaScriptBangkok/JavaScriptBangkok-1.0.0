@@ -8,6 +8,9 @@ service cloud.firestore {
       match /foodChoices/{uid} {
         allow read: if request.auth.uid == uid;
       }
+      match /dietaryRestrictions/{refCode} {
+        allow read: if true;
+      }
       match /configuration/{configKey} {
         allow read: if true;
       }
