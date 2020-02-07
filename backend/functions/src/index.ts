@@ -293,16 +293,19 @@ export const addUserToNetwork = functions
         Networking.createNetwork(env, secondUser.uid, firstUser),
       ]
 
+      await Promise.all(actions)
+
+      const batch = []
+
       if (Networking.willSastifyWinningCondition(me, secondUser)) {
-        actions.push(Networking.addEventWinner(env, uid))
+        batch.push(Networking.addEventWinner(env, uid))
       }
 
       if (Networking.willSastifyWinningCondition(checkedUser, firstUser)) {
-        actions.push(Networking.addEventWinner(env, data.uid))
+        batch.push(Networking.addEventWinner(env, data.uid))
       }
 
-      await Promise.all(actions)
-
+      await Promise.all(batch)
       return { ok: true }
     } catch (_) {
       throw new functions.https.HttpsError(
