@@ -70,7 +70,9 @@ export const willSastifyWinningCondition = (
   currentBadges.push(user.badge)
   currentBadges.push(nextUser.badge)
   currentBadges = currentBadges.filter(onlyUnique)
-  const isSastified = currentBadges.sort().join('.') === badges.sort().join('.')
+  let badgeIDs = badges.map(b => b.id)
+  const isSastified =
+    currentBadges.sort().join('.') === badgeIDs.sort().join('.')
   return isSastified
 }
 
@@ -85,11 +87,18 @@ export const editBio = async (env: string, userID: string, bio: string) => {
 }
 
 export const addEventWinner = async (env: string, userID: string) => {
+  // await getEnvRef(env)
+  //   .child('networking')
+  //   .child('winners')
+  //   .set({ [userID]: 'Hello!' })
+  console.log(`[addEventWinner:${env}]`, userID)
+  const payload: { [key: string]: number } = {}
+  payload[userID] = admin.database.ServerValue.TIMESTAMP
   await getEnvRef(env)
     .child('networking')
     .child('winners')
-    .child(userID)
-    .set(new Date())
+    .set(payload)
+  return true
 }
 
 export const getRandomBadge = () =>

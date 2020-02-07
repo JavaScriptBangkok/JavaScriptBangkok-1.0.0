@@ -152,6 +152,43 @@ export const createNetworkingProfile = functions
     return { ok: true }
   })
 
+export const addWinner = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const uid = auth.uid
+    if (env === 'test') {
+      console.log(`[addWinner:${env}]`, uid)
+      await Networking.addEventWinner(env, uid)
+      return { ok: true }
+    } else {
+      return { ok: false }
+    }
+  })
+
+export const updateBio = functions
+  .region('asia-northeast1')
+  .https.onCall(async (data, context) => {
+    const auth = context.auth
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'failed-precondition',
+        'The function must be called while authenticated.',
+      )
+    }
+    const env = envFromUserInput(data.env)
+    const uid = auth.uid
+    await Networking.editBio(env, uid, data.bio)
+    return { ok: true }
+  })
+
 export const addUserToNetwork = functions
   .region('asia-northeast1')
   .https.onCall(async (data, context) => {
