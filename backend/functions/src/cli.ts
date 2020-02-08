@@ -201,4 +201,10 @@ tkt
       console.log('all done')
     },
   )
+  .command('stats', 'Displays stats', {}, async (args: any) => {
+    const data = await getEnvDoc('production')
+      .collection('foodChoices')
+      .get()
+    console.log(data.size)
+  })
   .parse()
