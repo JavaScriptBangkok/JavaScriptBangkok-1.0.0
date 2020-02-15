@@ -66,6 +66,7 @@
     The year is 2019 and every engineer must have been asked once to build a “scalable” system. I will be telling the story of our team journey in building a financial system that serves 20X traffic in less than a year. Engineering practices, wrong (and right!) decisions, process improvement and more!
 
 - title: End-to-end Type-Safe GraphQL Apps
+  slides: https://slides.com/swcarlosrj/end-to-end-type-safe-graphql-apps-javascript-bangkok
   name: Carlos Rufo
   from: 🇪🇸Spain
   position: Organizer @ GraphQL Hong Kong
@@ -119,6 +120,7 @@
     The event loop completely underpins everything that happens in the browser. Yet many developers know very little about it. This talk will help them better understand the nitty-gritty of what’s really going on when you create a Promise, add an event listener, or request an animation frame.
 
 - title: Building your first malicious chrome extension 😈
+  slides: https://www.dropbox.com/s/tqffdtzer3k1go7/ce-25min.key?dl=0
   name: Alon Kiriati
   from: 🇮🇱Israel
   position: Tech Lead @ Dropbox
