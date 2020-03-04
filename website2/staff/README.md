@@ -8,7 +8,7 @@ staffRoll:
       - Panjamapong Sermsawatsri
   - title: Event Branding
     list:
-      - Jirayut Leeupathumwong
+      - Jirayut Leeupathumvong
       - Wasit Jingjit
   - title: Content
     list:
@@ -27,13 +27,14 @@ staffRoll:
       - role: Accounting
         list:
           - Panjamapong Sermsawatsri
-      - role: Venue coordinator
+      - role: Venue coordination
         list:
           - Wutichai Saejao
           - Arnon Kaewprasert
-      - role: Sponsors Coordinator
+      - role: Sponsors coordination
         list:
           - Chinnabhorn Soonue
+          - Chanantita Thitivanichkul
           - Kelwalee Patcharanunthorn
           - Punpikorn Rattanawirojkul
       - role: Food and Beverages
@@ -77,16 +78,52 @@ staffRoll:
         list:
           - Vorrawut Judasri
           - Phatcharaphan Ananpreechakun
+  - title: Event operations
+    roles:
+      # - role: MC
+      #   list:
+      - role: Speakers coordination
+        list:
+          - Chinnabhorn Soonue
+          - Chonnipa Kittisiriprasert
+          - Kelwalee Patcharanunthorn
+          - Punpikorn Rattanawirojkul
+      - role: Merchandise sales
+        list:
+          - Palangkul Wattanakul
+          - Thunyaporn Samrankase
+      - role: Ticketing
+        list:
+          - Eventpop
+      - role: Technician
+        list:
+          - Wutichai Saejao
+      - role: Video
+        list:
+          - LiveTube
+      - role: Captioning
+        list:
+          - White Coat Captioning
+      - role: Talk interpreter
+        list:
+          - Thai Pangsakulyanont
+      - role: Networking activities
+        list:
+          - Mahatthana Nomsawadi
+          - Thohirah Husaini
 
 # ...then add people URLs here (keep it sorted please)
 people:
   Arnon Kaewprasert: https://github.com/ninxxxxx
   Chakrit Likitkhajorn: https://medium.com/@chrisza
+  Chanantita Thitivanichkul: ""
   Chinnabhorn Soonue: ""
   Chonnipa Kittisiriprasert: ""
+  Eventpop: https://www.eventpop.me/
   Jinsiree Palakawongsa Na Ayudhya: ""
-  Jirayut Leeupathumwong: ""
+  Jirayut Leeupathumvong: ""
   Kelwalee Patcharanunthorn: ""
+  LiveTube: https://web.facebook.com/livetubethailand/
   Mahatthana Nomsawadi: https://github.com/WiNloSt
   Norapat Buppodom: ""
   Palangkul Wattanakul: https://github.com/Gnax49
@@ -107,6 +144,7 @@ people:
   Vorrawut Judasri: ""
   Wasin Phandsupatavorn: ""
   Wasit Jingjit: ""
+  White Coat Captioning: https://whitecoatcaptioning.com/
   Wutichai Saejao: https://github.com/wootsaejao
 ---
 
