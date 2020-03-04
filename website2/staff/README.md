@@ -1,17 +1,7 @@
 ---
 title: JavaScript Bangkok 1.0.0 Staff List
-urls:
-  Arnon Kaewprasert: https://github.com/ninxxxxx
-  Chakrit Likitkhajorn: https://medium.com/@chrisza
-  Mahatthana Nomsawadi: https://github.com/WiNloSt
-  Palangkul Wattanakul: https://github.com/Gnax49
-  Panjamapong Sermsawatsri: https://github.com/PanJ
-  Siwat Kaolueng: https://perjerz.me
-  Tananan Tangthanachaikul: https://microbenz.in.th/
-  Thai Pangsakulyanont: https://dt.in.th/
-  Thohirah Husaini: https://github.com/thoritie
-  Thunyaporn Samrankase: https://thunya-sam.com
-  Wutichai Saejao: https://github.com/wootsaejao
+
+# Put people in roles here...
 staffRoll:
   - title: Executive producer
     list:
@@ -87,6 +77,37 @@ staffRoll:
         list:
           - Vorrawut Judasri
           - Phatcharaphan Ananpreechakun
+
+# ...then add people URLs here (keep it sorted please)
+people:
+  Arnon Kaewprasert: https://github.com/ninxxxxx
+  Chakrit Likitkhajorn: https://medium.com/@chrisza
+  Chinnabhorn Soonue: ""
+  Chonnipa Kittisiriprasert: ""
+  Jinsiree Palakawongsa Na Ayudhya: ""
+  Jirayut Leeupathumwong: ""
+  Kelwalee Patcharanunthorn: ""
+  Mahatthana Nomsawadi: https://github.com/WiNloSt
+  Norapat Buppodom: ""
+  Palangkul Wattanakul: https://github.com/Gnax49
+  Panjamapong Sermsawatsri: https://github.com/PanJ
+  Patcharapat Chaijaroen: ""
+  Patthanat Thanintantrakun: ""
+  Phakamas Jitsopeepong: ""
+  Phatcharaphan Ananpreechakun: ""
+  Punpikorn Rattanawirojkul: ""
+  Runyasak Chaengnaimuang: ""
+  Siriwat Kunaporn: ""
+  Siwat Kaolueng: https://perjerz.me
+  Tananan Tangthanachaikul: https://microbenz.in.th/
+  Thai Pangsakulyanont: https://dt.in.th/
+  Thanyaboon Tovorapan: ""
+  Thohirah Husaini: https://github.com/thoritie
+  Thunyaporn Samrankase: https://thunya-sam.com
+  Vorrawut Judasri: ""
+  Wasin Phandsupatavorn: ""
+  Wasit Jingjit: ""
+  Wutichai Saejao: https://github.com/wootsaejao
 ---
 
 <div v-if="$flags.preview" style="background: white; border: 4px solid #f0f; padding: 1em;">
@@ -114,12 +135,7 @@ Thanks, —Thai
 <section v-for="section of $page.frontmatter.staffRoll">
   <h2>{{ section.title }}</h2>
   <div v-for="name of section.list || []">
-    <template v-if="$page.frontmatter.urls[name]">
-      <a :href="$page.frontmatter.urls[name]">{{name}}</a>
-    </template>
-    <template v-else>
-      {{name}}
-    </template>
+    <PersonName :name="name" :people="$page.frontmatter.people" />
   </div>
   <table v-if="section.roles" style="margin: 0 auto">
     <tbody>
@@ -129,12 +145,7 @@ Thanks, —Thai
         </td>
         <td style="text-align: left">
           <div v-for="name of role.list || []">
-            <template v-if="$page.frontmatter.urls[name]">
-              <a :href="$page.frontmatter.urls[name]">{{name}}</a>
-            </template>
-            <template v-else>
-              {{name}}
-            </template>
+            <PersonName :name="name" :people="$page.frontmatter.people" />
           </div>
         </td>
       </tr>
@@ -144,9 +155,12 @@ Thanks, —Thai
 
 </div>
 
-<style scoped>
-a:not(:hover) {
-  color: inherit;
-  text-decoration: none;
+<script>
+import PersonName from '../.vuepress/local-components/PersonName.vue'
+
+export default {
+  components: {
+    PersonName
+  }
 }
-</style>
+</script>
