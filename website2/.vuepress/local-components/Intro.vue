@@ -137,10 +137,15 @@
     </h1>
 
     <p class="cta">
+      <a href="https://www.youtube.com/playlist?list=PLYsjFaJ-lFEgPfX03Ll91YI5gEHrbZ-b9" class="button">
+        <strong>Videos</strong>
+      </a>
+    <!--
       <a href="/tickets" target="_blank" class="button">
         <strong>Get Tickets</strong>
       </a>
       <router-link to="/code-of-conduct/" class="button secondary">Code of Conduct</router-link>
+    -->
     </p>
 
     <p class="date">February 8th, 2020</p>
