@@ -1,4 +1,5 @@
 - title: The Art of Crafting Codemods
+  slides: https://drive.google.com/file/d/1dGnDb1rljVQpvaebbHwUvCRhZTU3HVzD/view
   name: Rajasegar Chandran
   from: 🇮🇳India
   position: Front-end Developer @ Freshworks Inc.
@@ -65,6 +66,7 @@
     The year is 2019 and every engineer must have been asked once to build a “scalable” system. I will be telling the story of our team journey in building a financial system that serves 20X traffic in less than a year. Engineering practices, wrong (and right!) decisions, process improvement and more!
 
 - title: End-to-end Type-Safe GraphQL Apps
+  slides: https://slides.com/swcarlosrj/end-to-end-type-safe-graphql-apps-javascript-bangkok
   name: Carlos Rufo
   from: 🇪🇸Spain
   position: Organizer @ GraphQL Hong Kong
@@ -82,6 +84,7 @@
     Discover all the benefits of using GraphQL adding End-to-end Type-Safety to your app with this live-coding talk. At the end of such, you’ll want to refactor your codebase in order to take all the advantages of TypeScript, GraphQL & React working together on a SpaceX demo 🚀
 
 - title: What happens when you cancel an HTTP request?
+  slides: https://slides.com/yjaaidi/what-happens-when-you-cancel-an-http-request-6ed586
   name: Younes Jaaidi
   from: 🇫🇷France
   position: Developer & eXtreme Programming Coach @ Marmicode Wishtack
@@ -117,6 +120,7 @@
     The event loop completely underpins everything that happens in the browser. Yet many developers know very little about it. This talk will help them better understand the nitty-gritty of what’s really going on when you create a Promise, add an event listener, or request an animation frame.
 
 - title: Building your first malicious chrome extension 😈
+  slides: https://www.dropbox.com/s/tqffdtzer3k1go7/ce-25min.key?dl=0
   name: Alon Kiriati
   from: 🇮🇱Israel
   position: Tech Lead @ Dropbox
@@ -134,6 +138,7 @@
     In this talk I will explain the basics of building your first chrome extension, in just a couple of minutes! It takes few more lines to turn it into a malicious one. The main purpose here is not to turn you into a hacker, but to increase awareness to these “small” and “harmless” plugins.
 
 - title: DevTools, the CSS advocate in your browser
+  slides: https://devtools-jsbangkok.herokuapp.com/devtools
   name: Chen Hui Jing
   from: 🇸🇬Singapore
   position: Developer Advocate @ Nexmo
@@ -149,6 +154,7 @@
     New CSS features, like Flexbox, Grid or Shapes, introduce new properties that can sometimes be complicated to people who are encountering them for the first time. This talk will introduce DevTools features that can help us understand what’s going on, and make it less intimidating to try out new CSS.
 
 - title: A love story written in JavaScript
+  slides: https://slides.com/soyguijarro/javascript-love-story
   name: Ramón Guijarro
   from: 🇪🇸Spain
   position: Software Engineer @ Undefined Labs
@@ -183,6 +189,7 @@
     In this talk, I’ll introduce dance-mat.js, the project for making a Dance Dance Revolution controller with a yoga mat, a Raspberry Pi, conductive paint, and Node.js.
 
 - title: "Poor Man's Patcher: A game modder's adventure through serverless sea without money"
+  slides: https://docs.google.com/presentation/d/1HmKSKxKsjQ36T3xVIKUyCo2mOYOvZC7JF9qk01UOxRE/edit?fbclid=IwAR2bFg-Uhjt6dgeW_WdO6HyzszWOih7gdIXBwWjC-kNQiV41rLQfG_V_ZWs
   name: Atthaporn Thanongkiatisak
   from: 🇹🇭Thailand
   position: Application Architect @ EGG Digital, Ascend Group
