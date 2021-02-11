@@ -1,24 +1,14 @@
 ---
 title: JavaScript Bangkok 1.0.0 Staff List
-urls:
-  Arnon Kaewprasert: https://github.com/ninxxxxx
-  Chakrit Likitkhajorn: https://medium.com/@chrisza
-  Mahatthana Nomsawadi: https://github.com/WiNloSt
-  Palangkul Wattanakul: https://github.com/Gnax49
-  Panjamapong Sermsawatsri: https://github.com/PanJ
-  Siwat Kaolueng: https://perjerz.me
-  Tananan Tangthanachaikul: https://microbenz.in.th/
-  Thai Pangsakulyanont: https://dt.in.th/
-  Thohirah Husaini: https://github.com/thoritie
-  Thunyaporn Samrankase: https://thunya-sam.com
-  Wutichai Saejao: https://github.com/wootsaejao
+
+# Put people in roles here...
 staffRoll:
   - title: Executive producer
     list:
       - Panjamapong Sermsawatsri
   - title: Event Branding
     list:
-      - Jirayut Leeupathumwong
+      - Jirayut Leeupathumvong
       - Wasit Jingjit
   - title: Content
     list:
@@ -37,13 +27,14 @@ staffRoll:
       - role: Accounting
         list:
           - Panjamapong Sermsawatsri
-      - role: Venue coordinator
+      - role: Venue coordination
         list:
           - Wutichai Saejao
           - Arnon Kaewprasert
-      - role: Sponsors Coordinator
+      - role: Sponsors coordination
         list:
           - Chinnabhorn Soonue
+          - Chanantita Thitivanichkul
           - Kelwalee Patcharanunthorn
           - Punpikorn Rattanawirojkul
       - role: Food and Beverages
@@ -87,6 +78,74 @@ staffRoll:
         list:
           - Vorrawut Judasri
           - Phatcharaphan Ananpreechakun
+  - title: Event operations
+    roles:
+      # - role: MC
+      #   list:
+      - role: Speakers coordination
+        list:
+          - Chinnabhorn Soonue
+          - Chonnipa Kittisiriprasert
+          - Kelwalee Patcharanunthorn
+          - Punpikorn Rattanawirojkul
+      - role: Merchandise sales
+        list:
+          - Palangkul Wattanakul
+          - Thunyaporn Samrankase
+      - role: Ticketing
+        list:
+          - Eventpop
+      - role: Technician
+        list:
+          - Wutichai Saejao
+      - role: Video
+        list:
+          - LiveTube
+      - role: Captioning
+        list:
+          - White Coat Captioning
+      - role: Talk interpreter
+        list:
+          - Thai Pangsakulyanont
+      - role: Networking activities
+        list:
+          - Mahatthana Nomsawadi
+          - Thohirah Husaini
+
+# ...then add people URLs here (keep it sorted please)
+people:
+  Arnon Kaewprasert: https://github.com/ninxxxxx
+  Chakrit Likitkhajorn: https://medium.com/@chrisza
+  Chanantita Thitivanichkul: ""
+  Chinnabhorn Soonue: ""
+  Chonnipa Kittisiriprasert: ""
+  Eventpop: https://www.eventpop.me/
+  Jinsiree Palakawongsa Na Ayudhya: ""
+  Jirayut Leeupathumvong: ""
+  Kelwalee Patcharanunthorn: ""
+  LiveTube: https://web.facebook.com/livetubethailand/
+  Mahatthana Nomsawadi: https://github.com/WiNloSt
+  Norapat Buppodom: ""
+  Palangkul Wattanakul: https://github.com/Gnax49
+  Panjamapong Sermsawatsri: https://github.com/PanJ
+  Patcharapat Chaijaroen: ""
+  Patthanat Thanintantrakun: ""
+  Phakamas Jitsopeepong: ""
+  Phatcharaphan Ananpreechakun: ""
+  Punpikorn Rattanawirojkul: ""
+  Runyasak Chaengnaimuang: ""
+  Siriwat Kunaporn: ""
+  Siwat Kaolueng: https://perjerz.me
+  Tananan Tangthanachaikul: https://microbenz.in.th/
+  Thai Pangsakulyanont: https://dt.in.th/
+  Thanyaboon Tovorapan: ""
+  Thohirah Husaini: https://github.com/thoritie
+  Thunyaporn Samrankase: https://thunya-sam.com
+  Vorrawut Judasri: ""
+  Wasin Phandsupatavorn: ""
+  Wasit Jingjit: ""
+  White Coat Captioning: https://whitecoatcaptioning.com/
+  Wutichai Saejao: https://github.com/wootsaejao
 ---
 
 <div v-if="$flags.preview" style="background: white; border: 4px solid #f0f; padding: 1em;">
@@ -114,12 +173,7 @@ Thanks, —Thai
 <section v-for="section of $page.frontmatter.staffRoll">
   <h2>{{ section.title }}</h2>
   <div v-for="name of section.list || []">
-    <template v-if="$page.frontmatter.urls[name]">
-      <a :href="$page.frontmatter.urls[name]">{{name}}</a>
-    </template>
-    <template v-else>
-      {{name}}
-    </template>
+    <PersonName :name="name" :people="$page.frontmatter.people" />
   </div>
   <table v-if="section.roles" style="margin: 0 auto">
     <tbody>
@@ -129,12 +183,7 @@ Thanks, —Thai
         </td>
         <td style="text-align: left">
           <div v-for="name of role.list || []">
-            <template v-if="$page.frontmatter.urls[name]">
-              <a :href="$page.frontmatter.urls[name]">{{name}}</a>
-            </template>
-            <template v-else>
-              {{name}}
-            </template>
+            <PersonName :name="name" :people="$page.frontmatter.people" />
           </div>
         </td>
       </tr>
@@ -144,9 +193,12 @@ Thanks, —Thai
 
 </div>
 
-<style scoped>
-a:not(:hover) {
-  color: inherit;
-  text-decoration: none;
+<script>
+import PersonName from '../.vuepress/local-components/PersonName.vue'
+
+export default {
+  components: {
+    PersonName
+  }
 }
-</style>
+</script>
